@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap");
+footer {
+  width: 100%;
+  background-color: #a878d8;
+  padding: 50px 200px;
+}
+
+footer .footerhead .footerlogocontainer {
+  width: 200px;
+}
+
+footer .footerhead .footerlogocontainer img {
+  width: 100%;
+}
+
+footer .footerlinkscontainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+footer .footercoltitle {
+  font-size: 16px;
+  color: #f0d8f0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+footer .footercollinklist {
+  list-style-type: none;
+}
+
+footer .footercollinklist li {
+  margin-top: 5px;
+}
+
+footer .footercollinklist li a {
+  font-size: 14px;
+  color: #f0d8f0;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+footer .footercol3 {
+  text-align: center;
+}
+
+footer .footercol3 .footersocialicons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  margin-top: 10px;
+}
+
+footer .footercol3 .footersocialicons li a img {
+  width: 25px;
+  height: 25px;
+}
+
+@media only screen and (max-width: 768px) {
+  footer {
+    padding: 20px 40px;
+  }
+  footer .footerhead .footerlogocontainer {
+    width: 150px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  footer {
+    padding: 10px 20px;
+  }
+  footer .footerhead .footerlogocontainer {
+    width: 150px;
+  }
+  footer .footerlinkscontainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  footer .footerlinkscontainer div {
+    margin-bottom: 20px;
+  }
+  footer .footercoltitle {
+    font-size: 13px;
+  }
+  footer .footercollinklist li {
+    margin-top: 1px;
+  }
+  footer .footercollinklist li a {
+    font-size: 11px;
+  }
+  footer .footercol3 .footersocialicons li a img {
+    width: 20px;
+    height: 20px;
+  }
+}
+/*# sourceMappingURL=footer.css.map */

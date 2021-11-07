@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>WearPakau</title>
+      {#    for django  #}
+      {% load static %}
+
+      <style>
+
+          ul {
+              list-style-type: none !important;
+          }
+
+          li {
+              list-style-type: none !important;
+          }
+      </style>
+      {#     #}
+
+      <link rel="stylesheet" type="text/css" href= "{% static "admin/css/base.css" %}">
+
+  </head>
+  <body>
+
+
+    <div id="main">
+      <div id="app"></div>
+    </div>
+
+{#    for vs code  #}
+{#    <script src="http://127.0.0.1:5500/static/frontend/main.js"></script>#}
+{#     #}
+
+    {#    for django  #}
+    <script src="{% static "frontend/main.js" %}"></script>
+    {#     #}
+
+
+  </body>
+</html>
