@@ -259,21 +259,6 @@ nav {
 .placeholdercontainer {
   height: 80vh;
 }
-.nimish {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  z-index: 500;
-  overflow: hidden;
-  background-color: gray;
-  opacity: 0.8;
-  left: 0;
-  top: 0;
-  display: none;
-  /* transform: translateX(-100%); */
-  transition: width 2s, height 115s ease-in;
-  /* overflow: hidden; */
-}
 
 @media only screen and (max-width: 480px) {
   .searchcontainermobile {
@@ -304,4 +289,21 @@ nav {
   .closebutton {
     right: -50px;
   }
+}
+
+
+.nimish {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 500;
+  overflow: hidden;
+  background-color: gray;
+  opacity: 0.8;
+  left: 0;
+  top: 0;
+  display: none;
+  /* transform: translateX(-100%); */
+  transition: width 2s, height 115s ease-in;
+  /* overflow: hidden; */
 }

@@ -2,6 +2,7 @@
 from django.urls import path,include
 from .auth import urlpatterns as authurlpatterns
 from .errors import urlpatterns as errorurlpattern
+from .products import urlpatterns as producturlpattern
 from .errors import error_500 ,error_400s
 from ..Views import BaseReactfile
 from django.shortcuts import reverse
@@ -9,6 +10,7 @@ from django.shortcuts import reverse
 urlpatterns = [
     path('',BaseReactfile.as_view(),name="Landing"),
     path('auth/',include(authurlpatterns),name="authurlpatterns"),
+    path('product/',include(producturlpattern),name="producturlpattern"),
     path('error/',include(errorurlpattern),name="errorurlpatterns")
 ]
 

@@ -8,6 +8,7 @@ import closeicon from '../../images/closeicon.svg'
 import header from '../style/header.css'
 import {CircularProgress, Slide} from "@material-ui/core";
 import loader from "../style/loader.css"
+import {Redirect} from "react-router-dom";
 
 export default  class NavBar extends React.Component
 {
@@ -15,7 +16,9 @@ export default  class NavBar extends React.Component
         super(props);
         this.state={
             burger:false,
-            toggled:false
+            toggled:false,
+            search:"",
+            redirect:false
 
         }
         this.burger_function=this.burger_function.bind(this)
@@ -42,7 +45,13 @@ export default  class NavBar extends React.Component
     }
 
 
+
     render() {
+
+        if(this.state.redirect)
+        {
+            window.location.href=`/product/list/?search=${this.state.search}`
+        }
         // navlinks
         if(this.state.burger === true && this.state.toggled === false)
         {
@@ -74,8 +83,19 @@ export default  class NavBar extends React.Component
                             placeholder="What are you looking for?"
                             name="search"
                             autoComplete="off"
+                            value={this.state.search}
+                            onChange={ev=>{this.setState({search:ev.target.value})}}
+                            onKeyUp={ev=>{
+                                if(ev.keyCode === 13)
+                                {
+                                    this.setState({redirect:true})
+                                }
+                            }}
+
                         />
-                        <button><img src={searchicon} alt=""/></button>
+
+                        <button onClick={ev=>{this.setState({redirect:true})}}
+                        ><img src={searchicon} alt=""/></button>
                     </div>
                     <div className="cartcontainer">
                         <img src={carticon} alt=""/>
@@ -95,7 +115,6 @@ export default  class NavBar extends React.Component
                     }
 
 
-                    {/*{this.state.burger === false &&*/}
                     <ul className="navlinks">
                         <div className="closebutton" onClick={this.burger_function}>
                             <img src={closeicon} alt=""/>
@@ -105,19 +124,6 @@ export default  class NavBar extends React.Component
                         <li className="navlink"><a href="#">Xyz</a></li>
                         <li className="navlink"><a href="#">Xyz</a></li>
                     </ul>
-                    {/*// }*/}
-
-
-                    {/*{this.state.burger === true &&*/}
-                    {/*<ul className="navlinks " >*/}
-                    {/*    <div className="closebutton showclosebutton" onClick={this.burger_function}>*/}
-                    {/*        <img src={closeicon} alt=""/>*/}
-                    {/*    </div>*/}
-                    {/*    <li className="navlink"><a href="#">Xyz</a></li>*/}
-                    {/*    <li className="navlink"><a href="#">Xyz</a></li>*/}
-                    {/*    <li className="navlink"><a href="#">Xyz</a></li>*/}
-                    {/*    <li className="navlink"><a href="#">Xyz</a></li>*/}
-                    {/*</ul>}*/}
 
 
 
@@ -129,8 +135,17 @@ export default  class NavBar extends React.Component
                             placeholder="What are you looking for?"
                             name="search"
                             autoComplete="off"
+                            value={this.state.search}
+                            onChange={ev=>{this.setState({search:ev.target.value})}}
+                            onKeyUp={ev=>{
+                                if(ev.keyCode === 13)
+                                {
+                                    this.setState({redirect:true})
+                                }
+                            }}
                         />
-                        <button><img src={searchicon} alt=""/></button>
+                        <button onClick={ev=>{this.setState({redirect:true})}}
+                        ><img src={searchicon} alt=""/></button>
                     </div>
                 </div>
             </>

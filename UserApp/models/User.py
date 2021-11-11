@@ -135,7 +135,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     def create_SMS_Token(self,exception=False):
 
         print(timezone.now() > self.SMS_token_dateTime_expire, timezone.now(), self.SMS_token_dateTime_expire)
-        if timezone.now() > self.SMS_token_dateTime_expire or exception :
+        if timezone.now() > self.SMS_token_dateTime_expire or exception:
 
             digits = "0123456789"
             OTP = ""
@@ -144,7 +144,7 @@ class User(AbstractBaseUser, PermissionsMixin):
                 OTP += digits[math.floor(random.random() * 10)]
 
             self.SMS_token = OTP
-            self.SMS_token_dateTime_expire = timezone.now() + timezone.timedelta(seconds=600)
+            self.SMS_token_dateTime_expire = timezone.now() + timezone.timedelta(seconds=180)
             return True
         else:
             return False

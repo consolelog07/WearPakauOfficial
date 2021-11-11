@@ -19,11 +19,11 @@ footer .footerlinkscontainer {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 footer .footercoltitle {
@@ -58,10 +58,10 @@ footer .footercol3 .footersocialicons {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   width: 100%;
   margin-top: 10px;
 }
@@ -90,8 +90,8 @@ footer .footercol3 .footersocialicons li a img {
   footer .footerlinkscontainer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
   footer .footerlinkscontainer div {
     margin-bottom: 20px;
@@ -110,4 +110,3 @@ footer .footercol3 .footersocialicons li a img {
     height: 20px;
   }
 }
-/*# sourceMappingURL=footer.css.map */

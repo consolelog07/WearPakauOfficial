@@ -22,12 +22,13 @@ db.sqlite3
 *.pot
 *.pyc
 __pycache__
-media
+!media
+media/**
 
 *.py[cod]
 *$py.class
 
-!**/logs
+
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py

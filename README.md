@@ -10,7 +10,7 @@ pip install -r  requirements.txt \
 !!!!!!!!!!!!!!!!!!! for development only !!!!!!!!!!!!!! \
 cd templates  \
 npm install \
-cd ..  \
+cd ..       \
 *******************
 
 add credinitals in .env file \

@@ -12,6 +12,7 @@ import Authurl from "./auth dir";
 import Footer from "../UIComponents/compomemts/Footer";
 import Navbar_proxy from "./Navbar";
 import NavBar from "../UIComponents/compomemts/NavBar";
+import ProductDir from "../UIComponents/compomemts/product/ProductDir";
 
 
 export default class Globalauth extends React.Component
@@ -807,7 +808,6 @@ export default class Globalauth extends React.Component
 
     render() {
 
-
         if(Reflect.has(this.props,'out'))
         {
             console.log(Reflect.has(this.props,'aaaaaaaaaa','out'))
@@ -823,8 +823,6 @@ export default class Globalauth extends React.Component
         return <>
             <Router>
                 <NavBar />
-                {/*<Navbar_proxy />*/}
-                {/*<h1>Global!!!!!!</h1>*/}
                 <Switch>
                     <Route path="/user/">
                         <h1>user</h1>
@@ -852,8 +850,16 @@ export default class Globalauth extends React.Component
                         {/*<button onClick={ev=>{this.Check_Authenticated()}}>check auth</button>*/}
 
                     </Route>
+                    <Route path="/product/">
+                        <ProductDir
+                            setState={this.setState}
+                            state={this.state}
+                        />
+
+                    </Route>
+
                     <Route path="">
-                        <h1>hee</h1>
+                        {/*<h1>heeeeeeeeeeeeeeeeee</h1>*/}
                     </Route>
                 </Switch>
 
