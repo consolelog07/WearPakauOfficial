@@ -129,7 +129,7 @@ INSTALLED_APPS = [
     "phonenumber_field",
     'UserApp',
     'Api',
-    # 'Products',
+    'Products',
     # 'cart',
     # 'frontend',
     # 'Ordered_User_products'
@@ -166,13 +166,13 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-if os.getenv('EMAIL_HOST_USER') == "" or  os.getenv('EMAIL_HOST_PASSWORD') =="":
-    raise ("email or password of gmail incorrect")
+# if os.getenv('EMAIL_HOST_USER') == "" or  os.getenv('EMAIL_HOST_PASSWORD') =="":
+#     raise ("email or password of gmail not")
 
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-print("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
-print(os.getenv('EMAIL_HOST_USER'),os.getenv('EMAIL_HOST_PASSWORD'))
+# print("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+# print(os.getenv('EMAIL_HOST_USER'),os.getenv('EMAIL_HOST_PASSWORD'))
 
 SMS_authorization=os.getenv('SMS_authorization')
 SMS_sender_id=os.getenv('SMS_sender_id')
@@ -213,6 +213,8 @@ TEMPLATES = [
 
 LOGIN_URL = reverse_lazy('Login')
 
+from pathlib import Path
+Path("./logsdir").mkdir(parents=True, exist_ok=True)
 
 LOGGING = {
     'version': 1,
@@ -224,7 +226,13 @@ LOGGING = {
         'file':{
             'level':'DEBUG',
             'class': 'logging.FileHandler',
-            'filename':'./logs/auth.log',
+            'filename':'./logsdir/auth.log',
+            'formatter': 'verbose'
+        },
+        'file_Cart':{
+            'level':'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename':'./logsdir/Cart.log',
             'formatter': 'verbose'
         }
     },
@@ -239,6 +247,14 @@ LOGGING = {
             'propogate':True,
 
         },
+        'console_product': {
+            'handlers':['file_Cart'],
+            'level':'INFO',
+            'propogate':True,
+
+        },
+
+
     },
     'formatters': {
                 'verbose': {
