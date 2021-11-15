@@ -13,6 +13,10 @@ import Footer from "../UIComponents/compomemts/Footer";
 import Navbar_proxy from "./Navbar";
 import NavBar from "../UIComponents/compomemts/NavBar";
 import ProductDir from "../UIComponents/compomemts/product/ProductDir";
+import Cartdir from "../UIComponents/compomemts/cart/cartdir";
+
+
+
 
 
 export default class Globalauth extends React.Component
@@ -62,6 +66,8 @@ export default class Globalauth extends React.Component
         this.UpdateBasicUserDetail=this.UpdateBasicUserDetail.bind(this)
         this.SMSverifysend=this.SMSverifysend.bind(this)
         this.SMSverifyconfirm=this.SMSverifyconfirm.bind(this)
+        this.send_to_verify_phone_number=this.send_to_verify_phone_number.bind(this)
+        this.send_to_verify_Basic_detail=this.send_to_verify_Basic_detail.bind(this)
         if(Reflect.has(this.props,'out') && this.props.out === true)
         {
             // console.log(Reflect.has(this.props,'aaaaaaaaaa','out'),'logout global')
@@ -579,7 +585,7 @@ export default class Globalauth extends React.Component
         setAttemted(false)
     }
 
-    async SMSverifyconfirm(token,setCreated,setAttemted,setError,setError_msg)
+    async SMSverifyconfirm(token,setCreated,setCreated2,setAttemted,setError,setError_msg)
     {
 
         let req = new Request(`/Api/User/CUser/SMS_verify_conform/`, {
@@ -606,14 +612,12 @@ export default class Globalauth extends React.Component
         if (Reflect.has(response,"success"))
         {
             setCreated(true)
-            return true;
         }
         if (Reflect.has(response,"error"))
         {
             setError(true)
             setError_msg(response['error'])
         }
-
         setAttemted(false)
     }
 
@@ -806,6 +810,52 @@ export default class Globalauth extends React.Component
 
     }
 
+    send_to_verify_phone_number()
+    {
+        if(this.state.phone_number_verify === true)
+        {
+            return true
+        }
+
+        if(window.location.href.search("/auth/SMSverifysent/" )=== -1 )
+        {
+            if (window.location.href.search("/auth/SMSverifyconform/" )!== -1)
+            {
+             return false
+            }
+            else
+            {
+                // console.log("kalllllllllllllllllllllllllllllllllllllllllll")
+                window.location.href=`/auth/SMSverifysent/`
+            }
+
+        }
+
+        return false
+    }
+    send_to_verify_Basic_detail()
+    {
+        if(this.state.First_name !== null || this.state.Last_name !== null )
+        {
+            // console.log("heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",this.state.First_name,this.state.Last_name  )
+
+            if(this.state.phone_number_verify === true)
+            {
+                return false
+            }
+
+
+            return true
+        }
+
+        if(window.location.href.search("/auth/UpdateBasicUserDetail/" )=== -1)
+        {
+            window.location.href=`/auth/UpdateBasicUserDetail/`
+        }
+        return false
+
+    }
+
     render() {
 
         if(Reflect.has(this.props,'out'))
@@ -814,9 +864,23 @@ export default class Globalauth extends React.Component
            return < >
                 <Logout logout={this.logout} />
                 </>
-        } //for log out buttton
+        }
+
+        if(this.state.login)
+        {
+            if (this.send_to_verify_Basic_detail() === true)
+            {
+                // console.log('iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii')
+                if( this.send_to_verify_phone_number() === true)
+                {
+
+                    console.log("ready")
+                }
+            }
+            // console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb')
 
 
+        }
 
 
 
@@ -824,6 +888,10 @@ export default class Globalauth extends React.Component
             <Router>
                 <NavBar />
                 <Switch>
+
+
+
+
                     <Route path="/user/">
                         <h1>user</h1>
                     </Route>
@@ -857,6 +925,16 @@ export default class Globalauth extends React.Component
                         />
 
                     </Route>
+
+
+                    <Route path="/cart/">
+
+                        <Cartdir
+                            setState={this.setState}
+                            state={this.state}
+                        />
+                    </Route>
+
 
                     <Route path="">
                         {/*<h1>heeeeeeeeeeeeeeeeee</h1>*/}

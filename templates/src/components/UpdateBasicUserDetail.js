@@ -1,4 +1,6 @@
 import React, {Component, useState} from "react";
+import nexttransport from "./nexttransport";
+import CustomizedSnackbars from "../UIComponents/compomemts/alert";
 
 export default function  UpdateBasicUserDetail(props)
 {
@@ -31,8 +33,13 @@ export default function  UpdateBasicUserDetail(props)
 
                     </div>
                 </> :<>
+            {created &&
+            <>
+            {setTimeout(ev=>{window.location.reload()},4000)}
+            <CustomizedSnackbars message="Sucessfully updated"  severity="success" />
+            </>}
+                {created && <h2 className="formheading">Succesfully updated</h2>}
 
-                {created &&         <h2 className="formheading">Succesfully updated</h2>}
                 <div className="formcontainer">
                     <h2 className="formheading">Basic User Detail</h2>
                     <form action="" className="loginform"

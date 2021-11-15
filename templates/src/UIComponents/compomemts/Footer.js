@@ -5,6 +5,7 @@ import instagramicon from '../../images/instagramicon.svg'
 import facebookicon from '../../images/facebookicon.svg'
 import twittericon from '../../images/twittericon.svg'
 
+
 export default class Footer extends React.Component
 {
 

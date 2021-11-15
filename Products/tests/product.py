@@ -39,3 +39,4 @@ class ProductTestCase(TestCase):
             image.delete()
         except Exception as e:
             raise (f"Image deletion exception {e}")
+

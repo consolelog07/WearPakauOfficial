@@ -28,6 +28,8 @@
 
 /*! export ContextProvider [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react-is/cjs/react-is.production.min.js .ContextProvider */
 
+/*! export DELAY_RIPPLE [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export ENTERED [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export ENTERING [provided] [no usage info] [missing usage info prevents renaming] */
@@ -144,6 +146,8 @@
 
 /*! export __esModule [not provided] [no usage info] [missing usage info prevents renaming] */
 
+/*! export add_to_cart [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export cloneElement [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export cloneElement [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react/cjs/react.production.min.js .cloneElement */
@@ -218,11 +222,17 @@
 
 /*! export generatePath [provided] [no usage info] [missing usage info prevents renaming] -> ./node_modules/react-router/esm/react-router.js .generatePath */
 
+/*! export getChildMapping [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export getContrastRatio [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export getDynamicStyles [provided] [no usage info] [missing usage info prevents renaming] */
 
+/*! export getInitialChildMapping [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export getLuminance [provided] [no usage info] [missing usage info prevents renaming] */
+
+/*! export getNextChildMapping [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export getTransitionProps [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -324,6 +334,8 @@
 
 /*! export memo [provided] [no usage info] [provision prevents renaming (no use info)] -> ./node_modules/react/cjs/react.production.min.js .memo */
 
+/*! export mergeChildMappings [provided] [no usage info] [missing usage info prevents renaming] */
+
 /*! export parsePath [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export prefix [provided] [no usage info] [missing usage info prevents renaming] */
@@ -349,6 +361,8 @@
 /*! export supportedProperty [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export supportedValue [provided] [no usage info] [missing usage info prevents renaming] */
+
+/*! export teardown [provided] [no usage info] [missing usage info prevents renaming] */
 
 /*! export toCssValue [provided] [no usage info] [missing usage info prevents renaming] */
 
@@ -667,6 +681,10 @@
   \*****************************************/
 
 /*!*****************************************!*\
+  !*** ./src/UIComponents/style/cart.css ***!
+  \*****************************************/
+
+/*!*****************************************!*\
   !*** ./src/components/PasswordReset.js ***!
   \*****************************************/
 
@@ -731,6 +749,10 @@
   \**********************************************/
 
 /*!**********************************************!*\
+  !*** ./src/UIComponents/compomemts/alert.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
   !*** ./src/components/emailVerifyConform.js ***!
   \**********************************************/
 
@@ -755,6 +777,10 @@
   \*************************************************/
 
 /*!**************************************************!*\
+  !*** ./src/UIComponents/compomemts/cart/cart.js ***!
+  \**************************************************/
+
+/*!**************************************************!*\
   !*** ./src/UIComponents/style/productdetail.css ***!
   \**************************************************/
 
@@ -772,6 +798,10 @@
 
 /*!*****************************************************!*\
   !*** ./node_modules/value-equal/esm/value-equal.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./src/UIComponents/compomemts/cart/cartdir.js ***!
   \*****************************************************/
 
 /*!*******************************************************!*\
@@ -795,6 +825,10 @@
   \********************************************************/
 
 /*!*********************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/Chip/Chip.js ***!
+  \*********************************************************/
+
+/*!*********************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Grow/Grow.js ***!
   \*********************************************************/
 
@@ -808,6 +842,10 @@
 
 /*!**********************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/colors/red.js ***!
+  \**********************************************************/
+
+/*!**********************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/Alert/Alert.js ***!
   \**********************************************************/
 
 /*!**********************************************************!*\
@@ -836,6 +874,10 @@
 
 /*!***********************************************************!*\
   !*** ./node_modules/react-transition-group/esm/config.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./src/UIComponents/compomemts/cart/cartfunctions.js ***!
   \***********************************************************/
 
 /*!***********************************************************!*\
@@ -898,6 +940,10 @@
   !*** ./node_modules/qr-code-styling/lib/qr-code-styling.js ***!
   \*************************************************************/
 
+/*!*************************************************************!*\
+  !*** ./src/UIComponents/compomemts/cart/CartProductCard.js ***!
+  \*************************************************************/
+
 /*!**************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/shadows.js ***!
   \**************************************************************/
@@ -909,6 +955,10 @@
 /*!**************************************************************!*\
   !*** ./src/UIComponents/compomemts/product/ProductDetail.js ***!
   \**************************************************************/
+
+/*!***************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/SvgIcon/SvgIcon.js ***!
+  \***************************************************************/
 
 /*!***************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/useTheme.js ***!
@@ -959,6 +1009,10 @@
   \****************************************************************/
 
 /*!*****************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/ButtonBase/Ripple.js ***!
+  \*****************************************************************/
+
+/*!*****************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/Snackbar/Snackbar.js ***!
   \*****************************************************************/
 
@@ -1003,6 +1057,10 @@
   \*******************************************************************/
 
 /*!*******************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/utils/createSvgIcon.js ***!
+  \*******************************************************************/
+
+/*!*******************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/utils/ownerDocument.js ***!
   \*******************************************************************/
 
@@ -1027,6 +1085,10 @@
   \********************************************************************/
 
 /*!********************************************************************!*\
+  !*** ./node_modules/react-transition-group/esm/TransitionGroup.js ***!
+  \********************************************************************/
+
+/*!********************************************************************!*\
   !*** ./node_modules/style-loader/dist/runtime/insertBySelector.js ***!
   \********************************************************************/
 
@@ -1036,6 +1098,14 @@
 
 /*!*********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/ButtonBase/ButtonBase.js ***!
+  \*********************************************************************/
+
+/*!*********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/IconButton/IconButton.js ***!
   \*********************************************************************/
 
 /*!*********************************************************************!*\
@@ -1060,6 +1130,10 @@
 
 /*!**********************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/ButtonBase/TouchRipple.js ***!
   \**********************************************************************/
 
 /*!**********************************************************************!*\
@@ -1095,6 +1169,14 @@
   \***********************************************************************/
 
 /*!***********************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/utils/useIsFocusVisible.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/Close.js ***!
+  \***********************************************************************/
+
+/*!***********************************************************************!*\
   !*** ./node_modules/@material-ui/styles/esm/makeStyles/makeStyles.js ***!
   \***********************************************************************/
 
@@ -1106,12 +1188,20 @@
   !*** ./node_modules/@material-ui/styles/esm/withStyles/withStyles.js ***!
   \***********************************************************************/
 
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-transition-group/esm/utils/ChildMapping.js ***!
+  \***********************************************************************/
+
 /*!************************************************************************!*\
   !*** ./node_modules/@material-ui/core/esm/styles/createBreakpoints.js ***!
   \************************************************************************/
 
 /*!*************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/iterableToArrayLimit.js ***!
+  \*************************************************************************/
+
+/*!*************************************************************************!*\
+  !*** ./node_modules/@material-ui/core/esm/internal/svg-icons/Cancel.js ***!
   \*************************************************************************/
 
 /*!*************************************************************************!*\
@@ -1163,6 +1253,14 @@
   \*****************************************************************************/
 
 /*!******************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/ErrorOutline.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/InfoOutlined.js ***!
+  \******************************************************************************/
+
+/*!******************************************************************************!*\
   !*** ./node_modules/jss-plugin-camel-case/dist/jss-plugin-camel-case.esm.js ***!
   \******************************************************************************/
 
@@ -1183,11 +1281,19 @@
   \*******************************************************************************/
 
 /*!*******************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/UIComponents/style/cart.css ***!
+  \*******************************************************************************/
+
+/*!*******************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/components/styles/forms.css ***!
   \*******************************************************************************/
 
 /*!*********************************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js ***!
+  \*********************************************************************************/
+
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/SuccessOutlined.js ***!
   \*********************************************************************************/
 
 /*!*********************************************************************************!*\
@@ -1225,6 +1331,10 @@
 /*!**************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/UIComponents/style/productlist.css ***!
   \**************************************************************************************/
+
+/*!***************************************************************************************!*\
+  !*** ./node_modules/@material-ui/lab/esm/internal/svg-icons/ReportProblemOutlined.js ***!
+  \***************************************************************************************/
 
 /*!****************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/UIComponents/style/productdetail.css ***!

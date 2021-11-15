@@ -1,4 +1,5 @@
 import React, {Component, useState} from "react";
+import CustomizedSnackbars from "../UIComponents/compomemts/alert";
 
 export default function  SMSverifysent(props)
 {
@@ -35,12 +36,19 @@ export default function  SMSverifysent(props)
                     <h2 className="formheading">Phone number Verify</h2>
                     {created && <h2 className="formheading">Otp sent</h2>}
 
+                    {created &&
+                    <>
+                        {console.log(setTimeout(ev=>{window.location.href="/auth/SMSverifyconform/"},4000))}
+                        <CustomizedSnackbars message="Otp Sent sucesfully"  severity="success" />
+                    </>}
+
 
                     {props.Gstate.phone_number_verify ?
                         <h1>User phone number {props.Gstate.phone_number} already verified</h1>:<>
                             {created2 && <>
                                 <h1>Otp already sent</h1>
                             </>}
+
 
                             { (created2 === false || created === false)  && <>
 
@@ -83,7 +91,9 @@ export default function  SMSverifysent(props)
 
                                     <input type="submit" className="submitbutton" value="Submit"/>
                                     {error &&  <span className="formwarning">{error_msg}</span>}
-
+                                    {error &&
+                                    <CustomizedSnackbars message={error_msg} severity="success"/>
+                                    }
                                 </form>
 
                                 <span className="alreadyhaveacc"><p>Verify sent OTP? <a href="/auth/SMSverifyconform/">OTP</a></p></span>

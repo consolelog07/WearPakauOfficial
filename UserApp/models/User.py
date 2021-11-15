@@ -66,6 +66,7 @@ class UserManager(BaseUserManager):
         user.is_active = True
         user.is_coreTeam = True
         user.is_developer = True
+        user.phone_number_verify = True
         user.save(using=self._db)
 
         return user
@@ -144,7 +145,7 @@ class User(AbstractBaseUser, PermissionsMixin):
                 OTP += digits[math.floor(random.random() * 10)]
 
             self.SMS_token = OTP
-            self.SMS_token_dateTime_expire = timezone.now() + timezone.timedelta(seconds=180)
+            self.SMS_token_dateTime_expire = timezone.now() + timezone.timedelta(seconds=120)
             return True
         else:
             return False
@@ -191,7 +192,7 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
 
     msg = EmailMultiAlternatives(
         # title:
-        "Password Reset for {title}".format(title="Some website title"),
+        "Password Reset for {title}".format(title="WearPakau"),
         # message:
         email_plaintext_message,
         # from:

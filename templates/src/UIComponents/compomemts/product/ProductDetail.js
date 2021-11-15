@@ -6,6 +6,14 @@ import getCookie from "../../../components/getcooke";
 import Productdetailsplide from "./ProductdetailSplide";
 import QRCustom from "../../QRCustom";
 import meta from  "../../../images/Meta.jpg"
+import {add_to_cart} from '../cart/cartfunctions'
+import {Snackbar} from "@material-ui/core";
+import CustomizedSnackbars from "../alert";
+
+
+
+
+
 class ProdctDetail extends React.Component
 {
     constructor(props) {
@@ -19,8 +27,13 @@ class ProdctDetail extends React.Component
             modal:false,
             result:{},
             err:false,
+            err_msg:"",
+            product_added_in_cart:false,
+            cartAttempt:false,
             datafetch:false,
             size:[],
+            size_selected:"",
+            Quantity:1,
             options:{
                 // width:  window. innerWidth/2.4,
                 // height: window. innerHeight/4,
@@ -57,16 +70,20 @@ class ProdctDetail extends React.Component
                     color: '#222222',
                     type: 'dot',
                 }
-            }
+            },
+
         }
         this.setmodalFalse=this.setmodalFalse.bind(this)
         this.getDetail=this.getDetail.bind(this)
         this.setStateQr=this.setState.bind(this)
+        this.add_to_cart=add_to_cart.bind(this)
     }
     componentDidMount() {
-        // console.log("ehhhehehe")
+
         this.getDetail()
     }
+
+
 
     async  getDetail()
     {
@@ -100,6 +117,7 @@ class ProdctDetail extends React.Component
         }
         else
         {
+            //redirect to 404
             // this.setState({result:response.results[0],datafetch:true,size:response.results[0].sizes.split(",")})
 
         }
@@ -111,7 +129,8 @@ class ProdctDetail extends React.Component
     }
 
     render() {
-        // console.log(this.state.options)
+
+        // console.log(this.state.result)
         if (!this.state.datafetch)
         {
             return <>
@@ -124,59 +143,72 @@ class ProdctDetail extends React.Component
             </>
         }
 
+        // if(this.state.result.disable === true)
+        // {
+        //     window.location.href="/error/404"
+        // }
+
         return<>
-            <>
-                <div className="productdetailcontainer">
-                    <div className="productcarousel">
-                        <Productdetailsplide imagesSet={this.state.result.ImagesSet} />
-                        {/*<img src={this.state.result.default.image} alt=""/>*/}
+            {this.state.cartAttempt?
+                <>
+                    <div className="loadercontainer" >
+                        <div className="lds-ripple">
+                            <div></div>
+                            <div></div>
+                        </div>
                     </div>
-                    <div className="productinfo">
-                        <h1>{this.state.result.name}</h1>
-                        <p>{this.state.result.category}</p>
-                        <div className="sizes">
-                            {this.state.size[0] !== "" && <>
-                                {this.state.size.map(ev=> <span>{ev}</span>)}
-                            </>}
+                </>:
+                <>
 
+
+                    {this.state.product_added_in_cart  &&
+                    <>
+                        {setTimeout(ev=>{window.location.href="/cart"},4000)}
+                    <CustomizedSnackbars message="Product added to cart"  severity="success" />
+                    </>
+                    }
+                    {this.state.err  &&  <CustomizedSnackbars message={`${this.state.err_msg}`}  severity="error" />}
+
+                    <div className="productdetailcontainer">
+                        <div className="productcarousel">
+                            <Productdetailsplide imagesSet={this.state.result.ImagesSet} />
+                            {/*<img src={this.state.result.default.image} alt=""/>*/}
                         </div>
-                        <div className="pricing">
-                            {this.state.result.discount_display ?
-                            <>
-                                <span className="price">RS. {this.state.result.discounted_price}</span>
-                                <span className="og-price">RS. {this.state.result.price}</span>
-                                { this.state.result.price !== 0 ? <span className="discount">
+                        <div className="productinfo">
+                            <h1>{this.state.result.name}</h1>
+                            <p>{this.state.result.category}</p>
+                            <div className="pricing">
+                                {this.state.result.discount_display ?
+                                    <>
+                                        <span className="price">RS. {this.state.result.discounted_price}</span>
+                                        <span className="og-price">RS. {this.state.result.price}</span>
+                                        { this.state.result.price !== 0 ? <span className="discount">
                                             ({((1-(this.state.result.discounted_price/this.state.result.price))*100).round(2)} % OFF)</span>
-                                :<span className="discount">(0 % OFF)</span>}
+                                            :<span className="discount">(0 % OFF)</span>}
+                                    </>
+                                    :<>
+                                        <span className="price">RS.  {this.state.result.price}</span>
+                                    </>}
 
-                            </>
-                            :<>
-                                    <span className="price">RS.  {this.state.result.price}</span>
-                            </>}
 
+                            </div>
 
-                        </div>
+                            <ul className="extrainfo">
+                                {
+                                    this.state.result.productDescription.split(";").map(ev=>{
+                                        if (ev !== "")
+                                        {
+                                            return <li>{ev}</li>
+                                        }
 
-                        <ul className="extrainfo">
-                            {
-                                this.state.result.productDescription.split(";").map(ev=>{
-                                    if (ev !== "")
-                                    {
-                                        return <li>{ev}</li>
-                                    }
-
-                                })
-                            }
-                        </ul>
-                        {/*<ul className="extrainfo">*/}
-                        {/*    <li>100% Cotton</li>*/}
-                        {/*    <li>100% Vibranium</li>*/}
-                        {/*    <li>Cash on delivery available</li>*/}
-                        {/*</ul>*/}
-                        <span className="qunatitycustombox">
+                                    })
+                                }
+                            </ul>
+                            <span className="qunatitycustombox">
           <div className="quantityselector">
             <span>Quantity </span>
-            <select>
+            <select value={this.state.Quantity}
+                    onChange={ev=>{this.setState({Quantity:ev.target.value})}}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -187,18 +219,51 @@ class ProdctDetail extends React.Component
           </div>
           <button className="customiseproduct" onClick={ev=>{this.setState({modal:true})}}>Customise QR</button>
         </span>
-                        <span className="buycart">
+
+        {this.state.size[0] !== "" && <>
+
+         <span className="qunatitycustombox">
+
+          <div className="quantityselector">
+            <span>Size </span>
+            <select value={this.state.size_selected}
+                    onChange={ev=>{this.setState({size_selected:ev.target.value})}}>
+                {this.state.size.map(ev=> <option value={ev}>{ev}</option>)}
+            </select>
+          </div>
+                  </span>
+        </>}
+
+        <span className="buycart">
           <button className="buy">BUY NOW</button>
-          <button className="addtocart">ADD TO CART</button>
+          <button className="addtocart"
+                  onClick={ev=>{
+                      console.log(this.props.Gstate.login)
+                      if(this.props.Gstate.login)
+                      {
+                          this.setState({err:false,err_msg:"",cartAttempt:true,product_added_in_cart:false})
+                          this.add_to_cart(this.setStateQr,this.topicId,this.state.options,this.state.Quantity,this.state.size_selected)
+                      }
+                      else
+                      {
+                          this.setState({err:true,err_msg:"login to add product in cart"})
+                      }
+
+                  }}>ADD TO CART</button>
         </span>
-                        <h1>your selected qr pattern :</h1>
-                        <QRCustom qroptions={this.state.options} />
+                            <span className="nimishhouse">
+                                <h2>your QR CODE</h2>
+                            <QRCustom qroptions={this.state.options} />
+                            </span>
+
+                        </div>
                     </div>
-                </div>
 
-                {this.state.modal &&  <Modalqr qroptions={this.state.options} setStateQr={this.setStateQr} setmodalFalse={this.setmodalFalse} />}
+                    {this.state.modal &&  <Modalqr qroptions={this.state.options} setStateQr={this.setStateQr} setmodalFalse={this.setmodalFalse} />}
 
-            </>
+                </>
+            }
+
 
         </>
     }

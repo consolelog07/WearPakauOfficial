@@ -7,7 +7,7 @@ from django.urls import reverse
 from rest_framework.response import Response
 
 from UserApp.models import User
-from WearPakauOfficial.settings import EMAIL_HOST_USER, SMS_authorization, SMS_sender_id, SMS_message_id
+from WearPakauOfficial.settings import EMAIL_HOST_USER
 
 logger = logging.getLogger('console')
 
