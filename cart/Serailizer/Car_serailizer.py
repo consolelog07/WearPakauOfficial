@@ -7,6 +7,7 @@ from ..models import Cart, Coupons, Product_wrapper
 class Cart_serailizer(serializers.ModelSerializer):
     total_ = serializers.ReadOnlyField(source="total")
     shipingcharge_ = serializers.ReadOnlyField(source="shipingcharge")
+    giftwrapcharge_ = serializers.ReadOnlyField(source="giftwrapcharge")
     with_shiphing_charge_ = serializers.ReadOnlyField(source="with_shiphing_charge")
     after_coupon_applied_ = serializers.ReadOnlyField(source="after_coupon_applied")
     user_id = serializers.ReadOnlyField(source='user.id')

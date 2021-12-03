@@ -21,10 +21,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        // loader: "css-loader",
+        // options: {
+        //   import: true,
+        // },
         use: [
-            'style-loader',
-          'css-loader'
-        ]
+          'style-loader',
+          'css-loader',
+        ],
+        // options: {
+        //   modules: true,
+        // },
+
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,

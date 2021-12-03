@@ -12,10 +12,17 @@ import Emailverifyconform from "./emailVerifyConform";
 import UpdateBasicUserDetail from "./UpdateBasicUserDetail";
 import SMSverifysent from "./SMSverifysent";
 import SMSverifyconform from "./SMSverifyconform";
+import Address_Create from "../UIComponents/compomemts/order/AddressCreate";
+import Profile from "../UIComponents/compomemts/User/UserProfilePage";
+import DefaultAddress from "./DefaultAddress";
 
 export default function Authurl(props)
 {
     return<>
+
+        <Route path="/auth/DefaultAddress/">
+            <DefaultAddress Gstate={props.state} SGstate={props.setState}/>
+        </Route>
         <Route path="/auth/login/">
             {/*<h1>login</h1>*/}
             <LoginView Gstate={props.state} SGstate={props.setState}  login={props.login}/>
@@ -75,13 +82,12 @@ export default function Authurl(props)
 
         <Route path="/auth/" exact>
 
-            <h1>hello</h1>
-            <h1>
+            <Profile
+                Gstate={props.state}
+                SGstate={props.setState}
 
-                {props.state.email}
-                {props.state.login}
-            </h1>
-            <Logout logout={props.logout} />
+            />
+                        <Logout logout={props.logout} />
 
 
             {/*<UpdateBasicUserDetail*/}

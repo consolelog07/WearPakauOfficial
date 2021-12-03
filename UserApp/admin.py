@@ -8,4 +8,6 @@ class Usermodeladmin(admin.ModelAdmin):
     class Meta:
         model= User
 
+    def has_delete_permission(self, request, obj=None):
+        return False
 admin.site.register(User,Usermodeladmin)

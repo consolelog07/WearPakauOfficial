@@ -118,6 +118,7 @@ class ProdctDetail extends React.Component
         else
         {
             //redirect to 404
+            window.location.href="/error/404/"
             // this.setState({result:response.results[0],datafetch:true,size:response.results[0].sizes.split(",")})
 
         }

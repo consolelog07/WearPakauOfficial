@@ -77,45 +77,7 @@ export default class Cart extends React.Component
 
     }
 
-    async getcartid()
-    {
-        let req = new Request(`/Api/Cart/Cart/Return_cart_id_of_user/`, {
-            mode: 'cors', //just a safe-guard indicating our intentions of what to allow
-            credentials: 'include', //when will the cookies and authorization header be sent
 
-            method: 'GET',
-            // cache: 'force-cache',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken')
-            },
-            referrerPolicy: 'no-referrer',
-            // body: JSON.stringify({token:token})
-        });
-        let ok=false
-        const response = await fetch(req).then(ev=> {
-            if (ev.ok)
-            {
-                ok=true
-            }
-
-            return ev.json()
-        })
-
-        // console.log(response.results)
-        if(ok)
-        {
-
-            if (Reflect.has(response,'iD') === true)
-            {
-                this.setState({id:response["iD"],idFetch:false})
-                // console.log(response)
-            }
-
-        }
-
-
-    }
     async  getCart()
     {
 
@@ -379,7 +341,13 @@ export default class Cart extends React.Component
                                 </>}
 
         </span>
-                        <button className="placeorder">PLACE ORDER</button>
+                        <button className="placeorder"
+                        onClick={
+                            ev=>{
+                                window.location.href="/order/setorderaddress"
+                            }
+                        }
+                        >PLACE ORDER</button>
                     </div>
                 </div>
             </>}

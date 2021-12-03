@@ -8,7 +8,6 @@ export default function Cartdir(props) {
         <Route path="/cart/">
             <Cart Gstate={props.state} SGstate={props.setState}  />
         </Route>
-
         {/*<Route path="/product/:topicId(\d+)/" exact>*/}
         {/*    <ProductDetail Gstate={props.state} SGstate={props.setState} />*/}
         {/*</Route>*/}

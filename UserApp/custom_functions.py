@@ -11,13 +11,13 @@ from WearPakauOfficial.settings import EMAIL_HOST_USER
 
 logger = logging.getLogger('console')
 
-
+# for user
 def list(self, request, *args, **kwargs):
     queryset = self.filter_queryset(self.get_queryset())
     if request.user.is_anonymous:
         return Response()
 
-    if request.user.is_coreTeam == False or request.user.is_developer == False:
+    if request.user.is_developer == False:
         queryset = queryset.filter(id=request.user.id)
 
     page = self.paginate_queryset(queryset)
@@ -28,6 +28,37 @@ def list(self, request, *args, **kwargs):
     serializer = self.get_serializer(queryset, many=True)
     return Response(serializer.data)
 
+def list_user(self, request, *args, **kwargs):
+    queryset = self.filter_queryset(self.get_queryset())
+    if request.user.is_anonymous:
+        return Response()
+
+    if request.user.is_coreTeam == False or request.user.is_developer == False:
+        queryset = queryset.filter(user=request.user)
+
+    page = self.paginate_queryset(queryset)
+    if page is not None:
+        serializer = self.get_serializer(page, many=True)
+        return self.get_paginated_response(serializer.data)
+
+    serializer = self.get_serializer(queryset, many=True)
+    return Response(serializer.data)
+
+# for order user product and order
+def list_user_content_only(self, request, *args, **kwargs):
+    queryset = self.filter_queryset(self.get_queryset())
+    if request.user.is_anonymous:
+        return Response()
+
+    queryset = queryset.filter(user=request.user)
+
+    page = self.paginate_queryset(queryset)
+    if page is not None:
+        serializer = self.get_serializer(page, many=True)
+        return self.get_paginated_response(serializer.data)
+
+    serializer = self.get_serializer(queryset, many=True)
+    return Response(serializer.data)
 
 def email_verfy_core(email, host):
     try:

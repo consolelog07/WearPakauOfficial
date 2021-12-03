@@ -16,7 +16,7 @@ export default function CustomizedSnackbars(props) {
 
         setOpen(false);
     };
-    console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+    // console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
 
     return (
         <>

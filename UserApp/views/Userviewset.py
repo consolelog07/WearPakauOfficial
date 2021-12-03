@@ -38,7 +38,6 @@ class UserViewset( mixins.RetrieveModelMixin,
         serializer = self.get_serializer(user)
         return Response(serializer.data)
 
-
     @action(detail=False, methods=['get'])
     def Check_Authenticated(self,request,pk=None):
         user = self.request.user
@@ -54,7 +53,6 @@ class UserViewset( mixins.RetrieveModelMixin,
         except:
             return Response({ 'error': 'Something went wrong when checking authentication status' })
 
-
     @action(detail=False, methods=['Post'])
     def Logout(self, request, pk=None):
         if self.request.user.is_authenticated == False:
@@ -65,7 +63,6 @@ class UserViewset( mixins.RetrieveModelMixin,
             return Response({ 'success': 'Loggout Out' })
         except:
             return Response({ 'error': 'Something went wrong when logging out' })
-
 
     def list(self, request, *args, **kwargs):
         return list(self, request, *args, **kwargs)

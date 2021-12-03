@@ -4,10 +4,19 @@ from .models import Cart, Coupons, Product_wrapper
 
 # Register your models here.
 class Cartmodeladmin(admin.ModelAdmin):
-    list_display = ['user', ]
-    search_fields = ['user']
+    list_display = ['user',"cart_order_id"]
+    search_fields = ['user',"cart_order_id"]
+    readonly_fields = ["user",
+                       "cart_order_id"
+                       # ,"products"
+                       ]
 
-    readonly_fields = ["user"]
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+    def has_add_permission(self, request):
+        return False
+
     class Meta:
         model = Cart
 
@@ -37,9 +46,12 @@ class Couponsmodeladmin(admin.ModelAdmin):
     search_fields = ['Code']
     list_filter = ["active"]
     # readonly_fields = ["usedBY"]
+    def has_delete_permission(self, request, obj=None):
+        return False
 
     class Meta:
         model = Coupons
+
 
 
 admin.site.register(Coupons, Couponsmodeladmin)

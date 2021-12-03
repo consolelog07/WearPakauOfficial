@@ -6,6 +6,7 @@
       <title>WearPakau</title>
       {#    for django  #}
       {% load static %}
+      <script src="https://checkout.razorpay.com/v1/checkout.js" ></script>
 
       <style>
 
@@ -16,12 +17,35 @@
           li {
               list-style-type: none !important;
           }
+          .nimish {
+              position: absolute;
+              width: 100vw;
+              height: 100vh;
+              z-index: 500;
+              overflow: hidden;
+              background-color: gray;
+              opacity: 0.8;
+              left: 0;
+              top: 0;
+              display: none;
+              /* transform: translateX(-100%); */
+              transition: width 2s, height 115s ease-in;
+              /* overflow: hidden; */
+          }
+
       </style>
       {#     #}
 
       <link rel="stylesheet" type="text/css" href= "{% static "admin/css/base.css" %}">
 
   </head>
+  <script>
+      window.WP_navto="{{message}}"
+      console.log(WP_navto);
+      window.key="{{key}}"
+      console.log(key)
+      window.error="{{ error }}"
+  </script>
   <body id="app">
 
 

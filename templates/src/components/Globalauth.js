@@ -14,6 +14,9 @@ import Navbar_proxy from "./Navbar";
 import NavBar from "../UIComponents/compomemts/NavBar";
 import ProductDir from "../UIComponents/compomemts/product/ProductDir";
 import Cartdir from "../UIComponents/compomemts/cart/cartdir";
+import Errordir from "../UIComponents/compomemts/errors/error_dir";
+import OupuDir from "../UIComponents/compomemts/oupu/oupu_dir";
+import Order_dir from "../UIComponents/compomemts/order/Order_dir";
 
 
 
@@ -76,6 +79,7 @@ export default class Globalauth extends React.Component
         else
         {
             // console.log(Reflect.has(this.props,'aaaaaaaaaa','out'))
+
             this.setBasicDetailOfUser()
         }
 
@@ -121,7 +125,7 @@ export default class Globalauth extends React.Component
         if (Reflect.has(response,'isAuthenticated') === true)
         {
             this.setState({login:true})
-            return true
+
         }
         if (Reflect.has(response,'NotAuthenticated') === true)
         {
@@ -147,6 +151,13 @@ export default class Globalauth extends React.Component
         // console.log(response)
         if (Reflect.has(response,'detail') === false)
         {
+            // console.log("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk")
+            let event = new Event("login")
+            // console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+            window.dispatchEvent(event)
+            window.user_id=response.id
+
+
             this.setState({
                 id:response.id,
                 email:response.email,
@@ -189,7 +200,7 @@ export default class Globalauth extends React.Component
             emailverifyconform:false,
             password_reset_error:false,
             passsword_reset_match_error:false,
-            phonenumber:0,
+            phone_number:0,
             phonenumber_error:false,
             phone_number_verify:false
         })
@@ -217,6 +228,8 @@ export default class Globalauth extends React.Component
         if (Reflect.has(response,"success"))
         {
             this.setState({email_error:true})
+
+
             setCreated(true)
         }
         if (Reflect.has(response,"error"))
@@ -266,6 +279,7 @@ export default class Globalauth extends React.Component
         {
             this.setState({login:false})
             this.reset()
+            window.location.reload()
             return true;
         }
 
@@ -866,6 +880,8 @@ export default class Globalauth extends React.Component
                 </>
         }
 
+        // console.log(this.state)
+
         if(this.state.login)
         {
             if (this.send_to_verify_Basic_detail() === true)
@@ -883,10 +899,9 @@ export default class Globalauth extends React.Component
         }
 
 
-
         return <>
             <Router>
-                <NavBar />
+                <NavBar  />
                 <Switch>
 
 
@@ -918,12 +933,37 @@ export default class Globalauth extends React.Component
                         {/*<button onClick={ev=>{this.Check_Authenticated()}}>check auth</button>*/}
 
                     </Route>
+
+                    <Route path="/order/">
+                        <Order_dir
+                            setState={this.setState}
+                            state={this.state}
+                        />
+
+                    </Route>
+
+                    <Route path="/oupu/">
+                        <OupuDir
+                            setState={this.setState}
+                            state={this.state}
+                        />
+
+                    </Route>
+
                     <Route path="/product/">
                         <ProductDir
                             setState={this.setState}
                             state={this.state}
                         />
 
+                    </Route>
+
+                    <Route path="/error/">
+
+                        <Errordir
+                            setState={this.setState}
+                            state={this.state}
+                        />
                     </Route>
 
 

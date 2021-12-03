@@ -22,4 +22,5 @@ urlpatterns = [
     path('SMSverifyconform/',login_required(BaseReactfile.as_view()),name="SMSverifyconform"),
     path('User-list/',BaseReactfile.as_view(),name="User-list-for-superuser"),
     path('UpdateBasicUserDetail/',login_required(BaseReactfile.as_view()),name="UpdateBasicUserDetail"),
+    path('DefaultAddress/',login_required(BaseReactfile.as_view()),name="DefaultAddress"),
 ]

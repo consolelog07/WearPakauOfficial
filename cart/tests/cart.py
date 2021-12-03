@@ -1,5 +1,4 @@
 from django.test import TestCase
-
 from Products.models import Products
 from UserApp.models import User
 from cart.models import Cart, Product_wrapper, Coupons
@@ -78,11 +77,17 @@ class CartTestCase(TestCase):
         self.assertEqual(cart.total,self.a.price*46)
         self.assertEqual(cart.with_shiphing_charge,(self.a.price*46)+cart.shipingcharge)
         self.assertEqual(cart.after_coupon_applied,(cart.with_shiphing_charge)*(1 - (self.coupon.discount / 100)))
+        # deactivating coupon
         self.coupon.active=False
         self.coupon.save()
         self.assertEqual(self.coupon.active,False)
         self.assertEqual(cart.total,self.a.price*46)
         self.assertEqual(cart.with_shiphing_charge,(self.a.price*46)+cart.shipingcharge)
+        self.assertNotEqual(cart.after_coupon_applied,(cart.with_shiphing_charge)*(1 - (self.coupon.discount / 100)))
+        cart.giftwrap=True
+        cart.save()
+        self.assertEqual(cart.total,self.a.price*46)
+        self.assertEqual(cart.with_shiphing_charge,(self.a.price*46)+cart.shipingcharge+cart.giftwrapcharge)
         self.assertNotEqual(cart.after_coupon_applied,(cart.with_shiphing_charge)*(1 - (self.coupon.discount / 100)))
 
     def test_basic_User_deletion(self):

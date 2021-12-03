@@ -4,13 +4,15 @@ from .models import Products, ImagesSet, Images
 
 # Register your models here.
 class Productsmodeladmin(admin.ModelAdmin):
-    list_display = ['name', 'category', 'price']
+    list_display = ['name', 'category', 'price',"display_to_user"]
     search_fields = ['name', 'category', 'color']
-    list_filter = ['category']
+    list_filter = ['category',"display_to_user"]
 
     class Meta:
         model = Products
 
+    def has_delete_permission(self, request, obj=None):
+        return False
 
 admin.site.register(Products, Productsmodeladmin)
 

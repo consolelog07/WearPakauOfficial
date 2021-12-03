@@ -6,9 +6,7 @@ import carticon from '../../images/carticon.svg'
 import profileicon from  '../../images/profileicon.svg'
 import closeicon from '../../images/closeicon.svg'
 import header from '../style/header.css'
-import {CircularProgress, Slide} from "@material-ui/core";
-import loader from "../style/loader.css"
-import {Redirect} from "react-router-dom";
+import "../style/loader.css"
 
 export default  class NavBar extends React.Component
 {
@@ -93,11 +91,12 @@ export default  class NavBar extends React.Component
                             }}
 
                         />
-
                         <button onClick={ev=>{this.setState({redirect:true})}}
                         ><img src={searchicon} alt=""/></button>
                     </div>
-                    <div className="cartcontainer">
+                    <div className="cartcontainer"onClick={ev=>{
+                        window.location.href="/cart/"
+                    }}>
                         <img src={carticon} alt=""/>
                     </div>
                     <div className="profilecontainer" onClick={ev=>{
@@ -122,7 +121,7 @@ export default  class NavBar extends React.Component
                         <li className="navlink"><a href="#">Xyz</a></li>
                         <li className="navlink"><a href="#">Xyz</a></li>
                         <li className="navlink"><a href="#">Xyz</a></li>
-                        <li className="navlink"><a href="#">Xyz</a></li>
+                        <li className="navlink"><a href="#"></a></li>
                     </ul>
 
 

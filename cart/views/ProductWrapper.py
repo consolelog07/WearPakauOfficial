@@ -18,9 +18,6 @@ class Owneronly_wrapper(permissions.BasePermission):
             return True
         if user.is_developer:
             return True
-        if user.is_coreTeam:
-            return True
-
 
 
 

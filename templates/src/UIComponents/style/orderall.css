@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap");
+.allordercontainer {
+    width: 80%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 40px auto;
+}
+
+.allordercontainer .productlistfilter {
+    width: 100%;
+    padding: 10px;
+    overflow: auto;
+}
+
+.allordercontainer .productlistfilter .listfilter {
+    float: right;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+}
+
+.allordercontainer .productlistfilter .listfilter span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+}
+
+.allordercontainer .productlistfilter .listfilter select {
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.allordercontainer .productlistfilter .listfilter select option {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+}
+
+.allordercontainer .allordershead {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.allordercontainer .allordershead::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 50%;
+    height: 3px;
+    background: #a878d8;
+}
+
+.allordercontainer .listcontainer {
+    list-style-type: none;
+    padding: 20px;
+}
+
+.allordercontainer .listcontainer .ordercontainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    text-align: center;
+    padding: 30px 40px;
+    margin: 20px;
+    border-radius: 5px;
+    -webkit-box-shadow: 1px 2px 7px #f0d8f0;
+    box-shadow: 1px 2px 7px #f0d8f0;
+}
+
+.allordercontainer .listcontainer .ordercontainer p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.allordercontainer .listcontainer .ordercontainer .total {
+    font-weight: 500;
+}
+
+.allordercontainer .listcontainer .ordercontainer .knowmore {
+    background-color: #a878d8;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+@media only screen and (max-width: 768px) {
+    .allordercontainer {
+        width: 95%;
+        margin: 20px auto;
+    }
+    .allordercontainer .allordershead {
+        font-size: 20px;
+        margin: 0 0 10px 10px;
+    }
+    .allordercontainer .listcontainer {
+        padding: 10px;
+    }
+    .allordercontainer .listcontainer .ordercontainer {
+        padding: 20px 30px;
+        margin: 25px;
+    }
+    .allordercontainer .listcontainer .ordercontainer p {
+        font-size: 12px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .allordercontainer .listcontainer .ordercontainer .knowmore {
+        font-size: 10px;
+        padding: 3px 7px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .allordercontainer {
+        width: 90%;
+    }
+    .allordercontainer .productlistfilter .listfilter {
+        font-size: 10px;
+    }
+    .allordercontainer .productlistfilter .listfilter span {
+        font-size: 10px;
+    }
+    .allordercontainer .productlistfilter .listfilter select {
+        font-size: 10px;
+    }
+    .allordercontainer .productlistfilter .listfilter select option {
+        font-size: 10px;
+    }
+    .allordercontainer .allordershead {
+        margin: 0 0 10px 15px;
+    }
+    .allordercontainer .listcontainer {
+        padding: 0px;
+    }
+    .allordercontainer .listcontainer .ordercontainer {
+        margin: 20px 0;
+        padding: 20px 10px;
+    }
+    .allordercontainer .listcontainer .ordercontainer p {
+        font-size: 9px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .allordercontainer .listcontainer .ordercontainer .knowmore {
+        font-size: 9px;
+    }
+}
+/*# sourceMappingURL=allorders.css.map */

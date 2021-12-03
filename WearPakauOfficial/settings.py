@@ -131,8 +131,10 @@ INSTALLED_APPS = [
     'Api',
     'Products',
     'cart',
+    "Ordered_User_products",
+    "orders"
     # 'frontend',
-    # 'Ordered_User_products'
+
 ]
 AUTH_USER_MODEL = 'UserApp.User'
 
@@ -150,7 +152,7 @@ PHONENUMBER_DEFAULT_FORMAT = "NATIONAL"
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
+    'PAGE_SIZE': 20,
     # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
@@ -167,8 +169,11 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 
+# set env variable
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+razorpay_key_id=os.getenv('razorpay_key_id')
+razorpay_key_secret=os.getenv("razorpay_key_secret")
 
 
 DJANGO_REST_PASSWORDRESET_TOKEN_CONFIG = {
@@ -176,7 +181,7 @@ DJANGO_REST_PASSWORDRESET_TOKEN_CONFIG = {
     "OPTIONS": {
         "min_length": 20,
         "max_length": 30
-    }
+    },
 }
 
 STATICFILES_DIRS = [
@@ -223,7 +228,14 @@ LOGGING = {
             'class': 'logging.FileHandler',
             'filename':'./logsdir/Cart.log',
             'formatter': 'verbose'
+        },
+        'file_OUP':{
+            'level':'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename':'./logsdir/Oup.log',
+            'formatter': 'verbose'
         }
+
     },
     'root': {
         'handlers': ['console'],
@@ -236,8 +248,14 @@ LOGGING = {
             'propogate':True,
 
         },
-        'console_product': {
+        'console_cart': {
             'handlers':['file_Cart'],
+            'level':'INFO',
+            'propogate':True,
+
+        },
+        'console_OUP': {
+            'handlers':['file_OUP'],
             'level':'INFO',
             'propogate':True,
 
@@ -252,3 +270,5 @@ LOGGING = {
                 },
     }
 }
+
+Default_QrJson='{"width":300,"height":300,"data":"https://qr-code-styling.com","margin":0,"qrOptions":{"typeNumber":"0","mode":"Byte","errorCorrectionLevel":"Q"},"imageOptions":{"hideBackgroundDots":true,"imageSize":0.4,"margin":0},"dotsOptions":{"type":"extra-rounded","color":"#6a1a4c"},"backgroundOptions":{"color":"#ffffff"},"image":"http://127.0.0.1:8000/static/frontend/images/src/images/Meta.jpg","dotsOptionsHelper":{"colorType":{"single":true,"gradient":false},"gradient":{"linear":true,"radial":false,"color1":"#6a1a4c","color2":"#6a1a4c","rotation":"0"}},"cornersSquareOptions":{"type":"extra-rounded","color":"#000000"},"cornersSquareOptionsHelper":{"colorType":{"single":true,"gradient":false},"gradient":{"linear":true,"radial":false,"color1":"#000000","color2":"#000000","rotation":"0"}},"cornersDotOptions":{"type":"","color":"#000000"},"cornersDotOptionsHelper":{"colorType":{"single":true,"gradient":false},"gradient":{"linear":true,"radial":false,"color1":"#000000","color2":"#000000","rotation":"0"}},"backgroundOptionsHelper":{"colorType":{"single":true,"gradient":false},"gradient":{"linear":true,"radial":false,"color1":"#ffffff","color2":"#ffffff","rotation":"0"}}}'

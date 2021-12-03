@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import "../../style/productlist.css"
 import getCookie from "../../../components/getcooke";
+import {render} from "react-dom";
 export default function Productlist(props)
 {
 
@@ -13,10 +14,16 @@ export default function Productlist(props)
     const [attemted,setAttemted]=useState(false)
     const [error,setError]=useState(false)
     const [search,setSearched]=useState(false)
-    const [result,setResult]=useState({})
+    const [result,setResult]=useState([])
     const [filter,setFilter]=useState(false)
+    const [dynamicRender,setDynamicRender]=useState({
+        currentPage:1,
+        nextPossible:false,
+        fast_track:false,
+        to:0
+    })
 
-
+    // console.log(dynamicRender,result)
     if( (window.location.search === "" || window.location.search === "?search=") && error === false)
     {
         setError(true)
@@ -29,14 +36,24 @@ export default function Productlist(props)
         }
     }
 
+    function render_next()
+    {
+        if(dynamicRender.nextPossible )
+        {
+            // setDynamicRender({...dynamicRender,currentPage:dynamicRender.currentPage+1})
+            ServerSearch()
+        }
+    }
+
 
     async function ServerSearch()
     {
         setAttemted(true)
         setCreated(false)
         setError(false)
-        console.log(`/Api/Products/Products/${window.location.search}&${filter?"ordering=-price":"ordering=price"}`)
-        let req = new Request(`/Api/Products/Products/${window.location.search}&${filter?"ordering=-price":"ordering=price"}`, {
+        var tt=`/Api/Products/Products/${window.location.search}&${filter?"ordering=-price":"ordering=price"}&page=${dynamicRender.currentPage}`
+        // console.log(tt)
+        let req = new Request(tt, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
             credentials: 'include', //when will the cookies and authorization header be sent
 
@@ -71,7 +88,26 @@ export default function Productlist(props)
             else
             {
                 setCreated(true)
-                setResult(response.results)
+                var previous=result
+                // console.log(".d",response.results)
+                previous.push(...response.results)
+
+
+                if(response.next !== null)
+                {
+                    var current=dynamicRender.currentPage+1
+                    // console.log('nulllllllllllllllllllccccccccccccccc')
+                    setDynamicRender({...dynamicRender,nextPossible:true,currentPage:current})
+
+                }
+            else
+                {
+                    // console.log('nulllllllllllllllllll')
+                    setDynamicRender({...dynamicRender,nextPossible:false,})
+                }
+
+
+                setResult(previous)
             }
 
         }
@@ -94,8 +130,9 @@ export default function Productlist(props)
                     <select onChange={ev=>{
                         // console.log(ev.target.value)
                         ev.target.value === "true"?setFilter(true):setFilter(false)
+                        setResult([])
+                        setDynamicRender({...dynamicRender,currentPage:1})
                         setSearched(false)
-
                     }}>
                         <option value="false">High to Low</option>
                         <option value="true">Low to High</option>
@@ -183,6 +220,7 @@ export default function Productlist(props)
 
 
             </>}
+            <button onClick={render_next}>next</button>
         </div>
 
 

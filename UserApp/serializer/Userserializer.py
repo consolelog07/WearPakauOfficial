@@ -12,7 +12,7 @@ class Userserializer(serializers.ModelSerializer):
                             "email",
                             "phone_number",
                             'phone_number_verify',
-                            "is_active"
+                            "is_active",
                             ]
         exclude = ['user_permissions',
                    'groups',
