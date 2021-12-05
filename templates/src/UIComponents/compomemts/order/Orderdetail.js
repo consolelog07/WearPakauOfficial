@@ -1,5 +1,6 @@
 import React ,{useState}from "react";
 import "../../style/orderDetail.css";
+import mDetail from "../../stylemodules/orderDetail.module.css"
 import getCookie from "../../../components/getcooke";
 import {useParams} from "react-router-dom";
 import {
@@ -334,25 +335,33 @@ export default function OrderDetail(props){
                 }
 
                 <CancelorderDialog setState={setState} state={state}   setModal={setModal} modal={modal}/>
-                <div className="orderdetailcontainer" >
-                    <h2 className="orderdetailhead">Order Details</h2>
+                <div className={mDetail.orderdetailcontainer} >
+                    <h2 className={mDetail.orderdetailhead}>Order Details</h2>
+                    <div className={mDetail.container}>
+                        <ul className={mDetail.progressbar}>
+                            <li className={mDetail.active}>Placed</li>
+                            <li>Preparing</li>
+                            <li>Dispatched</li>
+                            <li>Out For Delivery</li>
+                            <li>Delivered</li>
+                        </ul>
+                    </div>
+                    <div className={mDetail.orderdetail}>
+        <span className={mDetail.detailcontainer}>
+          <p className={mDetail.orderid}>Order ID: <span>{state.result.OrderId}</span></p>
+          <p className={mDetail.orderid}>First Name: <span>{state.address_result.First_name}</span></p>
+          <p className={mDetail.orderid}>Last Name: <span>{state.address_result.Last_name}</span></p>
+        <p className={mDetail.orderid}>Phone Number: <span>{state.address_result.phone_number}</span></p>
 
-                    <div className="orderdetail">
-        <span className="detailcontainer">
-          <p className="orderid">Order ID: <span>{state.result.OrderId}</span></p>
-          <p className="orderid">First Name: <span>{state.address_result.First_name}</span></p>
-          <p className="orderid">Last Name: <span>{state.address_result.Last_name}</span></p>
-        <p className="orderid">Phone Number: <span>{state.address_result.phone_number}</span></p>
-
-          <p className="address">
+          <p className={mDetail.address}>
             Shipping Address:<span>
 
               {`${state.address_result.address} ,${state.address_result.address_2} ,${state.address_result.city} ,${state.address_result.State}
                ${state.address_result.country} , ${state.address_result.pincode}`}
           </span>
           </p>
-          <p className="status">Status: <span> {state.result.Order_status}</span></p>
-          <p className="paymenttype">Payment: <span> {
+          <p className={mDetail.status}>Status: <span> {state.result.Order_status}</span></p>
+          <p className={mDetail.paymenttype}>Payment: <span> {
               (ev=>{
           if(state.result.payment_method === "cod")
               return "Cash on delivery"
@@ -362,13 +371,13 @@ export default function OrderDetail(props){
           return "None"
           })()
           }</span></p>
-          <p className="paymenttype">Coupon Applied: <span> {state.result.coupons === null?"None":state.result.coupon_name}</span></p>
+          <p className={mDetail.paymenttype}>Coupon Applied: <span> {state.result.coupons === null?"None":state.result.coupon_name}</span></p>
             {state.result.Order_status === "placed" &&
-            <button className="cancel" onClick={modalClose}>Cancel Order</button>
+            <button className={mDetail.cancel} onClick={modalClose}>Cancel Order</button>
             }
 
         </span>
-                        <div className="billingdetailcontainer">
+                        <div className={mDetail.billingdetailcontainer}>
                             <p className="detailhead">Billing Details</p>
                             <ul>
                                 <li className="carrtotal">
@@ -399,22 +408,22 @@ export default function OrderDetail(props){
                         </div>
                     </div>
 
-                    <div className="productcontainer">
+                    <div className={mDetail.productcontainer}>
 
                         {products.map(ev=>{
 
-                            return <div className="product">
-                                <div className="productimgcontainer">
+                            return <div className={mDetail.product}>
+                                <div className={mDetail.productimgcontainer}>
                                     <img src={state.images_list[ev.Product]} alt=""/>
                                 </div>
-                                <div className="productdetail">
-                                    <a className="productname" href={`/product/${ev.Product}`}><span>{state.name_list[ev.Product]}</span></a>
-                                    <h2 className="productname">Product ID: <span>{ev.unique_u14}</span></h2>
-                                    <p className="productcategory">Product Category: <span>{state.cat_list[ev.Product]}</span></p>
-                                    {ev.size !== "" &&        <p className="productcategory">Size: <span>{ev.size}</span></p>}
+                                <div className={mDetail.productdetail}>
+                                    <a className={mDetail.productname} href={`/product/${ev.Product}`}><span>{state.name_list[ev.Product]}</span></a>
+                                    <h2 className={mDetail.productname}>Product ID: <span>{ev.unique_u14}</span></h2>
+                                    <p className={mDetail.productcategory}>Product Category: <span>{state.cat_list[ev.Product]}</span></p>
+                                    {ev.size !== "" &&        <p className={mDetail.productcategory}>Size: <span>{ev.size}</span></p>}
 
-                                    <div className="qrbox">
-
+                                    {console.log(ev.QrJson,"ddddddddddddddd")}
+                                    <div className={mDetail.qrbox} style={{ width:" fit-content",height: "fit-content"}}>
                                         <QRCustom qroptions={JSON.parse(ev.QrJson)}  width={90} height={90} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/${ev.unique_u14}`}/>
                                     </div>
                                 </div>

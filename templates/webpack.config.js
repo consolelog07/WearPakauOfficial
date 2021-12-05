@@ -20,19 +20,23 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
-        // loader: "css-loader",
-        // options: {
-        //   import: true,
-        // },
+        // For pure CSS (without CSS modules)
+        test: /\.css$/i,
+        exclude: /\.module\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        // For CSS modules
+        test: /\.module\.css$/i,
         use: [
           'style-loader',
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
         ],
-        // options: {
-        //   modules: true,
-        // },
-
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,

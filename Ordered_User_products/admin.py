@@ -27,21 +27,21 @@ class Ordered_User_productsmodeladmin(admin.ModelAdmin):
                        "Oup_url",
                        'size',
                        "delete_order",
-                       "activated",
+                       # "activated",
                        "navigate_to",
 
 
                        # "activated",
-                       "Product",
-                       "user",
+                       # "Product",
+                       # "user",
                        ]
     exclude = ["activationCode"]
 
     class Meta:
         model = Ordered_User_products
 
-    def has_delete_permission(self, request, obj=None):
-        return False
+    # def has_delete_permission(self, request, obj=None):
+    #     return False
 
 
 

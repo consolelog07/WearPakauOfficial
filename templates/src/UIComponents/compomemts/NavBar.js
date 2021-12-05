@@ -6,7 +6,12 @@ import carticon from '../../images/carticon.svg'
 import profileicon from  '../../images/profileicon.svg'
 import closeicon from '../../images/closeicon.svg'
 import header from '../style/header.css'
+// import mheader from '../stylemodules/header.module.css'
+
+
 import "../style/loader.css"
+
+// console.log(mheader)
 
 export default  class NavBar extends React.Component
 {
@@ -19,6 +24,11 @@ export default  class NavBar extends React.Component
             redirect:false
 
         }
+
+        this.listofpages=[
+            "/auth/",
+            "/auth/emailverifysent/"
+        ]
         this.burger_function=this.burger_function.bind(this)
     }
 
@@ -71,10 +81,13 @@ export default  class NavBar extends React.Component
                     <div className="burger" onClick={this.burger_function} >
                         <img src={MENUBURGER} alt=""/>
                     </div>
+
                     <div className="logo" onClick={ev=>{
                         window.location.href="/"}}>
-                        <img src={amazon_logo} alt=""/>
+                        <img src={amazon_logo}
+                             alt=""/>
                     </div>
+
                     <div className="searchcontainer">
                         <input
                             type="text"
@@ -94,6 +107,7 @@ export default  class NavBar extends React.Component
                         <button onClick={ev=>{this.setState({redirect:true})}}
                         ><img src={searchicon} alt=""/></button>
                     </div>
+
                     <div className="cartcontainer"onClick={ev=>{
                         window.location.href="/cart/"
                     }}>
@@ -127,7 +141,18 @@ export default  class NavBar extends React.Component
 
 
                 </nav>
-                <div className="searchcontainermobile">
+                {this.listofpages.find(ev=>{
+                    if(window.location.pathname === ev)
+                    {
+                        return true
+                    }
+                    if(window.location.pathname.search(ev) !== -1)
+                    {
+                        return true
+                    }
+                    return false
+
+                }) === undefined  &&  <div className="searchcontainermobile">
                     <div className="searchmobile">
                         <input
                             type="text"
@@ -146,7 +171,8 @@ export default  class NavBar extends React.Component
                         <button onClick={ev=>{this.setState({redirect:true})}}
                         ><img src={searchicon} alt=""/></button>
                     </div>
-                </div>
+                </div>}
+
             </>
         );
     }

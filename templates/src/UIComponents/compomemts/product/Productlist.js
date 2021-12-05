@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import "../../style/productlist.css"
+import mlist from "../../stylemodules/productlist.module.css"
 import getCookie from "../../../components/getcooke";
-import {render} from "react-dom";
+
 export default function Productlist(props)
 {
 
@@ -123,9 +124,9 @@ export default function Productlist(props)
 
     return <>
 
-        <div className="productlistoutercontainer">
-            <div className="productlistfilter">
-                <div className="listfilter">
+        <div className={mlist.productlistoutercontainer}>
+            <div className={mlist.productlistfilter}>
+                <div className={mlist.listfilter}>
                     <span>Sort by price: </span>
                     <select onChange={ev=>{
                         // console.log(ev.target.value)
@@ -154,36 +155,36 @@ export default function Productlist(props)
                 {result.map(ev=> {
                         // console.log(ev)
                     return<>
-                    <div className="listcontainer">
-                            <div className="innercontainer">
-                                <div className="imgcontainer">
+                    <div className={mlist.listcontainer}>
+                            <div className={mlist.innercontainer}>
+                                <div className={mlist.imgcontainer}>
                                     <img src={ev.default.image} alt=""/>
                                 </div>
-                                <div className="detailcontainer">
-                                    <h2 className="productname">
-                                        <a className="productname" href={`/product/${ev.id}/`}>{ev.name}</a>
+                                <div className={mlist.detailcontainer}>
+                                    <h2 className={mlist.productname}>
+                                        <a className={mlist.productname} href={`/product/${ev.id}/`}>{ev.name}</a>
                                     </h2>
-                                    <p className="productcategory">{ev.category}</p>
-                                    <div className="pricing">
+                                    <p className={mlist.productcategory}>{ev.category}</p>
+                                    <div className={mlist.pricing}>
                                         {/*<span className="price">RS. 4900</span>*/}
                                         {/*<span className="og-price">RS. 10000</span>*/}
                                         {/*<span className="discount">Save (50%)</span>*/}
                                     {ev.discount_display ?
                                         <>
-                                            <span className="price">RS. {ev.discounted_price}</span>
-                                            <span className="og-price">RS. {ev.price}</span>
-                                            { ev.price !== 0 ? <span className="discount">
+                                            <span className={mlist.price}>RS. {ev.discounted_price}</span>
+                                            <span className={mlist.ogPrice} style={{"text-decoration": "line-through"}}>RS. {ev.price}</span>
+                                            { ev.price !== 0 ? <span className={mlist.discount}>
                                             ({((1-(ev.discounted_price/ev.price))*100).round(2)} % OFF)</span>
-                                                :<span className="discount">(0 % OFF)</span>}
+                                                :<span className={mlist.discount}>(0 % OFF)</span>}
 
                                         </>
                                         :<>
-                                            <span className="price">RS.  {ev.price}</span>
+                                            <span className={mlist.price}>RS.  {ev.price}</span>
                                         </>}
                                     </div>
 
 
-                                        <ul className="extrainfo">
+                                        <ul className={mlist.extrainfo}>
                                             {
                                                 ev.productDescription.split(";").map(ev=>{
                                                     if (ev !== "")

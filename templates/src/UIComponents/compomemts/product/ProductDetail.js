@@ -50,7 +50,7 @@ class ProdctDetail extends React.Component
                 },
                 imageOptions: {
                     hideBackgroundDots: true,
-                    imageSize: 1,
+                    imageSize: 0.4,
                     // margin: 20,
                     crossOrigin: 'anonymous',
                 },
@@ -164,7 +164,7 @@ class ProdctDetail extends React.Component
 
                     {this.state.product_added_in_cart  &&
                     <>
-                        {setTimeout(ev=>{window.location.href="/cart"},4000)}
+                        {console.log(setTimeout(ev=>{window.location.href="/cart"},2000))}
                     <CustomizedSnackbars message="Product added to cart"  severity="success" />
                     </>
                     }
@@ -213,9 +213,10 @@ class ProdctDetail extends React.Component
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
-              <option value="3">4</option>
-              <option value="3">6</option>
-              <option value="3">7</option>
+              <option value="4">4</option>
+             <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
             </select>
           </div>
           <button className="customiseproduct" onClick={ev=>{this.setState({modal:true})}}>Customise QR</button>
@@ -229,6 +230,7 @@ class ProdctDetail extends React.Component
             <span>Size </span>
             <select value={this.state.size_selected}
                     onChange={ev=>{this.setState({size_selected:ev.target.value})}}>
+                <option value=""></option>
                 {this.state.size.map(ev=> <option value={ev}>{ev}</option>)}
             </select>
           </div>
@@ -236,8 +238,10 @@ class ProdctDetail extends React.Component
         </>}
 
         <span className="buycart">
-          <button className="buy">BUY NOW</button>
-          <button className="addtocart"
+
+          <button className="buy" disabled={true}>BUY NOW</button>
+
+            <button className="addtocart"
                   onClick={ev=>{
                       console.log(this.props.Gstate.login)
                       if(this.props.Gstate.login)

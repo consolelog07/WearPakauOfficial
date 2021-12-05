@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import "../../style/productlist.css"
+// import "../../style/productlist.css"
+import mcart from "../../stylemodules/cart.module.css"
 import getCookie from "../../../components/getcooke";
 import QRCustom from "../../QRCustom";
 export default function CartProductCard(props)
@@ -67,25 +68,25 @@ export default function CartProductCard(props)
     // console.log(props)
 
     return <>
-        <div className="product">
-            <div className="productimgcontainer">
+        <div className={mcart.product} style={{height:"fit-content"}}>
+            <div className={mcart.productimgcontainer}>
                 <img src={props.wrapper.Product.default.image} alt=""/>
             </div>
-            <div className="productdetail">
-                <h2 className="productname">{props.wrapper.Product.name}</h2>
-                <p className="productcategory">{props.wrapper.Product.category}</p>
+            <div className={mcart.productdetail} style={{height:"fit-content"}}>
+                <h2 className={mcart.productname}>{props.wrapper.Product.name}</h2>
+                <p className={mcart.productcategory}>{props.wrapper.Product.category}</p>
 
                 {props.wrapper.Product
                     .discount_display
-                    ?<p className="price">RS.{props.wrapper.Product.discounted_price}</p>:
-                    <p className="price">RS.{props.wrapper.Product.price}</p>
+                    ?<p className={mcart.price}>RS.{props.wrapper.Product.discounted_price}</p>:
+                    <p className={mcart.price}>RS.{props.wrapper.Product.price}</p>
                     }
                 {props.wrapper.size !== "" &&
-                <p className="productcategory" style={{color:"black"}} >Size: {props.wrapper.size}</p>
+                <p className={mcart.productcategory} style={{color:"black"}} >Size: {props.wrapper.size}</p>
                 }
 
-                <span className="quantityremovebox">
-              <div className="quantityselector">
+                <span className={mcart.quantityremovebox}>
+              <div className={mcart.quantityselector}>
                 <span>Quantity  </span>
                 <select value={quantity}
                 onChange={ev=>{
@@ -104,17 +105,18 @@ export default function CartProductCard(props)
 
                 </select>
               </div>
-              <button className="removeproduct"
+              <button className={mcart.removeproduct}
                       onClick={ev=>{
                           props.setStateQr({err:false,err_msg:"",cartAttempt:true})
                           remove(props.setStateQr,props.wrapper.Product.id,QrJson,props.wrapper.size)
                       }}
               >Remove</button>
             </span>
-                <div className="qrbox">
+                <div className={mcart.qrbox} style={{marginRight:"50px",width:"fit-content",height:"fit-content"}}>
                     <QRCustom qroptions={QrJson} />
                 </div>
             </div>
+
         </div>
 
     </>

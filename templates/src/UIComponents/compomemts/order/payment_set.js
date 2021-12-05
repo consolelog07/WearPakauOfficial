@@ -122,6 +122,7 @@ export default  class PaymentSeter extends React.Component
         };
         this.rzp1 = new Razorpay(this.options);
         this.rzp1.on('payment.failed', function (response){
+
             alert(response.error.code);
             alert(response.error.description);
             alert(response.error.source);
@@ -129,6 +130,9 @@ export default  class PaymentSeter extends React.Component
             alert(response.error.reason);
             alert(response.error.metadata.order_id);
             alert(response.error.metadata.payment_id);
+
+
+
         });
         this.rzp1.open();
     }

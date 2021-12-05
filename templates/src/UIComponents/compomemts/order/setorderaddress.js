@@ -197,7 +197,7 @@ export default class SetorderAddress extends React.Component{
 
     async UpdateAddress(id)
     {
-
+            console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
         let req = new Request(`/Api/orders/Orders/UpdateAddress/`, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
             credentials: 'include', //when will the cookies and authorization header be sent

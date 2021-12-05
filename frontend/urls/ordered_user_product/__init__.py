@@ -15,6 +15,10 @@ urlpatterns = [
     # hostname no allowed
     path('custom701hostnamenotallowed/<uuid:unique_u14>',UserTesthostnameBasicView.as_view(),name="custom701suspended"),
 
-    path('activate/',login_required(BaseReactfile.as_view()),name="ProductList"),
-    path('Detail_retrive/',login_required(BaseReactfile.as_view()),name="ProductList"),
+    path('product/activate/',login_required(BaseReactfile.as_view()),name="activate"),
+    path('product/Detail_retrive/',login_required(BaseReactfile.as_view()),name="Detail_retrive"),
+
+    path('product/HelpBuy/',login_required(BaseReactfile.as_view()),name="HelpBuy"),
+    path('product/Default_nav/',login_required(BaseReactfile.as_view()),name="Default_nav"),
+
 ]

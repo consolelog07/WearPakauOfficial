@@ -2,7 +2,10 @@ import React from "react";
 import getCookie from "../../../components/getcooke";
 import CustomizedSnackbars from "../alert";
 // import "../../style/error_in_cart.css"
+import invalidproduct from  "../../stylemodules/invalidproduct.module.css"
 import alertlogo from "../../../images/external-warning-ui-dreamstale-lineal-dreamstale.png"
+
+
 
 export default class ErrorWithOrders extends  React.Component{
     constructor(props) {
@@ -247,63 +250,35 @@ export default class ErrorWithOrders extends  React.Component{
                 }
 
 
-                <div className="cartpagecontainer">
-                    <div className="productcontainer">
-                        <h2 className="unavailablehead">Product Unavailable</h2>
-                        <div className="warning">
-                            <div className="warninghead">
+                <div className={invalidproduct.cartpagecontainer}>
+                    <div className={invalidproduct.productcontainer}>
+                        <h2 className={invalidproduct.unavailablehead}>Product Unavailable</h2>
+                        <div className={invalidproduct.warning}>
+                            <div className={invalidproduct.warninghead}>
                                 <img
                                     src={alertlogo}
                                 /> <p>Important Message</p>
                             </div>
-                            <p className="warningtext">
+                            <p className={invalidproduct.warningtext}>
                                 There was a problem with some of the items in your order.
                             </p>
                         </div>
-                        <div className="product">
-                            <div className="productimgcontainer">
-                                <img src="styles/images/tshirtimage.jpg" alt=""/>
+                            <div className={invalidproduct.product}>
+                            <div className={invalidproduct.productimgcontainer}>
+                                <img src="https://consolelog07.github.io/wearpakau/styles/images/tshirtimage.jpg" alt=""/>
                             </div>
-                            <div className="productdetail">
-                                <h2 className="productname">Premium Cotton T-Shirt Vest</h2>
-                                <p className="productcategory">Tshirt</p>
-                                <p className="price">RS. 4999</p>
-                                <span className="quantityremovebox">
+                            <div className={invalidproduct.productdetail}>
+                                <h2 className={invalidproduct.productname}>Premium Cotton T-Shirt Vest</h2>
+                                <p className={invalidproduct.productcategory}>Tshirt</p>
+                                <p className={invalidproduct.price}>RS. 4999</p>
+                                <span className={invalidproduct.quantityremovebox}>
 
-              <button className="removeproduct">Remove</button>
+              <button className={invalidproduct.removeproduct}>Remove</button>
             </span>
-                                <div className="qrbox"></div>
+                                <div className={invalidproduct.qrbox}></div>
                             </div>
                         </div>
-                        <div className="product">
-                            <div className="productimgcontainer">
-                                <img src="styles/images/tshirtimage.jpg" alt=""/>
-                            </div>
-                            <div className="productdetail">
-                                <h2 className="productname">Premium Cotton T-Shirt Vest</h2>
-                                <p className="productcategory">Tshirt</p>
-                                <p className="price">RS. 4999</p>
-                                <span className="quantityremovebox">
-              <button className="removeproduct">Remove</button>
-            </span>
-                                <div className="qrbox"></div>
-                            </div>
-                        </div>
-                        <div className="product">
-                            <div className="productimgcontainer">
-                                <img src="styles/images/tshirtimage.jpg" alt=""/>
-                            </div>
-                            <div className="productdetail">
-                                <h2 className="productname">Premium Cotton T-Shirt Vest</h2>
-                                <p className="productcategory">Tshirt</p>
-                                <p className="price">RS. 4999</p>
-                                <span className="quantityremovebox">
-              <button className="removeproduct">Remove</button>
-            </span>
-                                <div className="qrbox"></div>
-                            </div>
-                        </div>
-                        <div className="continuebtn">
+                        <div className={invalidproduct.continuebtn}>
                             <button>Continue</button>
                         </div>
                     </div>

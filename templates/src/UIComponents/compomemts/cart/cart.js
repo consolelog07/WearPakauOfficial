@@ -1,8 +1,10 @@
-import React from "react"
-import "./../../style/cart.css"
+import React from "react";
+import "./../../style/cart.css";
+import mcart from "../../stylemodules/cart.module.css";
 import getCookie from "../../../components/getcooke";
 import CartProductCard from "./CartProductCard";
 import {add_to_cart} from "./cartfunctions";
+
 import CustomizedSnackbars from "../alert";
 import {Chip} from "@material-ui/core";
 
@@ -31,6 +33,7 @@ export default class Cart extends React.Component
         }
         this.getCart=this.getCart.bind(this)
         this.getcartid=this.getcartid.bind(this)
+        this.FlipGiftwrap=this.FlipGiftwrap.bind(this)
         this.add_to_cart=add_to_cart.bind(this)
         this.setStateQr=this.setState.bind(this)
         this.removeCoupon=this.removeCoupon.bind(this)
@@ -78,6 +81,7 @@ export default class Cart extends React.Component
     }
 
 
+
     async  getCart()
     {
 
@@ -115,6 +119,50 @@ export default class Cart extends React.Component
         }
 
     }
+
+    async  FlipGiftwrap()
+    {
+
+        let req = new Request(`/Api/Cart/Cart/flipGiftwrap/`, {
+            mode: 'cors', //just a safe-guard indicating our intentions of what to allow
+            credentials: 'include', //when will the cookies and authorization header be sent
+
+            method: 'GET',
+            // cache: 'force-cache',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            referrerPolicy: 'no-referrer',
+            // body: JSON.stringify({token:token})
+        });
+
+
+        const response = await fetch(req).then(ev=> {
+            return ev.json()
+        })
+
+
+        // console.log(response)
+
+
+        if (Reflect.has(response,'detail') === true)
+        {
+            this.setState({err:true,datafetch:true,created:false})
+        }
+        else if (Reflect.has(response,'detail') === true)
+        {
+            this.setState({err:true,datafetch:true,created:false})
+        }
+        if (Reflect.has(response,'Success') === true)
+        {
+            window.location.reload()
+            // this.setState({err:true,datafetch:true,created:false})
+        }
+
+
+    }
+
     async  addCoupon(Code)
     {
 
@@ -192,7 +240,7 @@ export default class Cart extends React.Component
             this.setState({idFetch:true})
             this.getcartid()
 
-            // console.log('kkkkkkkkkkkk')
+
             return  <>
                 <div className="loadercontainer" >
                     <div className="lds-ripple">
@@ -250,8 +298,8 @@ export default class Cart extends React.Component
                 {this.state.err  &&  <CustomizedSnackbars message={`${this.state.err_msg}`}  severity="error" />}
 
 
-                <div className="cartpagecontainer">
-                    <div className="productcontainer">
+                <div className={mcart.cartpagecontainer}>
+                    <div className={mcart.productcontainer}>
 
 
                         {[].forEach(ev=>{console.log("dd")})    }
@@ -265,10 +313,10 @@ export default class Cart extends React.Component
 
                     </div>
 
-                    <div className="ordercontainer">
+                    <div className={mcart.ordercontainer}>
 
-                        <div className="billingdetailcontainer">
-                            <p className="detailhead">Billing Details</p>
+                        <div className={mcart.billingdetailcontainer}>
+                            <p className={mcart.detailhead}>Billing Details</p>
                             <ul>
                                 <li className="carrtotal">Cart Total
                                     <span>RS. {this.state.result.total_}</span>
@@ -276,30 +324,42 @@ export default class Cart extends React.Component
                                 <li className="shippingcharges">Shipping Charges
                                     <span>RS. {this.state.result.shipingcharge_}</span>
                                 </li>
-                                <li className="totalpayable">Total Payable
+                                {this.state.result.giftwrap === true &&
+                                <li className="shippingcharges">
+                                    Gift Wrap Charge
+                                    <span>RS. {this.state.result.giftwrapcharge_}</span>
+                                </li>}
+                                <li className={mcart.totalpayable}>Total Payable
                                     <span>RS. {this.state.result.with_shiphing_charge_}</span>
                                 </li>
+
                                 {this.state.result.coupons !== null &&
-                                <li className="totalpayable">Total Payable(coupon applied)
+                                <li className={mcart.totalpayable}>Total Payable(coupon applied)
                                     <span>RS. {this.state.result.after_coupon_applied_}</span>
                                 </li>
                                 }
 
+
                             </ul>
                         </div>
-                        <span className="giftwrapcontainer">
+                        <span className={mcart.giftwrapcontainer}>
           <label htmlFor="giftwrap">Gift Wrap</label>
-          <input type="checkbox" id="giftwrap" className="giftwrap" />
+          <input type="checkbox" id="giftwrap" className={mcart.giftwrap} onChange={ev=>{
+              this.setState({err:false,err_msg:"",cartAttempt:true})
+              this.FlipGiftwrap()
+          // console.log(ev.target.checked)
+          }
+          } checked={this.state.result.giftwrap}  />
         </span>
 
 
 
 
-                        <span className="couponcontainer">
+                        <span className={mcart.couponcontainer}>
 
                             {this.state.result.coupons === null?
                             <>
-                                <button className="accordion"
+                                <button className={mcart.accordion}
                                         onClick={ev=>{
                                             this.setState({
                                                 coupon_open:!this.state.coupon_open
@@ -309,7 +369,7 @@ export default class Cart extends React.Component
 
                                 >Apply Coupon Code</button>
                                 {this.state.coupon_open &&
-                                <div className="panel"  style={{display:"block"}}>
+                                <div className={mcart.panel}  style={{display:"block"}}>
                                     <input type="text"  value={this.state.code}
                                            onChange={ev=>{
                                                console.log(ev.target.value)
@@ -324,15 +384,15 @@ export default class Cart extends React.Component
                                                    this.addCoupon(this.state.code)
                                                }
                                            }}
-                                           className="coupon"/>
+                                           className={mcart.coupon}/>
                                     <button onClick={ev=>{
                                         this.setState({err:false,err_msg:"",cartAttempt:true})
-                                        this.addCoupon(this.state.code)}} className="applycoupon">Apply</button>
+                                        this.addCoupon(this.state.code)}} className={mcart.applycoupon}>Apply</button>
                                 </div>}
 
                             </>:
                                 <>
-                                    <p className="accordion">Coupon applied:</p>
+                                    <p className={mcart.accordion}>Coupon applied:</p>
                                     <Chip label={this.state.result.coupon_name} style={{width:"100%"}} variant="outlined" onDelete={ev=>{
                                         this.setState({err:false,err_msg:"",cartAttempt:true})
                                         this.removeCoupon()
@@ -341,7 +401,7 @@ export default class Cart extends React.Component
                                 </>}
 
         </span>
-                        <button className="placeorder"
+                        <button className={mcart.placeorder}
                         onClick={
                             ev=>{
                                 window.location.href="/order/setorderaddress"

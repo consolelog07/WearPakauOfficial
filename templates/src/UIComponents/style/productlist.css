@@ -1,178 +1,178 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap");
-.productlistoutercontainer {
-    width: 100%;
-}
+/*.productlistoutercontainer {*/
+/*    width: 100%;*/
+/*}*/
 
-.productlistoutercontainer .listhr {
-    width: 95%;
-    margin: 0 auto;
-    opacity: 0.6;
-}
+/*.productlistoutercontainer .listhr {*/
+/*    width: 95%;*/
+/*    margin: 0 auto;*/
+/*    opacity: 0.6;*/
+/*}*/
 
-.productlistoutercontainer .productlistfilter {
-    width: 100%;
-    padding: 10px;
-    overflow: auto;
-}
+/*.productlistoutercontainer .productlistfilter {*/
+/*    width: 100%;*/
+/*    padding: 10px;*/
+/*    overflow: auto;*/
+/*}*/
 
-.productlistoutercontainer .productlistfilter .listfilter {
-    float: right;
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-}
+/*.productlistoutercontainer .productlistfilter .listfilter {*/
+/*    float: right;*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*    font-size: 13px;*/
+/*}*/
 
-.productlistoutercontainer .productlistfilter .listfilter span {
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-}
+/*.productlistoutercontainer .productlistfilter .listfilter span {*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*    font-size: 13px;*/
+/*}*/
 
-.productlistoutercontainer .productlistfilter .listfilter select {
-    border-radius: 3px;
-    font-size: 13px;
-}
+/*.productlistoutercontainer .productlistfilter .listfilter select {*/
+/*    border-radius: 3px;*/
+/*    font-size: 13px;*/
+/*}*/
 
-.productlistoutercontainer .productlistfilter .listfilter select option {
-    font-family: "Montserrat", sans-serif;
-    font-size: 13px;
-}
+/*.productlistoutercontainer .productlistfilter .listfilter select option {*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*    font-size: 13px;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer {
-    height: 350px;
-}
+/*.productlistoutercontainer .listcontainer {*/
+/*    height: 350px;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer {
-    height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    padding: 10px 10px 10px 100px;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer {*/
+/*    height: 100%;*/
+/*    display: -webkit-box;*/
+/*    display: -ms-flexbox;*/
+/*    display: flex;*/
+/*    -webkit-box-pack: justify;*/
+/*    -ms-flex-pack: justify;*/
+/*    justify-content: space-between;*/
+/*    padding: 10px 10px 10px 100px;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .imgcontainer {
-    overflow: hidden;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    width: 30%;
-    height: 95%;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .imgcontainer {*/
+/*    overflow: hidden;*/
+/*    display: -webkit-box;*/
+/*    display: -ms-flexbox;*/
+/*    display: flex;*/
+/*    -webkit-box-align: center;*/
+/*    -ms-flex-align: center;*/
+/*    align-items: center;*/
+/*    -webkit-box-pack: center;*/
+/*    -ms-flex-pack: center;*/
+/*    justify-content: center;*/
+/*    width: 30%;*/
+/*    height: 95%;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .imgcontainer img {
-    height: 130%;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .imgcontainer img {*/
+/*    height: 130%;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .detailcontainer {
-    width: 100%;
-    padding-left: 20px;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .detailcontainer {*/
+/*    width: 100%;*/
+/*    padding-left: 20px;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .productname {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 500;
-    font-size: 22px;
-    color: black;
-    text-decoration: none;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .productname {*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*    font-weight: 500;*/
+/*    font-size: 22px;*/
+/*    color: black;*/
+/*    text-decoration: none;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .productcategory {
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #d8a8d8;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .productcategory {*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*    font-size: 16px;*/
+/*    font-weight: 400;*/
+/*    color: #d8a8d8;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing {
-    margin-top: 10px;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing {*/
+/*    margin-top: 10px;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing span {
-    font-family: "Montserrat", sans-serif;
-    margin-right: 7px;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing span {*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*    margin-right: 7px;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .price {
-    font-size: 21px;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .price {*/
+/*    font-size: 21px;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .og-price {
-    font-size: 13px;
-    font-weight: 300;
-    text-decoration: line-through;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .og-price {*/
+/*    font-size: 13px;*/
+/*    font-weight: 300;*/
+/*    text-decoration: line-through;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .discount {
-    font-size: 14px;
-    font-weight: 300;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .discount {*/
+/*    font-size: 14px;*/
+/*    font-weight: 300;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .extrainfo {
-    font-family: "Montserrat", sans-serif;
-    margin-top: 10px;
-    list-style-type: none;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .extrainfo {*/
+/*    font-family: "Montserrat", sans-serif;*/
+/*    margin-top: 10px;*/
+/*    list-style-type: none;*/
+/*}*/
 
-.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .extrainfo li {
-    font-size: 14px;
-    margin-top: 5px;
-}
+/*.productlistoutercontainer .listcontainer .innercontainer .detailcontainer .extrainfo li {*/
+/*    font-size: 14px;*/
+/*    margin-top: 5px;*/
+/*}*/
 
-@media only screen and (max-width: 768px) {
-    .productlistoutercontainer .listcontainer {
-        height: 250px;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .imgcontainer img {
-        height: 120%;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer {
-        padding-left: 30px;
-    }
-}
+/*@media only screen and (max-width: 768px) {*/
+/*    .productlistoutercontainer .listcontainer {*/
+/*        height: 250px;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .imgcontainer img {*/
+/*        height: 120%;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer {*/
+/*        padding-left: 30px;*/
+/*    }*/
+/*}*/
 
-@media only screen and (max-width: 480px) {
-    .productlistoutercontainer .listcontainer {
-        height: 180px;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer {
-        padding: 10px;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .imgcontainer {
-        width: 50%;
-        height: 100%;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .imgcontainer img {
-        height: 120%;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer {
-        padding-left: 5px;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .productname {
-        font-size: 16px;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .productcategory {
-        font-size: 13px;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .price {
-        font-size: 18px;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .og-price {
-        font-weight: 300;
-        font-size: 12px;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .discount {
-        font-weight: 300;
-        font-size: 12px;
-    }
-    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .extrainfo li {
-        font-size: 12px;
-    }
-}
-/*# sourceMappingURL=productlist.css.map */
+/*@media only screen and (max-width: 480px) {*/
+/*    .productlistoutercontainer .listcontainer {*/
+/*        height: 180px;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer {*/
+/*        padding: 10px;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .imgcontainer {*/
+/*        width: 50%;*/
+/*        height: 100%;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .imgcontainer img {*/
+/*        height: 120%;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer {*/
+/*        padding-left: 5px;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .productname {*/
+/*        font-size: 16px;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .productcategory {*/
+/*        font-size: 13px;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .price {*/
+/*        font-size: 18px;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .og-price {*/
+/*        font-weight: 300;*/
+/*        font-size: 12px;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .pricing .discount {*/
+/*        font-weight: 300;*/
+/*        font-size: 12px;*/
+/*    }*/
+/*    .productlistoutercontainer .listcontainer .innercontainer .detailcontainer .extrainfo li {*/
+/*        font-size: 12px;*/
+/*    }*/
+/*}*/
+/*!*# sourceMappingURL=productlist.css.map *!*/

@@ -17,6 +17,7 @@ import Cartdir from "../UIComponents/compomemts/cart/cartdir";
 import Errordir from "../UIComponents/compomemts/errors/error_dir";
 import OupuDir from "../UIComponents/compomemts/oupu/oupu_dir";
 import Order_dir from "../UIComponents/compomemts/order/Order_dir";
+import Landing from "../UIComponents/compomemts/Landing";
 
 
 
@@ -977,7 +978,7 @@ export default class Globalauth extends React.Component
 
 
                     <Route path="">
-                        {/*<h1>heeeeeeeeeeeeeeeeee</h1>*/}
+                        <Landing />
                     </Route>
                 </Switch>
 

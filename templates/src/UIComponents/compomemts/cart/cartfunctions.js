@@ -7,9 +7,10 @@ export async function  add_to_cart (setState,id,QrJson,Quantity,size="",typef=fa
         return false
     }
 
-    console.log(typef,'dddddddddddddd')
+    // console.log(typef,'dddddddddddddd')
 
     QrJson={...QrJson, width:157,height:165,margin:10}
+    var proxy=QrJson
     QrJson=JSON.stringify(QrJson)
     console.log(id,QrJson,Quantity)
 
@@ -24,7 +25,16 @@ export async function  add_to_cart (setState,id,QrJson,Quantity,size="",typef=fa
             'X-CSRFToken': getCookie('csrftoken')
         },
         referrerPolicy: 'no-referrer',
-        body: JSON.stringify({id:id,QrJson:QrJson,Quantity:Quantity,size:size})
+        body: JSON.stringify({id:id,QrJson:QrJson,Quantity:Quantity,size:size,
+            image:proxy.image,
+            dotsOptions_color:proxy.dotsOptions.color,
+            dotsOptions_type : proxy.dotsOptions.type,
+            backgroundOptions_color : proxy.backgroundOptions.color,
+            cornersSquareOptions_color : proxy.cornersDotOptions.color,
+            cornersSquareOptions_type : proxy.cornersDotOptions.type,
+            cornersDotOptions_color : proxy.cornersDotOptions.color,
+            cornersDotOptions_type : proxy.cornersDotOptions.type
+                        })
     });
 
 

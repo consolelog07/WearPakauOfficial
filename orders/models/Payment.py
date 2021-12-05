@@ -120,4 +120,4 @@ class Payment(models.Model):
             # forerror
             return Response({"error": "paymentId invalid"})
 
-        return Response({"error": "internalerror "})
+        return True

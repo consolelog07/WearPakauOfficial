@@ -143,8 +143,8 @@ return<>
 
 
               </span>
-                        <div className="qrbox">
-                        <QRCustom qroptions={JSON.parse(props.data.QrJson)}  width={100} height={100} Oup_url={props.data.Oup_url_}/>
+                        <div className="qrbox" style={{ width:" fit-content",height: "fit-content"}}>
+                        <QRCustom qroptions={JSON.parse(props.data.QrJson)}  width={150} height={150} Oup_url={props.data.Oup_url_}/>
                         </div>
                     </div>
                 </div>

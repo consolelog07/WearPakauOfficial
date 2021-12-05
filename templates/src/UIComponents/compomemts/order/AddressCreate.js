@@ -167,7 +167,7 @@ export default class Address_Create extends React.Component
         if(Object.entries(response).length> 1)
         {
             this.setState({attempted:false,success:true})
-            if(this.state.default === false)
+            if(this.props.default === false)
             {
 
                 if(this.props.order_created === false )
@@ -261,7 +261,6 @@ export default class Address_Create extends React.Component
     }
 
     render() {
-        // console.log(this.state.form_value.Last_name)
         if(this.state.modalopen)
         {
             this.rows = [

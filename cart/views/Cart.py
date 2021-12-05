@@ -11,6 +11,7 @@ import json
 from Products.models import Products, Images
 from UserApp.Permissions import Owneronly
 from UserApp.custom_functions import list
+from ..jsonQrCreator import jsonQrCreator
 from ..models import Cart, Product_wrapper, Coupons
 
 from ..Serailizer import Cart_serailizer
@@ -71,14 +72,20 @@ class CartOperationsViewset(viewsets.ModelViewSet):
         print("je;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;")
         # print(data)
         # {id="product id",QrJson="Image_id",Quantity:"Quantity_number",size:""}
+        q=jsonQrCreator()
+
+        z=q.Init_validate(data)
+        if z !=True:
+            print(z)
+            return z
 
         try:
             product_id = data["id"]
         except Exception as e:
             return Response({"error": "id not provided"})
-        # print(product_id)
+
         try:
-            QrJson = data["QrJson"]
+            QrJson = q.json
         except Exception as e:
             return Response({"error": "QrJson not provided"})
 
@@ -304,3 +311,23 @@ class CartOperationsViewset(viewsets.ModelViewSet):
             return Response({"error":"internal error"})
         serializer = self.get_serializer(a)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['get'])
+    def flipGiftwrap(self,request,*args,**kwargs):
+        try:
+            a=Cart.objects.get(user=self.request.user)
+        except Cart.DoesNotExist:
+            return Response({"error":"no cart created"})
+        except Cart.MultipleObjectsReturned:
+            return Response({"error":"internal error"})
+
+        try:
+            a.giftwrap = not a.giftwrap
+            a.save()
+        except Exception as e:
+            return Response({"err":e})
+
+
+        return Response({'Success':f"{a.giftwrap}"})
+
+

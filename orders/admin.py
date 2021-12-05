@@ -58,7 +58,10 @@ admin.site.register(Order, Ordermodeladmin)
 
 
 class Paymentmodeladmin(admin.ModelAdmin):
-    list_display = ['razorpay_OrderId',"razorpay_payment_succestime","user","Order_id_wp","Payment_completed"]
+    list_display = ['razorpay_OrderId',
+                    "razorpay_payment_succestime"
+        ,"Order_id_wp",
+                    "Payment_completed"]
     search_fields = ['razorpay_OrderId',"razorpay_payment_id"]
     # list_filter = ["Payment_completed"]
     readonly_fields = [
@@ -70,6 +73,7 @@ class Paymentmodeladmin(admin.ModelAdmin):
                         "giftwrapcharge",
                         "shipingcharge",
                         "with_shiphing_charge",
+
                        "razorpay_payment_id",
                        "razorpay_signature",
                        "razorpay_payment_succestime",
