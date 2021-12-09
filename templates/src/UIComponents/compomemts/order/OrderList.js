@@ -166,7 +166,7 @@ export default function Orderlist(props)
                         </>}
 
                 </ul>
-                <button onClick={increment}>next</button>
+                {state.next_possible && <button onClick={increment}>next</button>}
             </div>
         }
 

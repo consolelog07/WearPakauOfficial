@@ -6,14 +6,17 @@ from django.urls import path
 
 
 from frontend.Views import BaseReactfile
+from frontend.Views.basic import AddressCheck
 
 
 def error_400s(request,exception=None):
     context = {}
+    AddressCheck(context,request)
     return render(request,'index.html', context)
 
 def error_500(request):
     context = {}
+    AddressCheck(context,request)
     return render(request,'index.html', context)
 
 urlpatterns = [

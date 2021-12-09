@@ -10,6 +10,8 @@ import header from '../style/header.css'
 
 
 import "../style/loader.css"
+import Logout from "../../components/Logout";
+import {Route} from "react-router-dom";
 
 // console.log(mheader)
 
@@ -132,10 +134,16 @@ export default  class NavBar extends React.Component
                         <div className="closebutton" onClick={this.burger_function}>
                             <img src={closeicon} alt=""/>
                         </div>
-                        <li className="navlink"><a href="#">Xyz</a></li>
-                        <li className="navlink"><a href="#">Xyz</a></li>
-                        <li className="navlink"><a href="#">Xyz</a></li>
-                        <li className="navlink"><a href="#"></a></li>
+                        <li className="navlink"><a href="/auth/">Profile</a></li>
+                        <li className="navlink"><a href="/order/orderList">Orders</a></li>
+                        <li className="navlink"><a href="/cart/">Cart</a></li>
+                        <li className="navlink"><a href="/Settings">Settings</a></li>
+                        <li className="navlink"><a href="/AboutUs">About us</a></li>
+                        <li className="navlink"><a href="/ContactUs">Contact us</a></li>
+                        {this.props.Gstate.login=== true &&
+                        <Logout logout={this.props.logout} />
+                        }
+
                     </ul>
 
 

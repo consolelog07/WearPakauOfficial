@@ -78,16 +78,25 @@ class CartOperationsViewset(viewsets.ModelViewSet):
         if z !=True:
             print(z)
             return z
-
+        print(z)
         try:
             product_id = data["id"]
         except Exception as e:
             return Response({"error": "id not provided"})
 
         try:
-            QrJson = q.json
+            QrJson = data["QrJson"]
         except Exception as e:
             return Response({"error": "QrJson not provided"})
+
+        print(q.reJson==QrJson,"equsl or not equal")
+        # print(QrJson)
+
+
+        # try:
+        #     QrJson = q.reJson
+        # except Exception as e:
+        #     return Response({"error": "QrJson not provided"})
 
         try:
             Quantity = data["Quantity"]
@@ -123,7 +132,7 @@ class CartOperationsViewset(viewsets.ModelViewSet):
         # print("BBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
         try:
             for x in b.products.all():
-                print(x.Product.id == a.id, x.QrJson == QrJson, x.Product.id, a.id)
+                # print(x.Product.id == a.id, x.QrJson == QrJson,x.QrJson ,"dd", QrJson, x.Product.id, a.id)
                 if x.Product.id == a.id and x.QrJson == QrJson and x.size == size:
                     if x.Quantity != Quantity:
                         x.Quantity = Quantity
@@ -192,10 +201,11 @@ class CartOperationsViewset(viewsets.ModelViewSet):
 
 
 
-# print("BBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+        # print("BBBBBBBBBBBBBBBBBBBBBBBBBBBBB",a)
         try:
             for x in b.products.all():
-                # print(x.Product.id == a.id,x.QrPattern_Image.id == c,x.Icon == Icon,x.Product.id,a.id,x.QrPattern_Image.id,c,x.Icon,Icon)
+                print(x.Product.id == a.id, x.QrJson == QrJson,x.QrJson ,"dd", QrJson, x.Product.id, a.id)
+                # print( x.Product.id == a.id , x.QrJson == QrJson , x.size == size)
                 if x.Product.id == a.id and x.QrJson == QrJson and x.size == size:
                     b.products.remove(x)
                     x.delete()

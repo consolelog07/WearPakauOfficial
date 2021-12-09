@@ -12,9 +12,15 @@ export default function  Modalqr(props) {
         color2:""
 
     })
+    const [err,setErr]=useState({
+        err:false,
+        errmsg:""
+    })
+
     // console.log(props.qroptions)
     //setStateQr
     return <>
+
         <div className="modalcontainer" style={{display:"block"}}>
             <div className="closemodal" onClick={props.setmodalFalse}>
                 <img src={closeicon} alt=""/>
@@ -85,14 +91,17 @@ export default function  Modalqr(props) {
                     <div className="selectstyle">
                         <label className="select" htmlFor="slct">
                             <select id="slct" required="required" onChange={ev=>{
+                                if (ev.target.value==="")
+                                {
+
+                                }
                                 props.setStateQr({options:{...props.qroptions,cornersSquareOptions: {...props.qroptions.cornersSquareOptions,type:ev.target.value}}})
                                 console.log(ev.target.value)
                             }
                             } >
-                                <option value="" disabled="disabled" selected="selected">
+                                <option value="" disabled="disabled"  hidden selected="selected">
                                     Select corner square style
                                 </option>
-                                <option value="">None</option>
                                 <option value="dot">Dot</option>
                                 <option value="square">Square</option>
                                 <option value="extra-rounded">Extra rounded</option>
@@ -140,10 +149,9 @@ export default function  Modalqr(props) {
                                 console.log(ev.target.value)
                             }
                             } >
-                                <option value="" disabled="disabled" selected="selected">
+                                <option value="" disabled="disabled" hidden selected="selected">
                                     Select Corners Dot Option
                                 </option>
-                                <option value="">None</option>
                                 <option value="dot">Dot</option>
                                 <option value="square">Square</option>
                                 <option value="extra-rounded">Extra rounded</option>

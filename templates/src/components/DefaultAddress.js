@@ -66,7 +66,7 @@ export default function DefaultAddress(props)
                 <Address_Create Gstate={props.Gstate} SGstate={props.SGstate}
                                 Title={"Add Billing Address"}
                                 default={true}
-                                success_nav_to="/auth/DefaultAddress/"
+                                success_nav_to="/auth/"
                                 redirect={true}
                                 default_address_={state.result}
                                 no_result={state.no_result}

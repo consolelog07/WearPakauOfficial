@@ -22,6 +22,8 @@ class Ordered_User_productsmodeladmin(admin.ModelAdmin):
     search_fields = ['unique_u14']
     list_filter = ["activated","Suspended","Product","size"]
     readonly_fields = ["unique_u14",
+                       "orderedByuser",
+                       "orderedBID",
                        "QrJson",
                        "activationCode",
                        "Oup_url",

@@ -97,8 +97,8 @@ export default function LoginView(props)
                         <span className="forgotpass">
                         <a href="/auth/emailverifysent/">activate account?
                         </a></span>}
-                        <span className="privacynotice"><p>By continuing, you agree to Wear Pakau's <a href="">Terms and Condition </a>and<a
-                            href=""> Privacy Policy.</a></p></span>
+                        <span className="privacynotice"><p>By continuing, you agree to Wear Pakau's <a href="/TermsAndConditionAndPrivacyPolicy">Terms and Condition </a>and<a
+                            href="/TermsAndConditionAndPrivacyPolicy"> Privacy Policy.</a></p></span>
                         <span className="forgotpass"><a href="/auth/password_reset/">Forgot password?</a></span>
                         <span className="alreadyhaveacc"><p>Don't have an account? <a href="/auth/Createuser/">Sign Up</a></p></span>
                     </form>

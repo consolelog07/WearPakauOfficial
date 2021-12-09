@@ -63,6 +63,8 @@ class Ordered_User_products_Viewset(
             # logger log issue
             return Response({"error":"such product doesnot exist"})
 
+
+
         if product.user == None:
             logger.info(f'{request.user.email} activated succesfully {product_id}')
             product.user=request.user
@@ -128,5 +130,34 @@ class Ordered_User_products_Viewset(
         else:
             logger.error(f'{request.user.email} url blocked {url} {product_id}')
             return Response({"error":"url Updation failed invalid url domain blocked"})
+
+    @action(detail=False, methods=['Post'])
+    def GetDetailsOfProject(self,request, *args, **kwargs):
+        data = request.data
+        try:
+            product_id = data["uuid"]
+        except Exception as e:
+            return Response({"error": "uuid not provided"})
+
+
+        try:
+            product=Ordered_User_products.objects.get(unique_u14=product_id)
+        except Ordered_User_products.DoesNotExist:
+            logger.info(f'{request.user.email} DoesNotExist {product_id}')
+            return Response({"error":"such product doesnot exist"})
+        except Ordered_User_products.MultipleObjectsReturned:
+            logger.error(f'{request.user.email} MultipleObjectsReturned {product_id}')
+            # logger log issue
+            return Response({"error":"such product doesnot exist"})
+        except Exception as e:
+            logger.error(f'{request.user.email} {Exception} {product_id}')
+            # logger log issue
+            return Response({"error":"such product doesnot exist"})
+
+
+        serializer = self.get_serializer(product)
+
+        return Response({"success":serializer.data})
+
 
 

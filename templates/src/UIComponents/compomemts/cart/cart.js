@@ -1,9 +1,11 @@
 import React from "react";
 import "./../../style/cart.css";
 import mcart from "../../stylemodules/cart.module.css";
+import mcart_2 from "../../stylemodules/emptycart.module.css";
 import getCookie from "../../../components/getcooke";
 import CartProductCard from "./CartProductCard";
 import {add_to_cart} from "./cartfunctions";
+import emptycart from "../../../images/emptycart.svg"
 
 import CustomizedSnackbars from "../alert";
 import {Chip} from "@material-ui/core";
@@ -297,13 +299,24 @@ export default class Cart extends React.Component
                 }
                 {this.state.err  &&  <CustomizedSnackbars message={`${this.state.err_msg}`}  severity="error" />}
 
-
+                <h2 className={mcart.carthead}>Cart</h2>
                 <div className={mcart.cartpagecontainer}>
                     <div className={mcart.productcontainer}>
 
 
                         {[].forEach(ev=>{console.log("dd")})    }
-                        {this.state.products.length === 0 ?<>empty</>:<>
+                        {this.state.products.length === 0 ?<>
+
+                            <div className={mcart_2.container}>
+                                <div className={mcart_2.imgcontainer}>
+                                    <img src={emptycart} alt="" />
+                                </div>
+                                <h2 className="cartheading">Your cart is empty</h2>
+
+                            </div>
+
+
+                            </>:<>
                             {this.state.
                             products.map
                             (ev=><CartProductCard  wrapper={ev} add_to_cart={this.add_to_cart}  setStateQr={this.setStateQr}/>

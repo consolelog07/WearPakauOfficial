@@ -12,10 +12,10 @@ from django.shortcuts import reverse
 
 urlpatterns = [
     path('',BaseReactfile.as_view(),name="Landing"),
-    path('/ContactUs',BaseReactfile.as_view(),name="ContactUs"),
-    path('/AboutUs',BaseReactfile.as_view(),name="AboutUs"),
-    path('/TermsAndConditionAndPrivacyPolicy',BaseReactfile.as_view(),name="TermsAndConditionAndPrivacyPolicy"),
-    path('/Settings',BaseReactfile.as_view(),name="Settings"),
+    path('ContactUs',BaseReactfile.as_view(),name="ContactUs"),
+    path('AboutUs',BaseReactfile.as_view(),name="AboutUs"),
+    path('TermsAndConditionAndPrivacyPolicy',BaseReactfile.as_view(),name="TermsAndConditionAndPrivacyPolicy"),
+    path('Settings',BaseReactfile.as_view(),name="Settings"),
     path('auth/',include(authurlpatterns),name="authurlpatterns"),
     path('product/',include(producturlpattern),name="producturlpattern"),
     path('cart/',include(carturlpattern),name="carturlpattern"),

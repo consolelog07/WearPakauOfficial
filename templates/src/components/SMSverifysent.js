@@ -38,7 +38,7 @@ export default function  SMSverifysent(props)
 
                     {created &&
                     <>
-                        {console.log(setTimeout(ev=>{window.location.href="/auth/SMSverifyconform/"},4000))}
+                        {console.log(setTimeout(ev=>{window.location.href="/auth/SMSverifyconform/"},2000))}
                         <CustomizedSnackbars message="Otp Sent sucesfully"  severity="success" />
                     </>}
 

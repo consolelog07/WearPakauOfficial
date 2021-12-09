@@ -899,10 +899,16 @@ export default class Globalauth extends React.Component
 
         }
 
+        if(this.send_to_verify_Basic_detail() === false && this.send_to_verify_phone_number() == true && window.addressSet !== "True"  && window.addressSet !== "" && window.location.href.search("/auth/DefaultAddress/" )=== -1)
+        {
+            window.location.href="/auth/DefaultAddress/"
+            console.log("ssssssssssssssssssssssss")
+        }
+
 
         return <>
             <Router>
-                <NavBar  />
+                <NavBar  logout={this.logout} Gstate={this.state} />
                 <Switch>
 
 

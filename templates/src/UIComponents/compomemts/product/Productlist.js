@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import "../../style/productlist.css"
 import mlist from "../../stylemodules/productlist.module.css"
 import getCookie from "../../../components/getcooke";
+import mmsr from "../../stylemodules/emptycart.module.css"
+import emptysearch from "../../../images/emptysearch.svg"
 
 export default function Productlist(props)
 {
@@ -213,15 +215,22 @@ export default function Productlist(props)
                 {error &&
 
 
-                <h1>Blank Search result</h1>
+                <div className={mmsr.container}>
+                    <div className={mmsr.imgcontainer}>
+                        <img src={emptysearch} alt="" />
+                    </div>e
+                    <h2 className="cartheading">Nothing's here</h2>
 
+                </div>
 
                 }
                 </>}
 
 
             </>}
-            <button onClick={render_next}>next</button>
+            {dynamicRender.nextPossible &&
+            <button onClick={render_next}>next</button> }
+
         </div>
 
 

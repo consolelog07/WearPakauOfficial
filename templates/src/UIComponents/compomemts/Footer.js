@@ -22,18 +22,18 @@ export default class Footer extends React.Component
                     <div className="footercol1">
                         <h3 className="footercoltitle">CUSTOMER SERVICE</h3>
                         <ul className="footercollinklist">
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">Track Order</a></li>
-                            <li><a href="#">Return Order</a></li>
-                            <li><a href="#">Cancel Order</a></li>
+                            <li><a href="/ContactUs">Contact Us</a></li>
+                            <li><a href="/order/orderList">Track Order</a></li>
+                            <li><a href="/order/orderList">Return Order</a></li>
+                            <li><a href="/order/orderList">Cancel Order</a></li>
                         </ul>
                     </div>
                     <div className="footercol2">
                         <h3 className="footercoltitle">COMPANY</h3>
                         <ul className="footercollinklist">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Terms & Condition</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="/AboutUs">About Us</a></li>
+                            <li><a href="/TermsAndConditionAndPrivacyPolicy">Terms & Condition</a></li>
+                            <li><a href="/TermsAndConditionAndPrivacyPolicy">Privacy Policy</a></li>
                         </ul>
                     </div>
                     <div className="footercol3">

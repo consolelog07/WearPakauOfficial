@@ -23,14 +23,16 @@ export default function CartProductCard(props)
 
     async function  remove (setState,id,QrJson,size)
     {
-        if(typeof(QrJson) !== typeof ({}))
-        {
-            return false
-        }
-
-
-        QrJson={...QrJson, width:157,height:165,margin:10}
-        QrJson=JSON.stringify(QrJson)
+        // if(typeof(QrJson) !== typeof ({}))
+        // {
+        //     return false
+        // }
+        //
+        //
+        // QrJson={...QrJson, width:157,height:165,margin:10}
+        // QrJson=JSON.stringify(QrJson)
+        console.log(QrJson,props.wrapper.QrJson,QrJson===props.wrapper.QrJson)
+        alert(QrJson===props.wrapper.QrJson)
         let req = new Request(`/Api/Cart/Cart/remove/`, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
             credentials: 'include', //when will the cookies and authorization header be sent
@@ -99,7 +101,7 @@ export default function CartProductCard(props)
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
-                    <option value="6">6</option>
+                  <option value="6">6</option>
                   <option value="7">7</option>
                   <option value="8">8</option>
 
@@ -108,7 +110,7 @@ export default function CartProductCard(props)
               <button className={mcart.removeproduct}
                       onClick={ev=>{
                           props.setStateQr({err:false,err_msg:"",cartAttempt:true})
-                          remove(props.setStateQr,props.wrapper.Product.id,QrJson,props.wrapper.size)
+                          remove(props.setStateQr,props.wrapper.Product.id,props.wrapper.QrJson,props.wrapper.size)
                       }}
               >Remove</button>
             </span>

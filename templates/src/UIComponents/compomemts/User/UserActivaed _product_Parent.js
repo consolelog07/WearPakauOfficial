@@ -68,7 +68,7 @@ export default function Activates_parent(props)
         })
 
 
-        console.log(response)
+        // console.log(response)
 
         if (Reflect.has(response,"detail"))
         {
@@ -130,6 +130,10 @@ export default function Activates_parent(props)
 
                     })}
                     </>}
+
+                {
+                    state.next_possible && <button className="accordion" onClick={increment}>next</button>
+                }
 
             </div>
 

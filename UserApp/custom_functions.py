@@ -1,13 +1,13 @@
 import logging
 
 import requests
-from django.core.mail import EmailMultiAlternatives
+from django.core.mail import EmailMultiAlternatives, EmailMessage
 from django.template.loader import render_to_string
 from django.urls import reverse
 from rest_framework.response import Response
 
 from UserApp.models import User
-from WearPakauOfficial.settings import EMAIL_HOST_USER
+from WearPakauOfficial.settings import EMAIL_HOST_USER, Templateid_1
 
 logger = logging.getLogger('console')
 
@@ -61,36 +61,74 @@ def list_user_content_only(self, request, *args, **kwargs):
     return Response(serializer.data)
 
 def email_verfy_core(email, host):
+    print("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
     try:
         user = User.objects.get(email=email)
-
+        q=user.email_token_dateTime_expire
         a = user.create_email_Token()
         user.save()
 
         if a == True:
+            print('jjjjjibbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb')
             context = {
                 'current_user': user,
                 'email': user.email,
                 'reset_password_url': "{}{}?token={}".format(host,
                                                              reverse('emailverifyconform'),
-                                                             user.email_token)
+                                                             user.email_token),
+                "Weblink":"{}{}?token={}".format(host,
+                                                 reverse('emailverifyconform'),
+                                                 user.email_token)
             }
 
-            email_html_message = render_to_string('email/user_reset_password.html', context)
-            email_plaintext_message = render_to_string('email/user_reset_password.txt', context)
+            # email_html_message = render_to_string('email/user_reset_password.html', context)
+            # email_plaintext_message = render_to_string('email/user_reset_password.txt', context)
 
-            msg = EmailMultiAlternatives(
-                # title:
-                "Password Reset for {title}".format(title="Some website title"),
-                # message:
-                email_plaintext_message,
-                # from:
-                EMAIL_HOST_USER,
-                # to:
-                [user.email]
+            # msg = EmailMessage(
+            #     from_email=EMAIL_HOST_USER,
+            #     to=[user.email.user.email],
+            # )
+            # msg.template_id = Templateid_1
+            # msg.dynamic_template_data = context
+            # msg.send(fail_silently=False)
+
+            # msg.attach_alternative(email_html_message, "text/html")
+            # msg.send()
+
+            msg = EmailMessage(
+                from_email=EMAIL_HOST_USER,
+                to=[user.email],
             )
-            msg.attach_alternative(email_html_message, "text/html")
-            msg.send()
+            print("{}{}?token={}".format(host,
+                                         reverse('emailverifyconform'),
+                                         user.email_token),"jjjjjjr")
+            msg.template_id = Templateid_1
+            msg.dynamic_template_data = {"Weblink":"{}{}?token={}".format(host,
+                                                                          reverse('emailverifyconform'),
+                                                                          user.email_token)}
+
+            z = 0
+            try:
+                z=msg.send(fail_silently=False)
+            except Exception as e:
+                print(e)
+            if z != 1:
+                user.email_token_dateTime_expire=q
+                user.save()
+
+            print(z,"hhhhfff")
+            # msg = EmailMultiAlternatives(
+            #     # title:
+            #     "Password Reset for {title}".format(title="Some website title"),
+            #     # message:
+            #     email_plaintext_message,
+            #     # from:
+            #     EMAIL_HOST_USER,
+            #     # to:
+            #     [user.email]
+            # )
+            # msg.attach_alternative(email_html_message, "text/html")
+            # msg.send()
 
             return Response({'success': f'email sent '})
         else:
@@ -100,6 +138,9 @@ def email_verfy_core(email, host):
         return Response({'error': 'email does not exist'})
     except Exception as e:
         print(e)
+        user = User.objects.get(email=email)
+        user.email_token_dateTime_expire=q
+        user.save()
         return Response({'error': 'some unexpected error'})
 
 

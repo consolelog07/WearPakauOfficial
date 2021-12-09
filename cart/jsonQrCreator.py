@@ -27,6 +27,8 @@ class jsonQrCreator:
     cornersDotOptions_color = "#222222"
     cornersDotOptions_type = "dot"
 
+
+
     colorregex = RegexValidator(
         regex='^#(?:[0-9a-fA-F]{3}){1,2}$',
         message='color hex invalid',
@@ -141,20 +143,20 @@ class jsonQrCreator:
                 return Response({"error": f'image url  not valid'})
 
     def verify_dotsOptions_type(self, type):
-        if type in ["square", "dots", "rounded", "extra-rounded", "classy", "classy-rounded"]:
+        if type in ["square", "dots", "rounded", "extra-rounded", "classy", "classy-rounded",""]:
             return True
         else:
             return Response({
                 "error": 'dotsOptions_type not in "square","dots","rounded","extra-rounded","classy","classy-rounded"'})
 
     def verify_cornersDotOptions_type(self, type):
-        if type in ["dot", "square", "extra-rounded"]:
+        if type in ["dot", "square", "extra-rounded",""]:
             return True
         else:
             return Response({"error": 'cornersDotOptions_type not in "dot","square","extra-rounded"'})
 
     def verify_cornersSquareOptions_type(self, type):
-        if type in ["dot", "square", "extra-rounded"]:
+        if type in ["dot", "square", "extra-rounded",""]:
             return True
         else:
             return Response({"error": 'cornersSquareOptions_type not in "dot","square","extra-rounded"'})
@@ -169,22 +171,23 @@ class jsonQrCreator:
     def setValues(self, image="", dotsOptions_color="", dotsOptions_type="", backgroundOptions_color="",
                   cornersSquareOptions_color="", cornersSquareOptions_type="", cornersDotOptions_color="",
                   cornersDotOptions_type=""):
-        if image != "":
-            self.image = image
-        if dotsOptions_color != "":
-            self.dotsOptions_color = dotsOptions_color
-        if dotsOptions_type != "":
-            self.dotsOptions_color = dotsOptions_type
-        if backgroundOptions_color != "":
-            self.backgroundOptions_color = backgroundOptions_color
-        if cornersSquareOptions_color != "":
-            self.cornersSquareOptions_color = cornersSquareOptions_color
-        if cornersSquareOptions_type != "":
-            self.cornersSquareOptions_type = cornersSquareOptions_type
-        if cornersDotOptions_color != "":
-            self.cornersDotOptions_color = cornersDotOptions_color
-        if cornersDotOptions_type != "":
-            self.cornersDotOptions_type = cornersDotOptions_type
+
+        print(image,
+        dotsOptions_color,
+        dotsOptions_type,
+        backgroundOptions_color,
+        cornersSquareOptions_color,
+        cornersSquareOptions_type,
+        cornersDotOptions_color,
+        cornersDotOptions_type)
+        self.image = image
+        self.dotsOptions_color = dotsOptions_color
+        self.dotsOptions_type = dotsOptions_type
+        self.backgroundOptions_color = backgroundOptions_color
+        self.cornersSquareOptions_color = cornersSquareOptions_color
+        self.cornersSquareOptions_type = cornersSquareOptions_type
+        self.cornersDotOptions_color = cornersDotOptions_color
+        self.cornersDotOptions_type = cornersDotOptions_type
 
     def checkinputs(self, image="", dotsOptions_color="", dotsOptions_type="", backgroundOptions_color="",
                     cornersSquareOptions_color="", cornersSquareOptions_type="", cornersDotOptions_color="",
@@ -205,7 +208,7 @@ class jsonQrCreator:
                  "errorCorrectionLevel": 'Q'
              },
              "imageOptions": {
-                 "hideBackgroundDots": True,
+                 "hideBackgroundDots": False,
                  "imageSize": 0.4,
                  "crossOrigin": 'anonymous',
              },
@@ -227,21 +230,52 @@ class jsonQrCreator:
              }}
         print(a)
         return json.dumps(q)
+
+    @property
+    def reJson(self):
+
+        a={
+            "width": 300,
+            "height": 300,
+            "type": "svg",
+            "data": "http://qr-code-styling.com",
+            "image": self.image,
+            "margin": 1,
+            "qrOptions": {
+                "typeNumber": 0,
+                "mode": "Byte",
+                "errorCorrectionLevel": "Q"
+            },
+            "imageOptions": {
+                "hideBackgroundDots": True,
+                "imageSize": 0.4,
+                "crossOrigin": "anonymous"
+            },
+            "dotsOptions": {
+                "color": self.dotsOptions_color,
+                "type": self.dotsOptions_type
+            },
+            "backgroundOptions": {
+                "color": self.backgroundOptions_color
+            },
+            "cornersSquareOptions": {
+                "color":self.cornersSquareOptions_color,
+                "type": self.cornersSquareOptions_type
+            },
+            "cornersDotOptions": {
+                "color": self.cornersDotOptions_color,
+                "type": self.cornersDotOptions_type
+            }
+        }
+        return json.dumps(a)
     @property
     def json(self):
-        return '{"width":157,"height":165,"type":"svg","data":"' + self.data + '","image":"' + self.image + '","margin":1,"qrOptions":{"typeNumber":0,"mode":"Byte","errorCorrectionLevel":"Q"},"imageOptions":{"hideBackgroundDots":true,"imageSize":0.4,"crossOrigin":"anonymous"},"dotsOptions":{"color":"' + self.dotsOptions_color + \
-               '","type":"' + self.dotsOptions_type + \
-               '"},"backgroundOptions":{"color":"' + self.backgroundOptions_color + \
-               '"},"cornersSquareOptions":{"color":"' + self.cornersSquareOptions_color + \
-               '","type":"' + self.cornersSquareOptions_type + \
-               '"},"cornersDotOptions":{"color":"' + self.cornersDotOptions_color + \
-               '","type":"' + self.cornersDotOptions_type + \
-               '"}}'
+        return '{"width":300,"height":300,"type":"svg","data":"' + self.data + '","image":"' + self.image + '","margin":1,"qrOptions":{"typeNumber":0,"mode":"Byte","errorCorrectionLevel":"Q"},"imageOptions":{"hideBackgroundDots":true,"imageSize":0.4,"crossOrigin":"anonymous"},"dotsOptions":{"color":"' + self.dotsOptions_color +'","type":"' + self.dotsOptions_type + '"},"backgroundOptions":{"color":"' + self.backgroundOptions_color + '"},"cornersSquareOptions":{"color":"' + self.cornersSquareOptions_color +'","type":"' + self.cornersSquareOptions_type + '"},"cornersDotOptions":{"color":"' + self.cornersDotOptions_color + '","type":"' + self.cornersDotOptions_type +'"}}'
 
 
     def __str__(self):
 
-        return '{"width":157,"height":165,"type":"svg","data":"' + self.data + '","image":"' + self.image + '","margin":1,"qrOptions":{"typeNumber":0,"mode":"Byte","errorCorrectionLevel":"Q"},"imageOptions":{"hideBackgroundDots":true,"imageSize":1,"crossOrigin":"anonymous"},"dotsOptions":{"color":"' + self.dotsOptions_color + \
+        return '{"width":300,"height":300,"type":"svg","data":"' + self.data + '","image":"' + self.image + '","margin":1,"qrOptions":{"typeNumber":0,"mode":"Byte","errorCorrectionLevel":"Q"},"imageOptions":{"hideBackgroundDots":true,"imageSize":1,"crossOrigin":"anonymous"},"dotsOptions":{"color":"' + self.dotsOptions_color + \
                '","type":"' + self.dotsOptions_type + \
                '"},"backgroundOptions":{"color":"' + self.backgroundOptions_color + \
                '"},"cornersSquareOptions":{"color":"' + self.cornersSquareOptions_color + \

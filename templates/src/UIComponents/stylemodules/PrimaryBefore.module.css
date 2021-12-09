@@ -1,0 +1,61 @@
+.productactivatecontainer {
+    width: 100%;
+}
+
+.productactivatecontainer .uppercontainer {
+    text-align: center;
+}
+
+.productactivatecontainer .uppercontainer .imgcontainer {
+    margin-top: 20px;
+}
+
+.productactivatecontainer .uppercontainer .activatebtn {
+    background-color: #a878d8;
+    outline: none;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.productactivatecontainer .lowercontainer {
+    border: 1px solid #a878d8;
+    border-radius: 15px;
+    margin: 20px 10px;
+    position: relative;
+    padding: 20px 20px;
+}
+
+.productactivatecontainer .lowercontainer .exclamationcontainer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.productactivatecontainer .lowercontainer .cardhead {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+.productactivatecontainer .lowercontainer .cardlist {
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+.productactivatecontainer .lowercontainer .cardlist li {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+
+.card{
+
+}
+/*# sourceMappingURL=activateproduct.css.map */

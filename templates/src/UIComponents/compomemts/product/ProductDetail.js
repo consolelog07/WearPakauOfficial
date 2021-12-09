@@ -49,7 +49,7 @@ class ProdctDetail extends React.Component
                     errorCorrectionLevel: 'Q'
                 },
                 imageOptions: {
-                    hideBackgroundDots: true,
+                    hideBackgroundDots: false,
                     imageSize: 0.4,
                     // margin: 20,
                     crossOrigin: 'anonymous',

@@ -4,6 +4,6 @@ import JsonTOQr from "../JsonToQr";
 export default function Landing ()
 {
     return<>
-        <JsonTOQr />
+        {/*<JsonTOQr />*/}
     </>
 }

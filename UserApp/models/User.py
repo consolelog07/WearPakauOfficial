@@ -1,4 +1,5 @@
 from datetime import timedelta
+from django.core.mail import EmailMessage
 
 from django.core.exceptions import ValidationError
 from django.utils import timezone
@@ -21,7 +22,7 @@ import math, random
 
 from phonenumber_field.validators import validate_international_phonenumber
 
-from WearPakauOfficial.settings import EMAIL_HOST_USER
+from WearPakauOfficial.settings import EMAIL_HOST_USER, Templateid_2
 
 
 class UserManager(BaseUserManager):
@@ -128,7 +129,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         print(timezone.now() > self.email_token_dateTime_expire, timezone.now(), self.email_token_dateTime_expire)
         if timezone.now() > self.email_token_dateTime_expire:
             self.email_token = get_random_string(length=20)
-            self.email_token_dateTime_expire = timezone.now() + timezone.timedelta(seconds=600)
+            self.email_token_dateTime_expire = timezone.now() + timezone.timedelta(seconds=60)
             return True
         else:
             return False
@@ -179,26 +180,37 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
     """
     # send an e-mail to the user
     context = {
-        'current_user': reset_password_token.user,
+        'current_user': f"{reset_password_token.user.First_name}",
         'email': reset_password_token.user.email,
-        'reset_password_url': "{}?token={}".format(
+        'Weblink': "{}?token={}".format(
             instance.request.build_absolute_uri(reverse('reset-password-confirm-frontend')),
-            reset_password_token.key)
+            reset_password_token.key),
     }
-    print(reverse('reset-password-confirm-frontend'))
+    # print(reverse('reset-password-confirm-frontend'))
     # render email text
-    email_html_message = render_to_string('email/user_reset_password.html', context)
-    email_plaintext_message = render_to_string('email/user_reset_password.txt', context)
+    # email_html_message = render_to_string('email/user_reset_password.html', context)
+    # email_plaintext_message = render_to_string('email/user_reset_password.txt', context)
+    # msg = EmailMultiAlternatives(
+    #     # title:
+    #     "Password Reset for {title}".format(title="WearPakau"),
+    #     # message:
+    #     email_plaintext_message,
+    #     # from:
+    #     EMAIL_HOST_USER,
+    #     # to:
+    #     [reset_password_token.user.email]
+    # )
 
-    msg = EmailMultiAlternatives(
-        # title:
-        "Password Reset for {title}".format(title="WearPakau"),
-        # message:
-        email_plaintext_message,
-        # from:
-        EMAIL_HOST_USER,
-        # to:
-        [reset_password_token.user.email]
+    msg = EmailMessage(
+        from_email=EMAIL_HOST_USER,
+        to=[reset_password_token.user.email],
     )
-    msg.attach_alternative(email_html_message, "text/html")
-    msg.send()
+    msg.template_id = Templateid_2
+    msg.dynamic_template_data = {'Weblink': "{}?token={}".format(
+        instance.request.build_absolute_uri(reverse('reset-password-confirm-frontend')),
+        reset_password_token.key),
+    }
+    try:
+        msg.send(fail_silently=False)
+    except Exception as e:
+        print(e)

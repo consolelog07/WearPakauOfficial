@@ -1,0 +1,532 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap");
+.productdetailcontainer {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    height: 80vh;
+}
+
+.productdetailcontainer .productcarousel {
+    height: 90%;
+}
+
+.productdetailcontainer .productcarousel img {
+    height: 100%;
+}
+
+.productdetailcontainer .productinfo {
+    width: 50%;
+    height: 100%;
+    display: block;
+    padding-top: 4%;
+}
+
+.productdetailcontainer .productinfo h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+.productdetailcontainer .productinfo .productid,
+.productdetailcontainer .productinfo .orderid,
+.productdetailcontainer .productinfo .orderby,
+.productdetailcontainer .productinfo .ownedby,
+.productdetailcontainer .productinfo .activatedon,
+.productdetailcontainer .productinfo .price {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    margin: 10px 0 10px 0;
+}
+
+.productdetailcontainer .productinfo .productid span,
+.productdetailcontainer .productinfo .orderid span,
+.productdetailcontainer .productinfo .orderby span,
+.productdetailcontainer .productinfo .ownedby span,
+.productdetailcontainer .productinfo .activatedon span,
+.productdetailcontainer .productinfo .price span {
+    color: #a878d8;
+}
+
+.productdetailcontainer .productinfo .pricing {
+    margin: 10px 0 0 0;
+}
+
+.productdetailcontainer .productinfo .pricing span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.productdetailcontainer .productinfo .qunatitycustombox {
+    margin-top: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.productdetailcontainer .productinfo .qunatitycustombox .quantityselector {
+    cursor: pointer;
+    background: #a878d8;
+    color: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.productdetailcontainer .productinfo .qunatitycustombox .quantityselector span {
+    color: #f0d8f0;
+}
+
+.productdetailcontainer .productinfo .qunatitycustombox .quantityselector select {
+    cursor: pointer;
+    border: none;
+    background: #a878d8;
+    color: #f0d8f0;
+}
+
+.productdetailcontainer .productinfo .qunatitycustombox .quantityselector select option {
+    color: #f0d8f0;
+    cursor: pointer;
+    background: #a878d8;
+}
+
+.productdetailcontainer .productinfo .qunatitycustombox .customiseproduct {
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    color: #f0d8f0;
+    background-color: #a878d8;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.productdetailcontainer .productinfo .buycart {
+    margin-top: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.productdetailcontainer .productinfo .buycart .buy {
+    font-size: 20px;
+    background-color: #a878d8;
+    color: #f0d8f0;
+    padding: 10px 25px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.productdetailcontainer .productinfo .buycart .addtocart {
+    font-size: 20px;
+    border: 2px solid #a878d8;
+    cursor: pointer;
+    background-color: transparent;
+    color: #9060a8;
+    padding: 7px 20px;
+    border-radius: 5px;
+    outline: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+.productdetailcontainer .productinfo .buycart .addtocart:hover {
+    background-color: #a878d8;
+    color: #f0d8f0;
+}
+
+.productdetailcontainer .productinfo .detailqrbox {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.modalcontainer {
+    display: none;
+    position: fixed;
+    width: 80%;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0px 0px 30px 10px;
+    min-height: 90vh;
+    /* width */
+    /* Track */
+    /* Handle */
+    /* Handle on hover */
+}
+
+.modalcontainer ::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modalcontainer ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modalcontainer ::-webkit-scrollbar-thumb {
+    background: #d8a8d8;
+}
+
+.modalcontainer ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.modalcontainer .qrboxcontainer {
+    width: 90%;
+    max-width: 600px;
+    margin: 15px auto 5px auto;
+}
+
+.modalcontainer .qrboxcontainer div {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.modalcontainer .modalbtncontainer {
+    float: right;
+    margin-top: 1rem;
+}
+
+.modalcontainer .modalbtncontainer .cancelcustomisation {
+    padding: 0.4rem 1.3rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    outline: none;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.modalcontainer .modalbtncontainer .donecustomisation {
+    padding: 0.4rem 1.3rem;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    outline: none;
+    background-color: #a878d8;
+    border: 1px solid #a878d8;
+    cursor: pointer;
+    margin-right: 1rem;
+    color: #f0d8f0;
+}
+
+.modalcontainer .modalbtncontainer .donecustomisation:hover {
+    color: white;
+}
+
+.modalcontainer .closemodal {
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    background-color: black;
+    border-radius: 0 5px 0 5px;
+}
+
+.modalcontainer .closemodal img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.modalcontainer .customqrhead {
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    margin: 10px 0 10px 10px;
+    font-weight: 400;
+}
+
+.modalcontainer .collapsiblecontainer {
+    width: 90%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    height: 300px;
+    overflow-y: scroll;
+    overflow-x: none;
+}
+
+.modalcontainer .collapsiblecontainer details div {
+    border-left: 2px solid #000;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    padding: 1.5em;
+    font-family: "Montserrat", sans-serif;
+}
+
+.modalcontainer .collapsiblecontainer details div > * + * {
+    margin-top: 1.5em;
+}
+
+.modalcontainer .collapsiblecontainer details + details {
+    margin-top: 0.5rem;
+}
+
+.modalcontainer .collapsiblecontainer summary {
+    list-style: none;
+}
+
+.modalcontainer .collapsiblecontainer summary::-webkit-details-marker {
+    display: none;
+}
+
+.modalcontainer .collapsiblecontainer summary {
+    border: 2px solid #000;
+    padding: 0.75em 1em;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+    position: relative;
+    padding-left: calc(1.75rem + 0.75rem + 0.75rem);
+}
+
+.modalcontainer .collapsiblecontainer summary:before {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0.75rem;
+    content: "↓";
+    width: 1.75rem;
+    height: 1.75rem;
+    background-color: #000;
+    color: #fff;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+}
+
+.modalcontainer .collapsiblecontainer details[open] summary {
+    background-color: #eee;
+}
+
+.modalcontainer .collapsiblecontainer details[open] summary:before {
+    content: "↑";
+}
+
+.modalcontainer .collapsiblecontainer summary:hover {
+    background-color: #eee;
+}
+
+.modalcontainer .collapsiblecontainer a {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    -webkit-box-shadow: 0 1px 0 0;
+    box-shadow: 0 1px 0 0;
+}
+
+.modalcontainer .collapsiblecontainer a:hover {
+    -webkit-box-shadow: 0 3px 0 0;
+    box-shadow: 0 3px 0 0;
+}
+
+.modalcontainer .collapsiblecontainer .selectstyle .select {
+    position: relative;
+    min-width: 200px;
+}
+
+.modalcontainer .collapsiblecontainer .selectstyle .select svg {
+    position: absolute;
+    right: 12px;
+    top: calc(50% - 3px);
+    width: 10px;
+    height: 6px;
+    stroke-width: 2px;
+    stroke: #9098a9;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
+}
+
+.modalcontainer .collapsiblecontainer .selectstyle .select select {
+    -webkit-appearance: none;
+    padding: 7px 40px 7px 12px;
+    width: 100%;
+    border: 1px solid #e8eaed;
+    border-radius: 5px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 3px -2px #9098a9;
+    box-shadow: 0 1px 3px -2px #9098a9;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    -webkit-transition: all 150ms ease;
+    transition: all 150ms ease;
+}
+
+.modalcontainer .collapsiblecontainer .selectstyle .select select:required:invalid {
+    color: #5a667f;
+}
+
+.modalcontainer .collapsiblecontainer .selectstyle .select select option {
+    color: #223254;
+}
+
+.modalcontainer .collapsiblecontainer .selectstyle .select select option[value=""][disabled] {
+    display: none;
+}
+
+.modalcontainer .collapsiblecontainer .selectstyle .select select:focus {
+    outline: none;
+    border-color: #07f;
+    -webkit-box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+    box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+}
+
+.modalcontainer .collapsiblecontainer .selectstyle .select select:hover + svg {
+    stroke: #07f;
+}
+
+.modalcontainer .collapsiblecontainer .selectstyle .sprites {
+    position: absolute;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .productdetailcontainer .productcarousel {
+        height: 80%;
+    }
+    .productdetailcontainer .productinfo {
+        padding-top: 3%;
+    }
+    .productdetailcontainer .productinfo h1 {
+        font-size: 30px;
+    }
+    .productdetailcontainer .productinfo p {
+        font-size: 14px;
+    }
+    .productdetailcontainer .productinfo .sizes {
+        margin: 20px 0 10px 0;
+    }
+    .productdetailcontainer .productinfo .sizes span {
+        width: 30px;
+        font-size: 16px;
+    }
+    .productdetailcontainer .productinfo .pricing span {
+        font-size: 18px;
+        margin-right: 18px;
+    }
+    .productdetailcontainer .productinfo .qunatitycustombox {
+        width: 90%;
+    }
+    .productdetailcontainer .productinfo .qunatitycustombox .quantityselector {
+        padding: 8px;
+        font-size: 16px;
+    }
+    .productdetailcontainer .productinfo .qunatitycustombox .customiseproduct {
+        font-size: 16px;
+        padding: 8px;
+    }
+    .productdetailcontainer .productinfo .buycart {
+        width: 90%;
+    }
+    .productdetailcontainer .productinfo .buycart .buy {
+        font-size: 16px;
+    }
+    .productdetailcontainer .productinfo .buycart .addtocart {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .productdetailcontainer {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        height: 150vh;
+    }
+    .productdetailcontainer .productcarousel {
+        margin-top: 10px;
+        width: 100%;
+        height: 60vh;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    .productdetailcontainer .productcarousel img {
+        margin: 0 auto;
+        width: auto;
+        height: 100%;
+    }
+    .productdetailcontainer .productinfo {
+        height: 100%;
+        width: 100%;
+        padding-left: 20px;
+    }
+    .productdetailcontainer .productinfo h1 {
+        font-size: 22px;
+    }
+    .productdetailcontainer .productinfo p {
+        font-size: 13px;
+    }
+    .productdetailcontainer .productinfo .sizes {
+        margin-bottom: 15px;
+    }
+    .productdetailcontainer .productinfo .sizes span {
+        width: 40px;
+    }
+    .productdetailcontainer .productinfo .buycart .buy {
+        padding: 10px 35px;
+    }
+    .productdetailcontainer .productinfo .buycart .addtocart {
+        padding: 8px 35px;
+    }
+}
+/*# sourceMappingURL=activateproductconfirm.css.map */

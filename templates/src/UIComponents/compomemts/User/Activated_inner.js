@@ -3,6 +3,7 @@ import {Typography} from "@material-ui/core";
 import CustomizedSnackbars from "../alert";
 import getCookie from "../../../components/getcooke";
 import QRCustom from "../../QRCustom";
+import Change from "./change";
 
 export default function Activated_inner (props)
 {
@@ -88,8 +89,10 @@ return<>
     :
         <>
 
-            {state.err  &&
+            {state.err
+            &&
             <>
+                {console.log(setTimeout(ev=>{setState({...state, err: false, err_msg: ""})},3000))}
                 <CustomizedSnackbars message={state.err_msg}   severity="error" />
             </>
             }
@@ -116,7 +119,11 @@ return<>
                             >{props.data.Product.name}</a
                             >
                         </h2>
-                        <p className="productcategory">Product id : <span>{props.data.unique_u14}</span></p>
+                        <p className="productcategory">Product id : <span>
+                        <a href={`/oupu/product/Detail_retrive/?unique_u14=${props.data.unique_u14}`}>{props.data.unique_u14}</a>
+                            {/*{props.data.unique_u14}*/}
+
+                        </span></p>
                         <Typography variant="p" component="p" noWrap  className={"activenimishcoustom"}>
                             Product URL : <a href={props.data.Oup_url_} target="_blank">{props.data.Oup_url_}</a>
                         </Typography>
@@ -129,23 +136,24 @@ return<>
                 setState({change_url_open: !state.change_url_open})}
                 }>Change URL</button>
                             {state.change_url_open &&
-                            <div className="panel " style={{display:"block"}}>
-                                <input type="url" name="url" id="url" className="coupon" placeholder="Paste URL here"
-                                value={state.urlVal}
-                                onChange={
-                                    ev=>{
-                                        setState({...state,urlVal:ev.target.value})
-                                    }
-                                }/>
-                                <button className="applycoupon" onClick={onchange_click}>Change</button>
-                            </div>
+                                <Change state={state} setState={setState} onchange_click={onchange_click}/>
+                            // <div className="panel " style={{display:"block"}}>
+                            //     <input type="url" name="url" id="url" className="coupon" placeholder="Paste URL here"
+                            //     value={state.urlVal}
+                            //     onChange={
+                            //         ev=>{
+                            //             setState({...state,urlVal:ev.target.value})
+                            //         }
+                            //     }/>
+                            //     <button className="applycoupon" onClick={onchange_click}>Change</button>
+                            // </div>
                             }
 
 
               </span>
-                        <div className="qrbox" style={{ width:" fit-content",height: "fit-content"}}>
-                        <QRCustom qroptions={JSON.parse(props.data.QrJson)}  width={150} height={150} Oup_url={props.data.Oup_url_}/>
-                        </div>
+                        {/*<div className="qrbox" style={{ width:" fit-content",height: "fit-content"}}>*/}
+                        {/*    <QRCustom qroptions={JSON.parse(props.data.QrJson)}  width={150} height={150} Oup_url={props.data.Oup_url_}/>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>

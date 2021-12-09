@@ -19,6 +19,6 @@ urlpatterns = [
     path('product/Detail_retrive/',login_required(BaseReactfile.as_view()),name="Detail_retrive"),
 
     path('product/HelpBuy/',login_required(BaseReactfile.as_view()),name="HelpBuy"),
-    path('product/Default_nav/',login_required(BaseReactfile.as_view()),name="Default_nav"),
+    path('product/Default_nav/',BaseReactfile.as_view(),name="Default_nav"),
 
 ]

@@ -24,6 +24,8 @@ class Ordered_User_products(models.Model):
     QrJson = models.TextField(default=default_qr_json)
     size=models.TextField(default="",blank=True,null=True)
 
+
+
     unique_u14 = models.UUIDField(unique=True,default=uuid.uuid4)
 
     created_at = models.DateTimeField(auto_now_add=True,blank=True,null=True)
@@ -50,16 +52,23 @@ class Ordered_User_products(models.Model):
         self.delete_order=True
         self.Suspended=True
         self.save()
-    # def update_QrJosn_for_localhost(self,url):
-    #     Qr_Json=self.QrJson
-    #     try:
-    #         Json_py=json.loads(Qr_Json)
-    #         Json_py["data"]=url
-    #         self.Qr_Json=json.dumps(Json_py)
-    #     except Exception as e:
-    #         print(e)
 
-    # test 2
+    @property
+    def orderedByuser(self):
+        a=self.order_set.all()
+        print(a)
+        if a.count() == 1:
+            return a[0].user.email
+        else:
+            return None
+    @property
+    def orderedBID(self):
+        a=self.order_set.all()
+        print(a)
+        if a.count() == 1:
+            return a[0].OrderId
+        else:
+            return None
 
     def validate_url_hostname(self):
         try:

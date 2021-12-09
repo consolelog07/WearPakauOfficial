@@ -9,10 +9,17 @@ export async function  add_to_cart (setState,id,QrJson,Quantity,size="",typef=fa
 
     // console.log(typef,'dddddddddddddd')
 
-    QrJson={...QrJson, width:157,height:165,margin:10}
+    QrJson={...QrJson, width:300,height:300,margin:1}
     var proxy=QrJson
     QrJson=JSON.stringify(QrJson)
-    console.log(id,QrJson,Quantity)
+    console.log(id,QrJson,Quantity   )
+    console.log(proxy.dotsOptions.color,
+    proxy.dotsOptions.type,
+     proxy.backgroundOptions.color,
+    proxy.cornersSquareOptions.color,
+    proxy.cornersSquareOptions.type,
+     proxy.cornersDotOptions.color,
+     proxy.cornersDotOptions.type)
 
     let req = new Request(`/Api/Cart/Cart/add_in/`, {
         mode: 'cors', //just a safe-guard indicating our intentions of what to allow
@@ -30,8 +37,8 @@ export async function  add_to_cart (setState,id,QrJson,Quantity,size="",typef=fa
             dotsOptions_color:proxy.dotsOptions.color,
             dotsOptions_type : proxy.dotsOptions.type,
             backgroundOptions_color : proxy.backgroundOptions.color,
-            cornersSquareOptions_color : proxy.cornersDotOptions.color,
-            cornersSquareOptions_type : proxy.cornersDotOptions.type,
+            cornersSquareOptions_color : proxy.cornersSquareOptions.color,
+            cornersSquareOptions_type : proxy.cornersSquareOptions.type,
             cornersDotOptions_color : proxy.cornersDotOptions.color,
             cornersDotOptions_type : proxy.cornersDotOptions.type
                         })

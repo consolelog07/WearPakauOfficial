@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.views.generic import TemplateView
 
 from Ordered_User_products.models import Ordered_User_products
+from frontend.Views.basic import AddressCheck
 
 
 class UserTestBasicView(TemplateView):
@@ -16,6 +17,7 @@ class UserTestBasicView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+        context["addressSet"]=True
         try:
             pObject = Ordered_User_products.objects.filter(unique_u14=context["unique_u14"])
             if pObject.count() > 1:
@@ -52,6 +54,7 @@ class UserTestSuspendedBasicView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+        context["addressSet"]=True
         try:
             pObject = Ordered_User_products.objects.filter(unique_u14=context["unique_u14"])
             if pObject.count() > 1:
@@ -85,6 +88,7 @@ class UserTesthostnameBasicView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
+        context["addressSet"]=True
         try:
             pObject = Ordered_User_products.objects.filter(unique_u14=context["unique_u14"])
             if pObject.count() > 1:

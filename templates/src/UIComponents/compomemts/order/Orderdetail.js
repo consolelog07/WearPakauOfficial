@@ -17,6 +17,7 @@ import QRCustom from "../../QRCustom";
 import * as PropTypes from "prop-types";
 import CustomizedSnackbars from "../alert";
 import CancelorderDialog from "./CancelorderDiaglog";
+import PdfCreate from "./Pdfcreate";
 
 class TextFielder extends React.Component {
     render() {
@@ -35,6 +36,7 @@ TextFielder.propTypes = {
 };
 export default function OrderDetail(props){
     const [modal,setModal]=useState(false)
+    const [modal2,setModal2]=useState(false)
 
         const [state,setState]=useState({
         attempted:false,
@@ -50,7 +52,7 @@ export default function OrderDetail(props){
         cat_list:{},
         images_fetch:false,
         image_error:false,
-
+        Dialog2:true
 
 
     })
@@ -86,7 +88,7 @@ export default function OrderDetail(props){
         // "detail": "Authentication credentials were not provided."
         if (Reflect.has(response,"detail") && response["detail"] === "Authentication credentials were not provided.")
         {
-            console.log("do not show")
+            // console.log("do not show")
             window.location.href="/error/404/"
         }
 
@@ -101,7 +103,7 @@ export default function OrderDetail(props){
 
         if(response.results.length === 1)
         {
-            console.log(response.results[0])
+            // console.log(response.results[0])
             var a=[]
             a.push(...response.results[0].Ordered_products)
             setProducts(a)
@@ -169,12 +171,12 @@ export default function OrderDetail(props){
                 e[ev.id]=`${origin}/media/${ev.default__image}`
                 j[ev.id]=ev.category
             })
-            console.log(e,f,j)
+            // console.log(e,f,j)
         }
         catch (error)
         {
             err:tr
-            console.log(error)
+            // console.log(error)
         }
 
             setState({...state,
@@ -222,77 +224,6 @@ export default function OrderDetail(props){
 
     }
 
-    // async function CancelOrder(reason)
-    // {
-    //     console.log("heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
-    //
-    //     let req = new Request(`/Api/orders/Orders/${state.result.id}/cancel_order`, {
-    //         mode: 'cors', //just a safe-guard indicating our intentions of what to allow
-    //         credentials: 'include', //when will the cookies and authorization header be sent
-    //         method: 'Post',
-    //         // cache: 'force-cache',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'X-CSRFToken': getCookie('csrftoken')
-    //         },
-    //         referrerPolicy: 'no-referrer',
-    //         body: JSON.stringify({reason:reason})
-    //     });
-    //
-    //
-    //     const response = await fetch(req).then(ev=> {
-    //         return ev.json()
-    //     })
-    //
-    //     console.log(response)
-    //     if(Reflect.has(response,"error") )
-    //     {
-    //         setState({
-    //             ...state,
-    //             err:true,
-    //             err_msg:response["error"],
-    //             attempted: false
-    //         })
-    //     }
-    //     if(Reflect.has(response,"Success") )
-    //     {
-    //         window.location.reload()
-    //     }
-    //     // if(response.results.length === 1)
-    //     // {
-    //     //
-    //     //     setState({...state,address_result:response.results[0],address_fetch: false,images_fetch: true,attempted: false})
-    //     // }
-    //     // else
-    //     // {
-    //     //     window.location.href="/error/404/"
-    //     // }
-    //
-    // }
-    //
-    // function cancelorderUpper()
-    // {
-    //
-    //     if(reason === "" || reason.length < 15)
-    //     {
-    //
-    //         setState({
-    //             ...state,
-    //             err:true,
-    //             err_msg:"reason of cancel order should contain max 15 leters ",
-    //         })
-    //         return
-    //     }
-    //
-    //     setState({
-    //         ...state,
-    //         err:false,
-    //         err_msg:"",
-    //         attempted: true
-    //     })
-    //     setModal(false)
-    //     CancelOrder()
-    // }
     function modalClose()
     {
         setModal(!modal)
@@ -313,6 +244,7 @@ export default function OrderDetail(props){
         setState({...state,attempted:true})
         getAllImages()
     }
+    console.log(state)
     return<>
         {state.attempted?
         <><>
@@ -335,6 +267,9 @@ export default function OrderDetail(props){
                 }
 
                 <CancelorderDialog setState={setState} state={state}   setModal={setModal} modal={modal}/>
+                {/*<PdfCreate setState={setState} state={state}   setModal={setModal2} modal={modal2} />*/}
+
+
                 <div className={mDetail.orderdetailcontainer} >
                     <h2 className={mDetail.orderdetailhead}>Order Details</h2>
                     <div className={mDetail.container}>
@@ -418,11 +353,11 @@ export default function OrderDetail(props){
                                 </div>
                                 <div className={mDetail.productdetail}>
                                     <a className={mDetail.productname} href={`/product/${ev.Product}`}><span>{state.name_list[ev.Product]}</span></a>
-                                    <h2 className={mDetail.productname}>Product ID: <span>{ev.unique_u14}</span></h2>
+                                    <h2 className={mDetail.productname}>Product ID: <span><a href={`/oupu/product/Detail_retrive/?unique_u14=${ev.unique_u14}`}> {ev.unique_u14}</a> </span></h2>
                                     <p className={mDetail.productcategory}>Product Category: <span>{state.cat_list[ev.Product]}</span></p>
                                     {ev.size !== "" &&        <p className={mDetail.productcategory}>Size: <span>{ev.size}</span></p>}
 
-                                    {console.log(ev.QrJson,"ddddddddddddddd")}
+                                    {/*{console.log(ev.QrJson,"ddddddddddddddd")}*/}
                                     <div className={mDetail.qrbox} style={{ width:" fit-content",height: "fit-content"}}>
                                         <QRCustom qroptions={JSON.parse(ev.QrJson)}  width={90} height={90} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/${ev.unique_u14}`}/>
                                     </div>

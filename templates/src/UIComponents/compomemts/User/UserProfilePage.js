@@ -6,7 +6,7 @@ export default  class Profile extends React.Component
 {
     constructor(props) {
         super(props);
-        console.log(props)
+        // console.log(props)
     }
 
 //
@@ -58,7 +58,9 @@ export default  class Profile extends React.Component
                         value={this.props.Gstate.phone_number}
                     />
                 </div>
-                <button className="activateproduct">
+                <button className="activateproduct" onClick={ev=>{
+                    window.location.href="/oupu/product/activate/"
+                }}>
                     Activate Product
                 </button>
                 <Activates_parent Gstate={this.props.Gstate} SGstate={this.props.SGstate} />

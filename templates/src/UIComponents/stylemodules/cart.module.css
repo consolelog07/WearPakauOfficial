@@ -1,4 +1,22 @@
 /*@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap");*/
+.carthead {
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    position: relative;
+    display: inline-block;
+    font-weight: 500;
+    margin: 20px 0px 0px 170px;
+}
+
+.carthead::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 50%;
+    height: 3px;
+    background: #a878d8;
+}
 .cartpagecontainer {
     width: 100%;
     display: -webkit-box;
@@ -10,13 +28,14 @@
     -webkit-box-pack: space-evenly;
     -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
-    padding: 100px 150px;
+    padding: 25px 150px;
 }
 
 .cartpagecontainer .productcontainer {
     width: 70%;
     min-width: 500px;
-    border: 0.5px solid rgba(0, 0, 0, 0.185);
+    -webkit-box-shadow: 1px 2px 7px #f0d8f0;
+    box-shadow: 1px 2px 7px #f0d8f0;
     border-radius: 5px;
 }
 
@@ -269,8 +288,11 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .carthead {
+        margin: 20px 0 0 30px;
+    }
     .cartpagecontainer {
-        padding: 60px 10px;
+        padding: 30px 10px;
     }
     .cartpagecontainer .productcontainer {
         min-width: 500px;
@@ -335,6 +357,10 @@
 }
 
 @media only screen and (max-width: 480px) {
+    .carthead {
+        margin: 20px 0 15px 10px;
+        font-size: 24px;
+    }
     .cartpagecontainer {
         overflow: hidden;
         -webkit-box-orient: vertical;
