@@ -3,21 +3,24 @@ from rest_framework import serializers
 from orders.models import Order
 
 
-class Order_serializers(serializers.ModelSerializer):
+class OrderAdmin_serializers(serializers.ModelSerializer):
     user_id = serializers.ReadOnlyField(source='user.id')
-    address_id=serializers.ReadOnlyField(source='Address.id')
+    user_email = serializers.ReadOnlyField(source='user.email')
     total_ = serializers.ReadOnlyField(source="total")
+
     shipingcharge_ = serializers.ReadOnlyField(source="shipingcharge")
     with_shiphing_charge_ = serializers.ReadOnlyField(source="with_shiphing_charge")
     after_coupon_applied_ = serializers.ReadOnlyField(source="after_coupon_applied")
+
     coupon_name = serializers.PrimaryKeyRelatedField(read_only=True,source="coupons.Code")
+
     giftwrapcharge_ = serializers.ReadOnlyField(source="giftwrapcharge")
 
 
     class Meta:
         model = Order
-        exclude = ['user',
-                   "Address",
+        exclude = [
+                    'user',
                    "giftwrapcharge",
                    "giftwrap",
                    "shipingcharge"

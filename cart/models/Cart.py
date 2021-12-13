@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.db import models
 from django.utils.crypto import get_random_string
 
+from WearPakauOfficial.settings import Default_Shipingcharge, Default_giftwrapcharge
 from ..models.Product_wrapper import Product_wrapper
 from UserApp.models import User
 from .Coupons import Coupons
@@ -66,7 +67,7 @@ class Cart(models.Model):
             else:
                 Total = Total + (x.Product.price*quantity)
                 # print(x, x.Product, x.Product.price)
-        print(self.coupons)
+        # print(self.coupons)
         return Total
 
     # @property
@@ -85,14 +86,14 @@ class Cart(models.Model):
             return 0
 
         if self.giftwrap:
-            return 70
+            return Default_giftwrapcharge
         return 0
 
     @property
     def shipingcharge(self):
         if self.total == 0:
             return 0
-        return 70
+        return Default_Shipingcharge
 
     @property
     def with_shiphing_charge(self):

@@ -21,7 +21,14 @@ export default function CancelorderDialog(props)
     {
         console.log("heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")
 
-        let req = new Request(`/Api/orders/Orders/${state.result.id}/cancel_order/`, {
+        let ur=`/Api/orders/Orders/${state.result.id}/cancel_order/`
+
+        if(props.admin !== undefined)
+        {
+            ur=`/Api/orders/AdminOrders/${state.result.id}/Cancellation/`
+        }
+
+        let req = new Request(ur, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
             credentials: 'include', //when will the cookies and authorization header be sent
             method: 'Post',
@@ -98,17 +105,26 @@ export default function CancelorderDialog(props)
             open={modal}
             onClose={modalClose}
         >
+            {props.admin !== undefined &&
+            <DialogTitle>Admin CancelOrder</DialogTitle>
+            }
+
+            {props.admin === undefined &&
             <DialogTitle>Cancel Order</DialogTitle>
+            }
             <DialogContent>
-                {state.result.payment_method === "razorpay" &&
+                {props.admin !== undefined &&
+                <DialogContentText>
+                    Do u want to change order status to Cancel?
+                </DialogContentText>
+                }
+                {props.admin === undefined && state.result.payment_method === "razorpay" &&
                 <DialogContentText>
                     only 20 % of total payment will be refunded
                 </DialogContentText>
                 }
 
                 <TextField
-
-
                     id="name"
                     label="Reason for Cancel order"
                     type="Text"

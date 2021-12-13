@@ -6,6 +6,7 @@ from .products import urlpatterns as producturlpattern
 from .cart import  urlpatterns as carturlpattern
 from .order import urlpatterns as orderurlpattern
 from .ordered_user_product import  urlpatterns as Ordered_user_product_urlpattern
+from .customadmin import  urlpatterns as OrderAdminurlPattern
 from .errors import error_500 ,error_400s
 from ..Views import BaseReactfile
 from django.shortcuts import reverse
@@ -21,7 +22,8 @@ urlpatterns = [
     path('cart/',include(carturlpattern),name="carturlpattern"),
     path('oupu/',include(Ordered_user_product_urlpattern),name="Ordered_user_product_urlpattern"),
     path('order/',include(orderurlpattern),name="Order_urlpattern"),
-    path('error/',include(errorurlpattern),name="errorurlpatterns")
+    path('error/',include(errorurlpattern),name="errorurlpatterns"),
+    path('orderAdmin/',include(OrderAdminurlPattern),name="OrderAdmin")
 ]
 
 handler403=error_400s

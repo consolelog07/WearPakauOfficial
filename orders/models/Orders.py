@@ -4,6 +4,7 @@ from django.utils.crypto import get_random_string
 # Create your models here.
 from Ordered_User_products.models import Ordered_User_products
 from UserApp.models import User
+from WearPakauOfficial.settings import Default_giftwrapcharge, Default_Shipingcharge
 from cart.models import Coupons
 from .Address import Address
 from .Payment import Payment
@@ -76,39 +77,28 @@ class Order(models.Model):
 
     giftwrap=models.BooleanField(default=False)
 
+    giftwrapcharge=models.FloatField(default=Default_giftwrapcharge)
+
+    shipingcharge=models.FloatField(default=Default_Shipingcharge)
+
+
+
     reason=models.TextField(default="")
 
     @property
     def total(self):
         Total = 0.0
         for x in self.Ordered_products.all():
-            quantity = 1
-            if x.Product.discount_display:
-                Total = Total + (x.Product.discounted_price * quantity)
+            Total = Total + (x.price)
+            # if x.Product.discount_display:
+            #     Total = Total + (x.Product.discounted_price * quantity)
                 # print(x, x.Product, x.Product.discounted_price, x.Product.discount_display)
-            else:
-                Total = Total + (x.Product.price * quantity)
+            # else:
+            #     Total = Total + (x.Product.price * quantity)
                 # print(x, x.Product, x.Product.price)
-        print(self.coupons)
+        # print(self.coupons)
         return Total
 
-
-
-    @property
-    def giftwrapcharge(self):
-        if self.total == 0:
-            return 0
-
-        if self.giftwrap:
-            return 70
-        return 0
-
-
-    @property
-    def shipingcharge(self):
-        if self.total == 0:
-            return 0
-        return 70
 
     @property
     def with_shiphing_charge(self):
@@ -121,8 +111,6 @@ class Order(models.Model):
         if self.coupons != None and self.coupons.active == True :
             Total = Total * (1 - (self.coupons.discount / 100))
         return Total
-
-
 
 
     def __str__(self):

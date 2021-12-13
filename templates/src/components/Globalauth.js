@@ -18,6 +18,7 @@ import Errordir from "../UIComponents/compomemts/errors/error_dir";
 import OupuDir from "../UIComponents/compomemts/oupu/oupu_dir";
 import Order_dir from "../UIComponents/compomemts/order/Order_dir";
 import Landing from "../UIComponents/compomemts/Landing";
+import OrderAdmin_dir from "../UIComponents/compomemts/admin/Admin_dir";
 
 
 
@@ -170,6 +171,7 @@ export default class Globalauth extends React.Component
                 Last_name:response.Last_name,
                 phone_number:response.phone_number,
                 phone_number_verify:response.phone_number_verify,
+                is_coreTeam:response.is_coreTeam
             })
         }
         else
@@ -981,7 +983,13 @@ export default class Globalauth extends React.Component
                             state={this.state}
                         />
                     </Route>
+                    <Route path="/orderAdmin/">
 
+                        <OrderAdmin_dir
+                            setState={this.setState}
+                            state={this.state}
+                        />
+                    </Route>
 
                     <Route path="">
                         <Landing />

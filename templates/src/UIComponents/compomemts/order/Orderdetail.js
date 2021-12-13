@@ -18,6 +18,7 @@ import * as PropTypes from "prop-types";
 import CustomizedSnackbars from "../alert";
 import CancelorderDialog from "./CancelorderDiaglog";
 import PdfCreate from "./Pdfcreate";
+import OrderAdminStatusChange from "../admin/detail";
 
 class TextFielder extends React.Component {
     render() {
@@ -35,8 +36,14 @@ TextFielder.propTypes = {
     margin: PropTypes.string
 };
 export default function OrderDetail(props){
+
+    // if( props.admin !== undefined && props.set === false){
+    //     props=props.props
+    //     props.set=true
+    // }
     const [modal,setModal]=useState(false)
     const [modal2,setModal2]=useState(false)
+    const [modal3,setModal3]=useState(false)
 
         const [state,setState]=useState({
         attempted:false,
@@ -57,7 +64,7 @@ export default function OrderDetail(props){
 
     })
     const [products,setProducts]=useState([])
-    // console.log(products    )
+
         // ,state.result,state.address_result
 
 
@@ -228,6 +235,14 @@ export default function OrderDetail(props){
     {
         setModal(!modal)
     }
+    function modalClose2()
+    {
+        setModal2(!modal2)
+    }
+    function modalClose3()
+    {
+        setModal3(!modal3)
+    }
     if(state.fetch === true && state.attempted === false)
     {
         setState({...state,attempted:true})
@@ -244,7 +259,7 @@ export default function OrderDetail(props){
         setState({...state,attempted:true})
         getAllImages()
     }
-    console.log(state)
+    // console.log(state)
     return<>
         {state.attempted?
         <><>
@@ -266,19 +281,43 @@ export default function OrderDetail(props){
                 </>
                 }
 
-                <CancelorderDialog setState={setState} state={state}   setModal={setModal} modal={modal}/>
-                {/*<PdfCreate setState={setState} state={state}   setModal={setModal2} modal={modal2} />*/}
-
+                <CancelorderDialog setState={setState} state={state}   admin={props.admin} setModal={setModal} modal={modal}/>
+                <OrderAdminStatusChange setState={setState} state={state}   setModal={setModal3} modal={modal3}/>
+                {modal2 &&
+                <PdfCreate setState={setState} state={state}   setModal={setModal2} modal={modal2} />
+                }
 
                 <div className={mDetail.orderdetailcontainer} >
                     <h2 className={mDetail.orderdetailhead}>Order Details</h2>
                     <div className={mDetail.container}>
+
+
+
+
                         <ul className={mDetail.progressbar}>
-                            <li className={mDetail.active}>Placed</li>
-                            <li>Preparing</li>
-                            <li>Dispatched</li>
-                            <li>Out For Delivery</li>
-                            <li>Delivered</li>
+                            {/*<li className={mDetail.active}>Placed</li>*/}
+                            <li className={
+                               ( state.result.Order_status === "placed" || state.result.Order_status === "Processing" || state.result.Order_status === "Shipped" || state.result.Order_status === "Out For Delivery" || state.result.Order_status === "Delivered" )&&
+                                mDetail.active}>Placed</li>
+                            <li className={
+                       (state.result.Order_status === "Processing" || state.result.Order_status === "Shipped" || state.result.Order_status === "Out For Delivery" || state.result.Order_status === "Delivered" )&&
+                                mDetail.active}
+                            >Preparing</li>
+                            <li
+                                className={
+                                  (  state.result.Order_status === "Shipped" || state.result.Order_status === "Out For Delivery" || state.result.Order_status === "Delivered") &&
+                                    mDetail.active}
+                            >Shipped</li>
+                            <li
+                                className={
+                                    (state.result.Order_status === "Out For Delivery" || state.result.Order_status === "Delivered") &&
+                                    mDetail.active}
+                            >Out For Delivery</li>
+                            <li
+                                className={
+                                    state.result.Order_status === "Delivered" &&
+                                    mDetail.active}
+                            >Delivered</li>
                         </ul>
                     </div>
                     <div className={mDetail.orderdetail}>
@@ -288,6 +327,7 @@ export default function OrderDetail(props){
           <p className={mDetail.orderid}>Last Name: <span>{state.address_result.Last_name}</span></p>
         <p className={mDetail.orderid}>Phone Number: <span>{state.address_result.phone_number}</span></p>
 
+
           <p className={mDetail.address}>
             Shipping Address:<span>
 
@@ -296,6 +336,10 @@ export default function OrderDetail(props){
           </span>
           </p>
           <p className={mDetail.status}>Status: <span> {state.result.Order_status}</span></p>
+            {state.result.Order_status === "Cancelled" || state.result.Order_status === "UserCancle" &&
+            <p className={mDetail.orderid}>Reason for Cancelation: <span>{state.result.reason}</span></p>
+            }
+
           <p className={mDetail.paymenttype}>Payment: <span> {
               (ev=>{
           if(state.result.payment_method === "cod")
@@ -307,9 +351,23 @@ export default function OrderDetail(props){
           })()
           }</span></p>
           <p className={mDetail.paymenttype}>Coupon Applied: <span> {state.result.coupons === null?"None":state.result.coupon_name}</span></p>
-            {state.result.Order_status === "placed" &&
+            {state.result.Order_status === "placed"  &&
             <button className={mDetail.cancel} onClick={modalClose}>Cancel Order</button>
             }
+
+
+            {props.admin === true &&<>
+                {state.result.Order_status === "placed" && <button className={mDetail.cancel} onClick={modalClose3}>Change Status to Processing</button>
+                }
+
+                {state.result.Order_status === "Processing" &&  <button className={mDetail.cancel} onClick={modalClose}>Cancel Order</button>
+                }
+                {state.result.Order_status === "Processing" && <button className={mDetail.cancel} onClick={modalClose3}>Change Status to  Shipped</button>
+                }
+                {state.result.Order_status === "Shipped" &&  <button className={mDetail.cancel} onClick={modalClose}>Cancel Order</button>
+                }
+            </>}
+            <button className={mDetail.cancel} onClick={modalClose2}>Print Reciept</button>
 
         </span>
                         <div className={mDetail.billingdetailcontainer}>

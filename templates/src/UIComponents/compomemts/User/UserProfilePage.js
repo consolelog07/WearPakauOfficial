@@ -63,6 +63,14 @@ export default  class Profile extends React.Component
                 }}>
                     Activate Product
                 </button>
+                {this.props.Gstate.is_coreTeam &&
+                <button className="activateproduct" onClick={ev=>{
+                    window.location.href="/orderAdmin/"
+                }}>
+                    Admin Panel
+                </button>
+                }
+
                 <Activates_parent Gstate={this.props.Gstate} SGstate={this.props.SGstate} />
 
             </div>

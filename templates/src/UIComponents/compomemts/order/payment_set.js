@@ -2,6 +2,7 @@ import React from "react";
 import Razorpay_react from "../Razorpay";
 import getCookie from "../../../components/getcooke";
 import CustomizedSnackbars from "../alert";
+import {Dialog, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
 
 export default  class PaymentSeter extends React.Component
 {
@@ -31,6 +32,7 @@ export default  class PaymentSeter extends React.Component
                 razorpay_signature:""
 
             },
+            razorpayError:false,
             done:false
 
         }
@@ -121,15 +123,16 @@ export default  class PaymentSeter extends React.Component
             }
         };
         this.rzp1 = new Razorpay(this.options);
-        this.rzp1.on('payment.failed', function (response){
+        this.rzp1.on('payment.failed', (response)=>{
+            this.setState({razorpayError:true})
 
-            alert(response.error.code);
-            alert(response.error.description);
-            alert(response.error.source);
-            alert(response.error.step);
-            alert(response.error.reason);
-            alert(response.error.metadata.order_id);
-            alert(response.error.metadata.payment_id);
+            // alert(response.error.code);
+            // alert(response.error.description);
+            // alert(response.error.source);
+            // alert(response.error.step);
+            // alert(response.error.reason);
+            // alert(response.error.metadata.order_id);
+            // alert(response.error.metadata.payment_id);
 
 
 
@@ -285,6 +288,29 @@ export default  class PaymentSeter extends React.Component
                         </div>
                     </div>
                 </></>:<>
+
+
+                {this.state.razorpayError &&<>
+
+                    <Dialog
+                        open={this.state.razorpayError}
+                        keepMounted
+                        aria-describedby="alert-dialog-slide-description"
+                    >p
+                        <DialogTitle>Some Internal error</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-slide-description">
+                              There is some Internal error with Online payment portal,we will relod ur screen
+                                please try after reload .....
+                                {console.log(setTimeout(ev=>{
+                                    window.location.reload()
+                                },4000))}
+                            </DialogContentText>
+                        </DialogContent>
+
+                    </Dialog>
+                </>}
+
                 {this.state.err  &&
                 <>
                     {<>

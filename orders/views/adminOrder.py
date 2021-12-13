@@ -6,9 +6,13 @@ from url_filter.integrations.drf import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import IsAuthenticated, BasePermission
 from rest_framework.viewsets import GenericViewSet
-
+from rest_framework.renderers import JSONRenderer
+from UserApp.models import User
 from orders.Serailizer import Order_serializers
+from orders.Serailizer.OrderAdminSerailizer import OrderAdmin_serializers
 from orders.models import Order
+
+
 class Iscoreuser(BasePermission):
     """
     Allows access only to authenticated users.
@@ -20,7 +24,7 @@ class Iscoreuser(BasePermission):
 
 class AdminOrder_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericViewSet):
     queryset = Order.objects.all().order_by("-order_placedon")
-    serializer_class = Order_serializers
+    serializer_class = OrderAdmin_serializers
     permission_classes = [IsAuthenticated,Iscoreuser]
 
     filter_backends = [
@@ -42,9 +46,14 @@ class AdminOrder_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, Gener
         a["Delivered"]=Order.objects.filter(Order_status="Delivered").count()
         a["Out For Delivery"]=Order.objects.filter(Order_status="Out For Delivery").count()
         a["Cancelled"]=Order.objects.filter(Order_status="Cancelled").count()
-        return Response({"Success":a})
+        a["Cancelled"]=Order.objects.filter(Order_status="Cancelled").count()
+        b=Order.objects.all().values("OrderId")
+        c=User.objects.all().values("email","id")
+        b=JSONRenderer().render(b)
+        c=JSONRenderer().render(c)
+        return Response({"Success":a,"orderId":b,"email":c})
 
-    @action(detail=True, methods=['GET'])
+    @action(detail=True, methods=['Post'])
     def Process(self, request, *args, **kwargs):
         instance = self.get_object()
         try:
@@ -58,7 +67,7 @@ class AdminOrder_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, Gener
             print(e)
             return Response({"error":e})
 
-    @action(detail=True, methods=['GET'])
+    @action(detail=True, methods=['Post'])
     def Shipped(self, request, *args, **kwargs):
         instance = self.get_object()
         try:
@@ -72,14 +81,21 @@ class AdminOrder_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, Gener
             print(e)
             return Response({"error":e})
 
-    @action(detail=True, methods=['GET'])
+    @action(detail=True, methods=['Post'])
     def Cancellation(self, request, *args, **kwargs):
         instance = self.get_object()
-        try:
-            if instance.Order_status != "Delivered"  :
-                instance.Order_status="Cancelled"
+        data=request.data
 
+        try:
+            data["reason"]
+        except Exception as e:
+            return Response({"error":"no  reason"})
+        try:
+            if instance.Order_status != "Delivered":
+                instance.Order_status="Cancelled"
+                instance.reason="Cancled By Team wearPakau  "+data["reason"]
                 instance.save()
+
                 return Response({"Success":"Cancelled"})
             else:
                 return Response({"error":"order_status is Delivered"})

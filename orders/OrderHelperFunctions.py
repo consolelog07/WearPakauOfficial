@@ -37,7 +37,11 @@ def createorder(user,co):
     for x in cart.products.all():
         for y in range(x.Quantity):
             print(y)
-            a = Ordered_User_products.objects.create(Product=x.Product,QrJson=x.QrJson,size=x.size)
+            price=x.Product.price
+            if x.Product.discount_display == True:
+                price=x.Product.discounted_price
+
+            a = Ordered_User_products.objects.create(Product=x.Product,QrJson=x.QrJson,size=x.size,price=price)
             uuidlist.append(a.unique_u14)
 
     for x in uuidlist:

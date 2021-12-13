@@ -1,4 +1,8 @@
-import {Paper, Table, TableBody, TableContainer, TableHead, TableRow} from "@material-ui/core";
+import {Paper, styled, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
+import QRCustom from "../../QRCustom";
+import React from "react";
+import tableCellClasses from "@material-ui/core/TableCell"
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -8,37 +12,33 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.body}`]: {
         fontSize: 14,
     },
+    "font-family": "Montserrat"
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
         backgroundColor: theme.palette.action.hover,
     },
+    height:"fit-content",
     // hide last border
     '&:last-child td, &:last-child th': {
         border: 0,
     },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-}
+
 
 const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
+    // createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
 ];
 
-export default function CustomizedTables() {
+export default function CustomizedTables(props) {
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
                 <TableHead>
                     <TableRow>
-                        <StyledTableCell>Product ID (100g serving)</StyledTableCell>
+                        <StyledTableCell>Product ID</StyledTableCell>
                         <StyledTableCell align="right">Product Name</StyledTableCell>
                         <StyledTableCell align="right">Size</StyledTableCell>
                         <StyledTableCell align="right">qr</StyledTableCell>
@@ -46,15 +46,17 @@ export default function CustomizedTables() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {props.rows.map((row) => (
                         <StyledTableRow key={row.name}>
                             <StyledTableCell component="th" scope="row">
-                                {row.name}
+                                {row.Product_ID}
                             </StyledTableCell>
-                            <StyledTableCell align="right">{row.calories}</StyledTableCell>
-                            <StyledTableCell align="right">{row.fat}</StyledTableCell>
-                            <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-                            <StyledTableCell align="right">{row.protein}</StyledTableCell>
+                            <StyledTableCell align="right">{row.Name}</StyledTableCell>
+                            <StyledTableCell align="right">{row.Size}</StyledTableCell>
+                            <StyledTableCell align="right">
+                                <QRCustom qroptions={JSON.parse(row.qr)}  width={90} height={90} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/${row.Product_ID}`}/>
+                            </StyledTableCell>
+                            <StyledTableCell align="right">{row.Price}</StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>

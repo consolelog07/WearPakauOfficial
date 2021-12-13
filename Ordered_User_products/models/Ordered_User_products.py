@@ -24,7 +24,7 @@ class Ordered_User_products(models.Model):
     QrJson = models.TextField(default=default_qr_json)
     size=models.TextField(default="",blank=True,null=True)
 
-
+    price = models.FloatField(default=0.0)
 
     unique_u14 = models.UUIDField(unique=True,default=uuid.uuid4)
 

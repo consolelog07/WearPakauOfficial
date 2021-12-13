@@ -20,7 +20,7 @@ class Userserializer(serializers.ModelSerializer):
                    're_password',
                    # 'is_active',
                    'is_staff',
-                   'is_coreTeam',
+                   # 'is_coreTeam',
                    'is_superuser',
                    'email_token',
                    'email_token_dateTime_expire',
