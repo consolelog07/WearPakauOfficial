@@ -225,44 +225,48 @@ class Order_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericVie
 
     @action(detail=True, methods=['Post'])
     def place_order(self,request,pk,*args,**kwargs):
+
         co =self.get_object()
         # try:
         #     co=Order.objects.get(user=request.user,cart_order_id=self.request.user.cart.cart_order_id)
         # except Order.DoesNotExist:
         #     return Response({"error": "Order not created yet"})
 
-        if co.Order_status != "notplaced":
-            return Response({"error": "order already placed completed"})
+        return place_order(self.request,co)
 
-        if self.request.user.cart.products.all().count() <= 0:
-            return Response({"error":"no product in cart"})
-
-        q= check_if_error_with_any_product(request.user)
-
-        if q != False:
-            return Response(q)
-
-        if co.payment_method == "None":
-            return Response({"error": "payment not completed"})
-        if co.payment_method == "razorpay" and co.Payment.razorpay_OrderId_status !="paid":
-            return Response({"Success": "payment not completed"})
-
-
-        co.coupons = self.request.user.cart.coupons
-
-        #     add user in coupon used
-        if self.request.user.cart.coupons != None:
-            self.request.user.cart.coupons.usedBY.add(self.request.user)
-            self.request.user.cart.coupons.save()
-
-        co.save()
-        createorder(request.user,co)
-        clear_cart_and_update_seesion(request.user)
-        co.Order_status="placed"
-        co.order_placedon= timezone.now()
-        co.save()
-        logger.info(f'Order user {request.user.email} {co.OrderId} order placed   ;')
-        return Response({"Success": "order_placed"})
+        # if co.Order_status != "notplaced":
+        #     return Response({"error": "order already placed completed"})
+        #
+        # if self.request.user.cart.products.all().count() <= 0:
+        #     return Response({"error":"no product in cart"})
+        #
+        # q= check_if_error_with_any_product(request.user)
+        #
+        # if q != False:
+        #     return Response(q)
+        #
+        # if co.payment_method == "None":
+        #     return Response({"error": "payment not completed"})
+        # if co.payment_method == "razorpay" and co.Payment.razorpay_OrderId_status !="paid":
+        #     return Response({"Success": "payment not completed"})
+        #
+        #
+        # co.coupons = self.request.user.cart.coupons
+        #
+        # #     add user in coupon used
+        # if self.request.user.cart.coupons != None:
+        #     self.request.user.cart.coupons.usedBY.add(self.request.user)
+        #     self.request.user.cart.coupons.save()
+        #
+        # co.save()
+        # createorder(request.user,co)
+        # clear_cart_and_update_seesion(request.user)
+        # co.Order_status="placed"
+        # co.order_placedon= timezone.now()
+        # co.save()
+        # logger.info(f'Order user {request.user.email} {co.OrderId} order placed   ;')
+        #
+        # return Response({"Success": "order_placed"})
 
 
     @action(detail=True, methods=['Post'])

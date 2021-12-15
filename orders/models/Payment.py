@@ -60,23 +60,45 @@ class Payment(models.Model):
 
     @property
     def Total_(self):
-        return self.order_set.all()[0].after_coupon_applied
-
+        try:
+            a=self.order_set.all()[0].after_coupon_applied
+            return a
+        except Exception as e:
+            return None
     @property
     def giftwrapcharge(self):
-        return self.order_set.all()[0].giftwrapcharge
+        try:
+            a=self.order_set.all()[0].giftwrapcharge
+            return a
+        except Exception as e:
+            return None
 
     @property
     def shipingcharge(self):
-        return self.order_set.all()[0].shipingcharge
+        try:
+            a=self.order_set.all()[0].shipingcharge
+            return a
+        except Exception as e:
+            return None
+
 
     @property
     def with_shiphing_charge(self):
-        return self.order_set.all()[0].with_shiphing_charge
+        try:
+            a=self.order_set.all()[0].with_shiphing_charge
+            return a
+        except Exception as e:
+            return None
+
 
     @property
     def Order_id_wp(self):
-        return self.order_set.all()[0].OrderId
+        try:
+              a=self.order_set.all()[0].OrderId
+              return a
+        except Exception as e:
+            return None
+
 
     @property
     def Payment_completed(self):
@@ -87,7 +109,11 @@ class Payment(models.Model):
 
     @property
     def user(self):
-        return str(self.order_set.all()[0].user)
+        try:
+            a=str(self.order_set.all()[0].user)
+            return a
+        except Exception as e:
+            return None
 
     def verify_and_set_razorpay_payment_id_status(self, payment_id, razorpay_signature):
         if (

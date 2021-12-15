@@ -19,7 +19,7 @@ class Order_serializers(serializers.ModelSerializer):
         exclude = ['user',
                    "Address",
                    "giftwrapcharge",
-                   "giftwrap",
+                   # "giftwrap",
                    "shipingcharge"
                    ]
         depth = 1

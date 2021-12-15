@@ -61,7 +61,8 @@ class Paymentmodeladmin(admin.ModelAdmin):
     list_display = ['razorpay_OrderId',
                     "razorpay_payment_succestime"
         ,"Order_id_wp",
-                    "Payment_completed"]
+                    "Payment_completed"
+                    ]
     search_fields = ['razorpay_OrderId',"razorpay_payment_id"]
     # list_filter = ["Payment_completed"]
     readonly_fields = [

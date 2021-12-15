@@ -21,9 +21,10 @@ export default function Activated_inner (props)
     })
 
     // console.log(props)
-
+    console.log(state.urlVal,"value")
    async function Change_url()
     {
+        console.log(state.urlVal,"ddddddddddwq")
         let req = new Request(`/Api/Ordered_User_products/Ordered_User_products/update_navigate_to/`, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
             credentials: 'include', //when will the cookies and authorization header be sent
@@ -66,7 +67,7 @@ export default function Activated_inner (props)
        if(ev.target.previousElementSibling.checkValidity())
        {
            setState({...state,err:false,err_msg:"",attempted: true})
-        console.log("ddddddddddd")
+        console.log("ddddddddddd",state.urlVal)
            Change_url()
        }
        else
@@ -136,17 +137,17 @@ return<>
                 setState({change_url_open: !state.change_url_open})}
                 }>Change URL</button>
                             {state.change_url_open &&
-                                <Change state={state} setState={setState} onchange_click={onchange_click}/>
-                            // <div className="panel " style={{display:"block"}}>
-                            //     <input type="url" name="url" id="url" className="coupon" placeholder="Paste URL here"
-                            //     value={state.urlVal}
-                            //     onChange={
-                            //         ev=>{
-                            //             setState({...state,urlVal:ev.target.value})
-                            //         }
-                            //     }/>
-                            //     <button className="applycoupon" onClick={onchange_click}>Change</button>
-                            // </div>
+                                // <Change state={state} setState={setState} onchange_click={onchange_click}/>
+                            <div className="panel " style={{display:"block"}}>
+                                <input type="url" name="url" id="url" className="coupon" placeholder="Paste URL here"
+                                value={state.urlVal}
+                                onChange={
+                                    ev=>{
+                                        setState({...state,urlVal:ev.target.value})
+                                    }
+                                }/>
+                                <button className="applycoupon" onClick={onchange_click}>Change</button>
+                            </div>
                             }
 
 

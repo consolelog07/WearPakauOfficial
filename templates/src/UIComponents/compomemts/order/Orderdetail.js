@@ -118,7 +118,7 @@ export default function OrderDetail(props){
 
         if(response.results.length === 1)
         {
-            // console.log(response.results[0])
+            console.log(response.results[0])
             var a=[]
             a.push(...response.results[0].Ordered_products)
             setProducts(a)
@@ -127,9 +127,9 @@ export default function OrderDetail(props){
 
 
         }
-        // else {
-        //     window.location.href="/error/404/"
-        // }
+        else {
+            window.location.href="/error/404/"
+        }
 
     }
     async function getAllImages()

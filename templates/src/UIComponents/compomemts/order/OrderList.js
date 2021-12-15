@@ -157,7 +157,7 @@ export default function Orderlist(props)
                                     <p className="orderid">{ev.OrderId}</p>
                                     <p className="orderdate">{ev.order_placedon}</p>
                                     <p className="orderstatus">{ev.Order_status}</p>
-                                    <p className="total">RS. {ev.total_}</p>
+                                    <p className="total">RS. {ev.coupons !== null ?ev.after_coupon_applied_ : ev.with_shiphing_charge_}</p>
                                     <a href={`/order/${ev.id}`}  className="knowmore">Know more</a>
                                 </li>
                             }

@@ -1,12 +1,17 @@
+import logging
+
+from django.urls import reverse
 from django.utils import timezone
 
 from django.utils.crypto import get_random_string
 from rest_framework.response import Response
 
 from Ordered_User_products.models import Ordered_User_products
+from WearPakauOfficial.settings import Default_giftwrapcharge
 from cart.models import Cart
 from orders.models import Address
-
+logger = logging.getLogger('console_Order')
+import http.client
 
 def cod_possible_check2(orderprice):
     if orderprice <= 1500:
@@ -50,6 +55,9 @@ def createorder(user,co):
             co.Ordered_products.add(a)
         except Ordered_User_products.DoesNotExist:
             raise Exception("Ordered_User_products does not exist in access")
+    co.giftwrap=cart.giftwrap
+    co.giftwrapcharge=cart.giftwrapcharge
+    co.shipingcharge=cart.shipingcharge
     co.save()
 
 def clear_cart_and_update_seesion(user):
@@ -60,6 +68,7 @@ def clear_cart_and_update_seesion(user):
         x.delete()
     b.cart_order_id = get_random_string(length=30)
     b.coupons=None
+    b.giftwrap=False
     b.save()
 
     # logger.info(f'{self.request.user.email} {x} prodcut wrapper successfully removed')
@@ -122,4 +131,18 @@ def place_order(request,co):
     co.Order_status="placed"
     co.order_placedon= timezone.now()
     co.save()
+    trial(co,host=request.get_host())
+    logger.info(f'Order user {request.user.email} {co.OrderId} order placed   ;')
     return Response({"Success": "order_placed"})
+
+
+def trial(co,host):
+    conn = http.client.HTTPSConnection('95ed400cb41cd224d40df407c6d7adae.m.pipedream.net')
+    conn.request("POST", "/", '{'
+                              '"OrderId":  "New Order Created  OrderId = '+str(co.OrderId)+'",'
+                              '"ip_address": "92.188.61.181",'
+                              '"email": "user@example.com",'
+                              '"user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_4) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30",'
+                              '"url": "'+"{}{}".format(host,reverse("OrderAdminDetail",kwargs={'year': co.id}))+'"}'
+                     , {'Content-Type': 'application/json'})
+

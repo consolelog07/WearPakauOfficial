@@ -103,7 +103,10 @@ class Order(models.Model):
     @property
     def with_shiphing_charge(self):
         shipingcharge=self.shipingcharge
-        return shipingcharge+self.total+self.giftwrapcharge
+        if self.giftwrap == True:
+            return shipingcharge+self.total+self.giftwrapcharge
+        else:
+            return shipingcharge+self.total
 
     @property
     def after_coupon_applied(self):

@@ -292,13 +292,20 @@ export default function OrderAdminlowercontainer(props)
 
 
                                 {state.result.map(ev=>{
-
+                                    if (ev.order_placedon !== null)
+                                    {
+                                        let pattern = /([0-9\-]+)/i;
+                                        let result=ev.order_placedon.match(pattern);
+                                        ev.order_placedon=result[0]
+                                    }
+                                    // console.log(ev)
                                     return<tr>
                                         <td>{ev.OrderId}</td>
                                         <td>{ev.Order_status}</td>
                                         <td>{ev.user_email}</td>
-                                        <td>qwrttytohiuh</td>
-                                        <td>{ev.total_}</td>
+                                        <td>{ev.order_placedon}</td>
+
+                                        <td>{ev.coupons !== null ?ev.after_coupon_applied_ : ev.with_shiphing_charge_}</td>
                                         <td>{ev.payment_method}</td>
                                         <td><a href={`/orderAdmin/${ev.id}`}>View</a></td>
                                     </tr>
