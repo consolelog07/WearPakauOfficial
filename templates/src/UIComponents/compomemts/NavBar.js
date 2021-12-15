@@ -123,9 +123,9 @@ export default  class NavBar extends React.Component
 
 
                     {this.state.burger?
-                        <div className="nimish" style={{display: "block"}}>
+                        <div className="nimish"  onClick={this.burger_function} style={{display: "block"}}>
                         </div>:
-                        <div className="nimish" style={{display: "none"}}>
+                        <div className="nimish" onClick={this.burger_function} style={{display: "none"}}>
                         </div>
                     }
 

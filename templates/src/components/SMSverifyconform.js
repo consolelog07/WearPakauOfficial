@@ -35,8 +35,7 @@ export default function  SMSverifyconform(props)
                     {created && <h2 className="formheading">Number verified</h2>}
                     {created &&
                         <>
-                            {console.log(setTimeout(ev=>{window.location.href="/auth/SMSverifyconform/"},4000))}
-
+                            {console.log(setTimeout(ev=>{window.location.href="/auth/"},2000))}
                             <CustomizedSnackbars message="number verified sucesfully" severity="Success"/>
 
                         </>

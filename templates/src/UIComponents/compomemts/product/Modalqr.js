@@ -4,6 +4,7 @@ import closeicon from "../../../images/closeicon.svg"
 import QRCodeStyling from "qr-code-styling";
 import QRCustom from "../../QRCustom";
 import meta from  "../../../images/Meta.jpg"
+import pdm from "../../stylemodules/detailP.module.css"
 
 export default function  Modalqr(props) {
 
@@ -21,21 +22,21 @@ export default function  Modalqr(props) {
     //setStateQr
     return <>
 
-        <div className="modalcontainer" style={{display:"block"}}>
-            <div className="closemodal" onClick={props.setmodalFalse}>
+        <div className={pdm.modalcontainer} style={{display:"block"}}>
+            <div className={pdm.closemodal} onClick={props.setmodalFalse}>
                 <img src={closeicon} alt=""/>
             </div>
-            <h2 className="customqrhead">Customise Your QR Below</h2>
+            <h2 className={pdm.customqrhead}>Customise Your QR Below</h2>
 
-            <div className="qrboxcontainer">
+            <div className={pdm.qrboxcontainer}>
                 <QRCustom qroptions={props.qroptions} />
                 {/*<div className="canvas" style={{width: 300,height:300}} ></div>*/}
             </div>
-            <div className="collapsiblecontainer">
+            <div className={pdm.collapsiblecontainer}>
                 <details open>
                     <summary>Dots Option</summary>
-                    <div className="selectstyle">
-                        <label className="select" htmlFor="slct">
+                    <div className={pdm.selectstyle}>
+                        <label className={pdm.select} htmlFor="slct">
                             <select id="slct" required="required" onChange={ev=>{
                                 props.setStateQr({options:{...props.qroptions,dotsOptions: {...props.qroptions.dotsOptions,type:ev.target.value}}})
                                 console.log(ev.target.value)
@@ -55,15 +56,14 @@ export default function  Modalqr(props) {
                                 <use xlinkHref="#select-arrow-down"></use>
                             </svg>
                         </label>
-
                             {/*// <!-- SVG Sprites-->*/}
-                        <svg className="sprites">
+                        <svg className={pdm.sprites}>
                             <symbol id="select-arrow-down" viewBox="0 0 10 6">
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
                         </svg>
                     </div>
-                    <div className="selectstyle">
+                    <div className={pdm.selectstyle}>
                         <label className="select" htmlFor="slct" >
 
                             <input node="dotsOptions.color" id="color1" type="color"   />
@@ -79,7 +79,7 @@ export default function  Modalqr(props) {
                         </label>
 
                         {/*// <!-- SVG Sprites-->*/}
-                        <svg className="sprites">
+                        <svg className={pdm.sprites}>
                             <symbol id="select-arrow-down" viewBox="0 0 10 6">
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
@@ -88,8 +88,8 @@ export default function  Modalqr(props) {
                 </details>
                 <details>
                     <summary>Corner Square Option</summary>
-                    <div className="selectstyle">
-                        <label className="select" htmlFor="slct">
+                    <div className={pdm.selectstyle}>
+                        <label className={pdm.select} htmlFor="slct">
                             <select id="slct" required="required" onChange={ev=>{
                                 if (ev.target.value==="")
                                 {
@@ -111,14 +111,14 @@ export default function  Modalqr(props) {
                             </svg>
                         </label>
                         {/*// <!-- SVG Sprites-->*/}
-                        <svg className="sprites">
+                        <svg className={pdm.sprites}>
                             <symbol id="select-arrow-down" viewBox="0 0 10 6">
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
                         </svg>
                     </div>
-                    <div className="selectstyle">
-                        <label className="select" htmlFor="slct" >
+                    <div className={pdm.selectstyle}>
+                        <label className={pdm.select} htmlFor="slct" >
 
                             <input node="dotsOptions.color" id="color2" type="color"   />
                             {/*<svg>*/}
@@ -133,7 +133,7 @@ export default function  Modalqr(props) {
                         </label>
 
                         {/*// <!-- SVG Sprites-->*/}
-                        <svg className="sprites">
+                        <svg className={pdm.sprites}>
                             <symbol id="select-arrow-down" viewBox="0 0 10 6">
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
@@ -142,8 +142,8 @@ export default function  Modalqr(props) {
                 </details>
                 <details>
                     <summary>Corners Dot Option</summary>
-                    <div className="selectstyle">
-                        <label className="select" htmlFor="slct">
+                    <div className={pdm.selectstyle}>
+                        <label className={pdm.select} htmlFor="slct">
                             <select id="slct" required="required" onChange={ev=>{
                                 props.setStateQr({options:{...props.qroptions,cornersDotOptions: {...props.qroptions.cornersDotOptions,type:ev.target.value}}})
                                 console.log(ev.target.value)
@@ -161,14 +161,14 @@ export default function  Modalqr(props) {
                             </svg>
                         </label>
                         {/*// <!-- SVG Sprites-->*/}
-                        <svg className="sprites">
+                        <svg className={pdm.sprites}>
                             <symbol id="select-arrow-down" viewBox="0 0 10 6">
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
                         </svg>
                     </div>
-                    <div className="selectstyle">
-                        <label className="select" htmlFor="slct" >
+                    <div className={pdm.selectstyle}>
+                        <label className={pdm.select} htmlFor="slct" >
 
                             <input node="dotsOptions.color" id="color3" type="color"   />
                             {/*<svg>*/}
@@ -183,7 +183,7 @@ export default function  Modalqr(props) {
                         </label>
 
                         {/*// <!-- SVG Sprites-->*/}
-                        <svg className="sprites">
+                        <svg className={pdm.sprites}>
                             <symbol id="select-arrow-down" viewBox="0 0 10 6">
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
@@ -192,8 +192,8 @@ export default function  Modalqr(props) {
                 </details>
                 <details>
                     <summary>logo Options</summary>
-                    <div className="selectstyle">
-                        <label className="select" htmlFor="slct">
+                    <div className={pdm.selectstyle}>
+                        <label className={pdm.select} htmlFor="slct">
                             <select id="slct" required="required" onChange={ev=>{
                                 let val=ev.target.value
                                 if(ev.target.value === "alert")
@@ -217,7 +217,7 @@ export default function  Modalqr(props) {
                             </svg>
                         </label>
                         {/*// <!-- SVG Sprites-->*/}
-                        <svg className="sprites">
+                        <svg className={pdm.sprites}>
                             <symbol id="select-arrow-down" viewBox="0 0 10 6">
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
@@ -226,9 +226,9 @@ export default function  Modalqr(props) {
                 </details>
 
             </div>
-            <div className="modalbtncontainer">
+            <div className={pdm.modalbtncontainer}>
                 {/*// <!-- <button class="cancelcustomisation">Cancel</button> -->*/}
-                <button className="donecustomisation" onClick={props.setmodalFalse} >Done</button>
+                <button className={pdm.donecustomisation} onClick={props.setmodalFalse} >Done</button>
             </div>
         </div>
     </>

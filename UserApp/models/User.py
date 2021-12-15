@@ -146,7 +146,7 @@ class User(AbstractBaseUser, PermissionsMixin):
                 OTP += digits[math.floor(random.random() * 10)]
 
             self.SMS_token = OTP
-            self.SMS_token_dateTime_expire = timezone.now() + timezone.timedelta(seconds=120)
+            self.SMS_token_dateTime_expire = timezone.now() + timezone.timedelta(seconds=100)
             return True
         else:
             return False

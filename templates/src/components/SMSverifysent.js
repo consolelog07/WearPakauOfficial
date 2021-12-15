@@ -92,7 +92,7 @@ export default function  SMSverifysent(props)
                                     <input type="submit" className="submitbutton" value="Submit"/>
                                     {error &&  <span className="formwarning">{error_msg}</span>}
                                     {error &&
-                                    <CustomizedSnackbars message={error_msg} severity="success"/>
+                                    <CustomizedSnackbars message={error_msg} severity="error"/>
                                     }
                                 </form>
 

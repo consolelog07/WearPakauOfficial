@@ -70,8 +70,15 @@ export default function OrderDetail(props){
 
     async function getOrder()
     {
+        let z=`/Api/orders/Orders/?id=${state.params.topicId}`
+        // console.log(props.admin)
+        if( props.admin === true){
+            z=`/Api/orders/AdminOrders/?id=${state.params.topicId}`
 
-        let req = new Request(`/Api/orders/Orders/?id=${state.params.topicId}`, {
+        }
+
+
+        let req = new Request(z, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
             credentials: 'include', //when will the cookies and authorization header be sent
 
@@ -91,12 +98,13 @@ export default function OrderDetail(props){
         })
 
 
-        // console.log(response.results)
+        // console.log(response)
         // "detail": "Authentication credentials were not provided."
         if (Reflect.has(response,"detail") && response["detail"] === "Authentication credentials were not provided.")
         {
-            // console.log("do not show")
+            // console.log(response)
             window.location.href="/error/404/"
+
         }
 
 
@@ -119,9 +127,9 @@ export default function OrderDetail(props){
 
 
         }
-        else {
-            window.location.href="/error/404/"
-        }
+        // else {
+        //     window.location.href="/error/404/"
+        // }
 
     }
     async function getAllImages()
@@ -198,6 +206,11 @@ export default function OrderDetail(props){
     async function getAddress(id)
     {
 
+        if(props.admin === true)
+        {
+            setState({...state,address_result:state.result.Address,address_fetch: false,images_fetch: true,attempted: false})
+            return true
+        }
 
         let req = new Request(`/Api/orders/Address/?id=${id}`, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
@@ -224,10 +237,10 @@ export default function OrderDetail(props){
 
             setState({...state,address_result:response.results[0],address_fetch: false,images_fetch: true,attempted: false})
         }
-        else
-        {
-            window.location.href="/error/404/"
-        }
+        // else
+        // {
+        //     window.location.href="/error/404/"
+        // }
 
     }
 

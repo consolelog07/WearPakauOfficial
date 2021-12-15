@@ -35,7 +35,7 @@ export default function  UpdateBasicUserDetail(props)
                 </> :<>
             {created &&
             <>
-            {setTimeout(ev=>{window.location.reload()},4000)}
+            {console.log(setTimeout(ev=>{window.location.reload()},4000))}
             <CustomizedSnackbars message="Sucessfully updated"  severity="success" />
             </>}
                 {created && <h2 className="formheading">Succesfully updated</h2>}

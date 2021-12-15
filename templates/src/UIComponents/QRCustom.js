@@ -1,6 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import QRCodeStyling from "qr-code-styling";
 
+
 export default function  QRCustom(props)
 {
     // console.log(props.qroptions)

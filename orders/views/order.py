@@ -1,3 +1,5 @@
+import logging
+
 from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from rest_framework import mixins
@@ -16,12 +18,13 @@ from orders.Serailizer import Order_serializers
 from orders.models import Order, Address, Payment
 from url_filter.integrations.drf import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
-
+logger = logging.getLogger('console_Order')
 
 address_id_validator=RegexValidator(regex='^[0-9]*$', message="pass order id")
 razorpay_payment_id_validator=RegexValidator(regex='^[A-Za-z0-9!@#$&()-`.+,/\"]*$', message="pass razorpay_payment_id id")
 razorpay_order_id_validator=RegexValidator(regex='^[A-Za-z0-9!@#$&()-`.+,/\]*$', message="pass razorpay_order_id id")
 razorpay_signature_validator=RegexValidator(regex='^[A-Za-z0-9!@#$&()-`.+,/\]*$', message="pass razorpay_signature id")
+
 
 class Order_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericViewSet):
     queryset = Order.objects.all().order_by("-order_placedon")
@@ -66,8 +69,11 @@ class Order_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericVie
         except Order.DoesNotExist:
             pass
 
-        Order.objects.create(user=self.request.user, Address=a,
+        a=Order.objects.create(user=self.request.user, Address=a,
                              cart_order_id=self.request.user.cart.cart_order_id)
+
+        logger.info(f'Order Creation user  {request.user.email} on {a.OrderId};')
+
         return Response({"Success": "order created successfully"})
 
     @action(detail=False, methods=['Post'])
@@ -99,6 +105,7 @@ class Order_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericVie
 
         x.Address =a
         x.save()
+        logger.info(f'Order user {request.user.email} {a.OrderId} Address updated  to {a.id} ;')
 
         # Order.objects.create(user=self.request.user, Address=a,
         #                      cart_order_id=self.request.user.cart.cart_order_id)
@@ -185,10 +192,11 @@ class Order_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericVie
                     # co.payment_method="razorpay"
                     co.payment_method="cod"
                     co.save()
+                    logger.info(f'Order user {request.user.email} {co.OrderId} set_payment_option  cod ;')
 
                     return place_order(self.request,co)
 
-                    return Response({"Success": "cod set"})
+                    # return Response({"Success": "cod set"})
                 else:
                     return Response({"error": "cod not possible price"})
             else:
@@ -211,6 +219,7 @@ class Order_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericVie
             a.save()
             co.Payment=a
             co.save()
+            logger.info(f'Order user {request.user.email} {co.OrderId} set_payment_option  razorpaay {co.Payment.razorpay_OrderId} Created;')
             return Response({"Success": "razorpay set  ##{}".format(a.razorpay_OrderId)})
 
 
@@ -252,6 +261,7 @@ class Order_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericVie
         co.Order_status="placed"
         co.order_placedon= timezone.now()
         co.save()
+        logger.info(f'Order user {request.user.email} {co.OrderId} order placed   ;')
         return Response({"Success": "order_placed"})
 
 
@@ -275,6 +285,7 @@ class Order_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericVie
                 co.order_status_on_wp_server=False
                 co.reason=reason
                 co.save()
+                logger.info(f'Order user {request.user.email} {co.OrderId} order canceled ;')
                 return Response({"Success": "Internal error"})
             except Exception as e:
                 return Response({"error": "Internal error"})
@@ -335,6 +346,7 @@ class Order_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericVie
             return Response({"eroor":"order not created yer"})
         # razorpay_signature:""
         a=co.Payment.verify_and_set_razorpay_payment_id_status(razorpay_payment_id,razorpay_signature) == True
+        logger.info(f'Order user {request.user.email} {co.OrderId} razorpay orderid {co.Payment.razorpay_OrderId} verified ;')
         if a:
             return place_order(self.request,co)
         else:

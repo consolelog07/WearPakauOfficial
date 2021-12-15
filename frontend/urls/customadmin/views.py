@@ -14,10 +14,10 @@ class BaseReactfile(TemplateView):
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
-        AddressCheck(context,request)
+
 
         if self.test1():
-            return self.render_to_response(context)
+            return super().get(request,context, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('400_page'))
 

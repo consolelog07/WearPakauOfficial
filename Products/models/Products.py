@@ -1,6 +1,8 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
+from meta.models import ModelMeta
+
 from .Images import Images
 from .imageSet import ImagesSet
 
@@ -19,6 +21,8 @@ class Products(models.Model):
     sizes=models.TextField(default="",blank=True,null=True)
     created_on=models.TimeField(auto_now_add=True,null=True,blank=True)
     display_to_user=models.BooleanField(default=True,help_text="if u want to delete this product  uncheck this")
+    abstract=models.TextField(default="",blank=True,null=True)
+
 
     def __str__(self):
         return self.name

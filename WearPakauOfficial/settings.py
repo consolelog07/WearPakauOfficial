@@ -132,7 +132,8 @@ INSTALLED_APPS = [
     'Products',
     'cart',
     "Ordered_User_products",
-    "orders"
+    "orders",
+
     # 'frontend',
 
 ]
@@ -233,6 +234,18 @@ LOGGING = {
             'class': 'logging.FileHandler',
             'filename':'./logsdir/Oup.log',
             'formatter': 'verbose'
+        },
+        'file_Admin':{
+            'level':'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename':'./logsdir/Admin.log',
+            'formatter': 'verbose'
+        },
+        'file_Order':{
+            'level':'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename':'./logsdir/Order.log',
+            'formatter': 'verbose'
         }
 
     },
@@ -259,7 +272,16 @@ LOGGING = {
             'propogate':True,
 
         },
-
+        'console_Admin': {
+            'handlers':['file_Admin'],
+            'level':'INFO',
+            'propogate':True,
+        },
+        'console_Order': {
+            'handlers':['file_Order'],
+            'level':'INFO',
+            'propogate':True,
+        },
 
     },
     'formatters': {
@@ -275,3 +297,5 @@ Default_QrJson='{"width": 300, "height": 300, "type": "svg", "data": "http://qr-
 Default_giftwrapcharge=70
 
 Default_Shipingcharge=70
+
+

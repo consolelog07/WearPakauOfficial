@@ -9,5 +9,4 @@ from ...Views import BaseReactfile
 app_name = 'product'
 urlpatterns = [
     path('',login_required(BaseReactfile.as_view()),name="CartIndex"),
-    # path('list/',BaseReactfile.as_view(),name="ProductList"),
 ]

@@ -20,8 +20,14 @@ import Order_dir from "../UIComponents/compomemts/order/Order_dir";
 import Landing from "../UIComponents/compomemts/Landing";
 import OrderAdmin_dir from "../UIComponents/compomemts/admin/Admin_dir";
 
-
-
+function manageErrors(response) {
+    if (response.statusText === "500") {
+        window.location.href="/error/500/"
+    }else
+    {
+        return response
+    }
+}
 
 
 export default class Globalauth extends React.Component
@@ -120,8 +126,12 @@ export default class Globalauth extends React.Component
         });
 
         const response = await fetch(req)
+            .then(manageErrors)
             .then(ev=>ev.json())
-            .catch(err=>console.log(err))
+            .catch(err=> {
+                alert("jeee")
+                console.log(err, "errr")
+            })
         // console.log(response)
 
         if (Reflect.has(response,'isAuthenticated') === true)
@@ -148,6 +158,7 @@ export default class Globalauth extends React.Component
             referrerPolicy: 'no-referrer',
         });
         const response = await fetch(req)
+        .then(manageErrors)
         .then(ev=>ev.json()).catch(ev=>console.log(ev))
 
         // console.log(response)
@@ -852,7 +863,7 @@ export default class Globalauth extends React.Component
     }
     send_to_verify_Basic_detail()
     {
-        if(this.state.First_name !== null || this.state.Last_name !== null )
+        if(this.state.First_name !== null || this.state.Last_name !== null)
         {
             // console.log("heeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",this.state.First_name,this.state.Last_name  )
 
@@ -870,7 +881,6 @@ export default class Globalauth extends React.Component
             window.location.href=`/auth/UpdateBasicUserDetail/`
         }
         return false
-
     }
 
     render() {
@@ -883,29 +893,7 @@ export default class Globalauth extends React.Component
                 </>
         }
 
-        // console.log(this.state)
 
-        if(this.state.login)
-        {
-            if (this.send_to_verify_Basic_detail() === true)
-            {
-                // console.log('iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii')
-                if( this.send_to_verify_phone_number() === true)
-                {
-
-                    console.log("ready")
-                }
-            }
-            // console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb')
-
-
-        }
-
-        if(this.send_to_verify_Basic_detail() === false && this.send_to_verify_phone_number() == true && window.addressSet !== "True"  && window.addressSet !== "" && window.location.href.search("/auth/DefaultAddress/" )=== -1)
-        {
-            window.location.href="/auth/DefaultAddress/"
-            console.log("ssssssssssssssssssssssss")
-        }
 
 
         return <>

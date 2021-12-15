@@ -1,6 +1,7 @@
 import React, {Component, useEffect, useState} from "react";
 import {useParams, withRouter} from "react-router-dom";
 import productdetail from "../../style/productdetail.css"
+import pdm from "../../stylemodules/detailP.module.css"
 import Modalqr from "./Modalqr";
 import getCookie from "../../../components/getcooke";
 import Productdetailsplide from "./ProductdetailSplide";
@@ -128,6 +129,25 @@ class ProdctDetail extends React.Component
     {
         this.setState({modal:false})
     }
+    share(ev)
+    {
+        console.log(ev,"hhhhhhhhhhhhhhhhhhh")
+        if (navigator.share) {
+            console.log("Congrats! Your browser supports Web Share API");
+            navigator
+                .share({
+                    url: `https://share.toogoodtogo.com/store/1006/milestones/meals-saved/`
+                })
+                .then(() => {
+                    console.log("Sharing successfull");
+                })
+                .catch(() => {
+                    console.log("Sharing failed");
+                });
+        } else {
+            console.log("Sorry! Your browser does not support Web Share API");
+        }
+    }
 
     render() {
 
@@ -170,22 +190,28 @@ class ProdctDetail extends React.Component
                     }
                     {this.state.err  &&  <CustomizedSnackbars message={`${this.state.err_msg}`}  severity="error" />}
 
-                    <div className="productdetailcontainer">
-                        <div className="productcarousel">
+                    <div className={pdm.productdetailcontainer}>
+                        <div className={pdm.productcarousel}>
                             <Productdetailsplide imagesSet={this.state.result.ImagesSet} />
                             {/*<img src={this.state.result.default.image} alt=""/>*/}
                         </div>
-                        <div className="productinfo">
+                        <div className={pdm.productinfo}>
                             <h1>{this.state.result.name}</h1>
                             <p>{this.state.result.category}</p>
-                            <div className="pricing">
+                            {this.state.size[0] !== "" && <>
+
+                            <div className={pdm.sizes}>
+                                {this.state.size.map(ev=> <span>{ev}</span>)}
+                            </div>
+                            </>}
+                            <div className={pdm.pricing}>
                                 {this.state.result.discount_display ?
                                     <>
                                         <span className="price">RS. {this.state.result.discounted_price}</span>
-                                        <span className="og-price">RS. {this.state.result.price}</span>
-                                        { this.state.result.price !== 0 ? <span className="discount">
+                                        <span className={pdm.ogPrice} style={{"text-decoration": "line-through", "font-weight": "200"}} >RS. {this.state.result.price}</span>
+                                        { this.state.result.price !== 0 ? <span className={pdm.discount}>
                                             ({((1-(this.state.result.discounted_price/this.state.result.price))*100).round(2)} % OFF)</span>
-                                            :<span className="discount">(0 % OFF)</span>}
+                                            :<span className={pdm.discount}>(0 % OFF)</span>}
                                     </>
                                     :<>
                                         <span className="price">RS.  {this.state.result.price}</span>
@@ -205,8 +231,8 @@ class ProdctDetail extends React.Component
                                     })
                                 }
                             </ul>
-                            <span className="qunatitycustombox">
-          <div className="quantityselector">
+                            <span className={pdm.qunatitycustombox}>
+          <div className={pdm.quantityselector}>
             <span>Quantity </span>
             <select value={this.state.Quantity}
                     onChange={ev=>{this.setState({Quantity:ev.target.value})}}>
@@ -219,14 +245,14 @@ class ProdctDetail extends React.Component
               <option value="7">7</option>
             </select>
           </div>
-          <button className="customiseproduct" onClick={ev=>{this.setState({modal:true})}}>Customise QR</button>
+          <button className={pdm.customiseproduct} onClick={ev=>{this.setState({modal:true})}}>Customise QR</button>
         </span>
 
         {this.state.size[0] !== "" && <>
 
-         <span className="qunatitycustombox">
+         <span className={pdm.qunatitycustombox}>
 
-          <div className="quantityselector">
+          <div className={pdm.quantityselector}>
             <span>Size </span>
             <select value={this.state.size_selected}
                     onChange={ev=>{this.setState({size_selected:ev.target.value})}}>
@@ -237,11 +263,11 @@ class ProdctDetail extends React.Component
                   </span>
         </>}
 
-        <span className="buycart">
+        <span className={pdm.buycart}>
 
-          <button className="buy" disabled={true}>BUY NOW</button>
+          <button className={pdm.buy} disabled={true} onClick={this.share}>Share</button>
 
-            <button className="addtocart"
+            <button className={pdm.addtocart}
                   onClick={ev=>{
                       console.log(this.props.Gstate.login)
                       if(this.props.Gstate.login)
@@ -253,10 +279,9 @@ class ProdctDetail extends React.Component
                       {
                           this.setState({err:true,err_msg:"login to add product in cart"})
                       }
-
                   }}>ADD TO CART</button>
         </span>
-                            <span className="nimishhouse">
+                            <span className={pdm.nimishhouse}>
                                 <h2>your QR CODE</h2>
                             <QRCustom qroptions={this.state.options} />
                             </span>

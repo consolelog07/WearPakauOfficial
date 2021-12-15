@@ -1,3 +1,4 @@
+import logging
 
 from rest_framework import mixins
 from rest_framework.decorators import action
@@ -12,12 +13,15 @@ from orders.Serailizer import Order_serializers
 from orders.Serailizer.OrderAdminSerailizer import OrderAdmin_serializers
 from orders.models import Order
 
+logger = logging.getLogger('console_Admin')
 
 class Iscoreuser(BasePermission):
     """
     Allows access only to authenticated users.
     """
-
+    def has_object_permission(self, request, view, obj):
+        logger.info(f'Admin user  {request.user.email} on {obj.OrderId};')
+        return bool(request.user and request.user.is_authenticated and request.user.is_coreTeam)
     def has_permission(self, request, view):
         return bool(request.user and request.user.is_authenticated and request.user.is_coreTeam)
 
@@ -35,9 +39,9 @@ class AdminOrder_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, Gener
     search_fields = ["OrderId"]
     ordering_fields = ['order_placedon',]
 
-    # update later
     @action(detail=False, methods=['GET'])
     def Get_stats(self, request, *args, **kwargs):
+        logger.info(f'Admin user  {request.user.email} on admin page;')
         a={}
         a["totalorders"]=Order.objects.all().count()
         a["placed"]=Order.objects.filter(Order_status="placed").count()
@@ -58,6 +62,7 @@ class AdminOrder_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, Gener
         instance = self.get_object()
         try:
             if instance.Order_status == "placed":
+                logger.info(f'Admin user {request.user.email} = {instance.OrderId} {instance.Order_status} to Processing ;')
                 instance.Order_status="Processing"
                 instance.save()
                 return Response({"Success":"processing"})
@@ -72,6 +77,7 @@ class AdminOrder_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, Gener
         instance = self.get_object()
         try:
             if instance.Order_status == "Processing":
+                logger.info(f'Admin user  {request.user.email} = {instance.OrderId} {instance.Order_status} to Shipped ;')
                 instance.Order_status="Shipped"
                 instance.save()
                 return Response({"Success":"Shipped"})
@@ -92,6 +98,7 @@ class AdminOrder_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, Gener
             return Response({"error":"no  reason"})
         try:
             if instance.Order_status != "Delivered":
+                logger.info(f'Admin user  {request.user.email} = {instance.OrderId} {instance.Order_status} to Cancelled ;')
                 instance.Order_status="Cancelled"
                 instance.reason="Cancled By Team wearPakau  "+data["reason"]
                 instance.save()
