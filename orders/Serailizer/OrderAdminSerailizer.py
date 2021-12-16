@@ -15,6 +15,7 @@ class OrderAdmin_serializers(serializers.ModelSerializer):
     coupon_name = serializers.PrimaryKeyRelatedField(read_only=True,source="coupons.Code")
 
     giftwrapcharge_ = serializers.ReadOnlyField(source="giftwrapcharge")
+    RazorpayOrderId_=serializers.SerializerMethodField()
 
 
     class Meta:
@@ -27,3 +28,13 @@ class OrderAdmin_serializers(serializers.ModelSerializer):
                    ]
         depth = 1
         read_only_fields = ['OrderId',"Ordered_products","Address.user","giftwrapcharge"]
+    def get_RazorpayOrderId_(self, obj):
+        if obj.payment_method == "razorpay" and obj.Payment != None:
+            a=None
+            try:
+                a=obj.Payment.razorpay_OrderId
+                return a
+            except Exception as e:
+                print(e)
+
+        return None

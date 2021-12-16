@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>WearPakau</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/header.css" />
+    <link rel="stylesheet" href="styles/700.css" />
+    <link rel="stylesheet" href="styles/footer.css" />
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"
+    ></script>
+    <!-- *****splide  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+  </head>
+  <style>
+    .nimish {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      z-index: 500;
+      overflow: hidden;
+      background-color: gray;
+      opacity: 0.8;
+      left: 0;
+      top: 0;
+      display: none;
+      /* transform: translateX(-100%); */
+      transition: width 2s, height 115s ease-in;
+      /* overflow: hidden; */
+    }
+    /* *** */
+
+    /* body{
+    overflow: hidden;
+  } */
+  </style>
+  <body>
+    <nav>
+      <!-- ***********NAVBAR START -->
+
+      <div class="burger">
+        <img src="styles/images/MENUBURGER.svg" alt="" />
+      </div>
+      <div class="logo">
+        <img src="styles/images/amazon_logo.png" alt="" />
+      </div>
+      <div class="searchcontainer">
+        <input
+          type="text"
+          placeholder="What are you looking for?"
+          name="search"
+          autocomplete="off"
+        />
+        <button><img src="styles/images/searchicon.svg" alt="" /></button>
+      </div>
+      <div class="cartcontainer">
+        <img src="styles/images/carticon.svg" alt="" />
+      </div>
+      <div class="profilecontainer">
+        <img src="styles/images/profileicon.svg" alt="" />
+      </div>
+      <div class="nimish">
+        <!-- <h1>helloworf</h1> -->
+      </div>
+
+      <ul class="navlinks">
+        <div class="closebutton">
+          <img src="styles/images/closeicon.svg" alt="" />
+        </div>
+        <li class="navlink"><a href="#">Xyz</a></li>
+        <li class="navlink"><a href="#">Xyz</a></li>
+        <li class="navlink"><a href="#">Xyz</a></li>
+        <li class="navlink"><a href="#">Xyz</a></li>
+      </ul>
+    </nav>
+    <div class="searchcontainermobile">
+      <div class="searchmobile">
+        <input
+          type="text"
+          placeholder="What are you looking for?"
+          name="search"
+          autocomplete="off"
+        />
+        <button><img src="styles/images/searchicon.svg" alt="" /></button>
+      </div>
+    </div>
+    <!-- *****placeholder container -->
+    <!-- <div class="placeholdercontainer"></div> -->
+    <!-- 404 -->
+    <div class="container">
+      <div class="imgcontainer">
+        <img src="styles/images/700svg.svg" alt="" />
+      </div>
+      <div class="button">
+          <a href="index.html">Go To Home</a>
+      </div>
+    </div>
+
+    <!-- 404 -->
+
+    <footer>
+      <div class="footerhead">
+        <div class="footerlogocontainer">
+          <img src="styles/images/logowc.png" alt="" />
+        </div>
+      </div>
+      <div class="footerlinkscontainer">
+        <div class="footercol1">
+          <h3 class="footercoltitle">CUSTOMER SERVICE</h3>
+          <ul class="footercollinklist">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Return Order</a></li>
+            <li><a href="#">Cancel Order</a></li>
+          </ul>
+        </div>
+        <div class="footercol2">
+          <h3 class="footercoltitle">COMPANY</h3>
+          <ul class="footercollinklist">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Terms & Condition</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footercol3">
+          <h3 class="footercoltitle">CONNECT WITH US</h3>
+          <ul class="footercollinklist footersocialicons">
+            <li>
+              <a href="#"
+                ><img src="styles/images/instagramicon.svg" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="#"><img src="styles/images/twittericon.svg" alt="" /></a>
+            </li>
+            <li>
+              <a href="#"
+                ><img src="styles/images/facebookicon.svg" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+    <script type="text/javascript">
+      const qrCode = new QRCodeStyling({
+        width: 300,
+        height: 300,
+        type: "svg",
+        data: "https://www.facebook.com/",
+        image: null,
+        dotsOptions: {
+          color: "#4267b2",
+          type: "rounded",
+        },
+        backgroundOptions: {
+          color: "#e9ebee",
+        },
+        imageOptions: {
+          crossOrigin: "anonymous",
+          margin: 20,
+        },
+      });
+
+      qrCode.append(document.getElementById("canvas07"));
+      // qrCode.download({ name: "qr", extension: "svg" });
+    </script>
+    <!-- <script>
+    document.addEventListener( 'DOMContentLoaded', function() {
+      var splide = new Splide( '.splide' );
+      splide.mount();
+    } );
+  </script> -->
+  </body>
+</html>

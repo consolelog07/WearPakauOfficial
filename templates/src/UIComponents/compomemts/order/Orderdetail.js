@@ -349,6 +349,8 @@ export default function OrderDetail(props){
           </span>
           </p>
           <p className={mDetail.status}>Status: <span> {state.result.Order_status}</span></p>
+
+
             {state.result.Order_status === "Cancelled" || state.result.Order_status === "UserCancle" &&
             <p className={mDetail.orderid}>Reason for Cancelation: <span>{state.result.reason}</span></p>
             }
@@ -363,6 +365,7 @@ export default function OrderDetail(props){
           return "None"
           })()
           }</span></p>
+            {props.admin === true && state.result.payment_method === "razorpay" && <><p className={mDetail.status}>Razorpay OrderID: <span> {state.result.RazorpayOrderId_}</span></p></>}
           <p className={mDetail.paymenttype}>Coupon Applied: <span> {state.result.coupons === null?"None":state.result.coupon_name}</span></p>
             {state.result.Order_status === "placed"  &&
             <button className={mDetail.cancel} onClick={modalClose}>Cancel Order</button>

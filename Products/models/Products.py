@@ -1,7 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse
-from meta.models import ModelMeta
+# from meta.models import ModelMeta
 
 from .Images import Images
 from .imageSet import ImagesSet

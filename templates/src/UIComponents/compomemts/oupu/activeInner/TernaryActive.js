@@ -3,6 +3,7 @@ import mPB from "../../../stylemodules/primaryAfter.module.css";
 import getCookie from "../../../../components/getcooke";
 import QRCustom from "../../../QRCustom";
 import CustomizedSnackbars from "../../alert";
+import QRCodeStyling from "qr-code-styling";
 
 export default function PrmaryAfter(props)
 {
@@ -171,6 +172,23 @@ export default function PrmaryAfter(props)
                                 <div className={mPB.detailqrbox} style={{width:"fit-content",height:"fit-content"}}>
                                     <QRCustom qroptions={JSON.parse(state.result.QrJson)}  width={150} height={150} Oup_url={state.result.Oup_url_}/>
                                 </div>
+                                {props.Gstate.is_coreTeam &&
+                                <button className={mPB.buy}
+                                        onClick={ev=>{
+                                            // console.log("ddddddddddddddddd")
+                                            let b=JSON.parse(state.result.QrJson)
+                                            b.width=150
+                                            b.height=150
+                                            b.data=state.result.Oup_url_
+                                            let qrCode = new QRCodeStyling(b)
+                                            qrCode.download({ name: "qr", extension: "svg" });
+
+                                            // setState({...state,activeattempt:true})
+                                        }
+                                        }
+                                >Download</button>
+                                }
+
                                 <span className={mPB.buycart}>
               {state.result.activated === false && props.AGstate.show_active_button && <>
                   <p className={mPB.orderby}><span>Do u want to make user {props.Gstate.email}  owner of this product?</span></p>

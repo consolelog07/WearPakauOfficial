@@ -1,7 +1,7 @@
 import React from "react";
 import searchicon from  '../../images/searchicon.svg'
 import MENUBURGER from  '../../images/MENUBURGER.svg'
-import amazon_logo from '../../images/amazon_logo.png'
+import amazon_logo from '../../images/final logo trans.png'
 import carticon from '../../images/carticon.svg'
 import profileicon from  '../../images/profileicon.svg'
 import closeicon from '../../images/closeicon.svg'
@@ -131,6 +131,7 @@ export default  class NavBar extends React.Component
 
 
                     <ul className="navlinks">
+                        <h3 className="menuheading">Welcome { this.props.Gstate.login=== true? this.props.Gstate.First_name : "User"}</h3>
                         <div className="closebutton" onClick={this.burger_function}>
                             <img src={closeicon} alt=""/>
                         </div>
@@ -138,10 +139,10 @@ export default  class NavBar extends React.Component
                         <li className="navlink"><a href="/order/orderList">Orders</a></li>
                         <li className="navlink"><a href="/cart/">Cart</a></li>
                         <li className="navlink"><a href="/Settings">Settings</a></li>
-                        <li className="navlink"><a href="/AboutUs">About us</a></li>
                         <li className="navlink"><a href="/ContactUs">Contact us</a></li>
-                        {this.props.Gstate.login=== true &&
-                        <Logout logout={this.props.logout} />
+                        {this.props.Gstate.login=== true ?
+                        <Logout logout={this.props.logout} />:<li className="navlink"><a href="/auth/">Login</a></li>
+
                         }
 
                     </ul>
