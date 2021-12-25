@@ -33,12 +33,29 @@ footer .footercoltitle {
   font-weight: 500;
 }
 
+footer .horizontal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
 footer .footercollinklist {
   list-style-type: none;
+  margin-top: 10px;
 }
 
 footer .footercollinklist li {
-  margin-top: 5px;
+  margin-top: 7px;
 }
 
 footer .footercollinklist li a {
@@ -46,7 +63,7 @@ footer .footercollinklist li a {
   color: #f0d8f0;
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 footer .footercol3 {
@@ -99,11 +116,22 @@ footer .footercol3 .footersocialicons li a img {
   footer .footercoltitle {
     font-size: 13px;
   }
+  footer .horizontal {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-top: 5px;
+  }
+  footer .horizontal :not(:first-child) {
+    margin-left: 10px;
+  }
   footer .footercollinklist li {
     margin-top: 1px;
   }
   footer .footercollinklist li a {
     font-size: 11px;
+    font-weight: 500;
   }
   footer .footercol3 .footersocialicons li a img {
     width: 20px;

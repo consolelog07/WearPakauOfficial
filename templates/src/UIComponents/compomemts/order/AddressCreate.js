@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import "../../style/order_address.css"
+import mac from "../../stylemodules/conformadd.module.css"
 import getCookie from "../../../components/getcooke";
 import {
     Button,
@@ -140,6 +141,7 @@ export default class Address_Create extends React.Component
          // showmodal
         this.setState({modalopen:true,empty:false,err_msg:""})
     }
+
     async  Post_address()
     {
         // console.log(this.topicId)
@@ -345,45 +347,86 @@ export default class Address_Create extends React.Component
                             {this.props.Title}
                         </DialogTitle>
                         <DialogContent>
-                            <TableContainer component={Paper}>
-                                <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-                                    <TableHead>
-                                        <TableRow>
-                                            <TableCell>fields</TableCell>
-                                            <TableCell> value</TableCell>
-                                        </TableRow>
-                                    </TableHead>
-                                    <TableBody>
-                                        {this.rows.map((row) => (
-                                            <TableRow
-                                                key={row.fields}
-                                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                            >
-                                                <TableCell component="th" scope="row">
-                                                    {row.fields}
-                                                </TableCell>
-                                                <TableCell align="right">{row.value}</TableCell>
-                                            </TableRow>
-                                        ))}
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
+                            {/*<TableContainer component={Paper}>*/}
+                            {/*    <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">*/}
+                            {/*        <TableHead>*/}
+                            {/*            <TableRow>*/}
+                            {/*                <TableCell>fields</TableCell>*/}
+                            {/*                <TableCell> value</TableCell>*/}
+                            {/*            </TableRow>*/}
+                            {/*        </TableHead>*/}
+                            {/*        <TableBody>*/}
+                            {/*            {this.rows.map((row) => (*/}
+                            {/*                <TableRow*/}
+                            {/*                    key={row.fields}*/}
+                            {/*                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}*/}
+                            {/*                >*/}
+                            {/*                    <TableCell component="th" scope="row">*/}
+                            {/*                        {row.fields}*/}
+                            {/*                    </TableCell>*/}
+                            {/*                    <TableCell align="right">{row.value}</TableCell>*/}
+                            {/*                </TableRow>*/}
+                            {/*            ))}*/}
+                            {/*        </TableBody>*/}
+                            {/*    </Table>*/}
+                            {/*</TableContainer>*/}
+                            <div className={"external-container"}>
+                                <div className={"internal-container"}>
+                                    <h2 className={"address-confirmation-heading"}>
+                                        Confirm Your Address
+                                    </h2>
+                                    <div className={"detail-container"}>
+                                        <label htmlFor="Name" className={"detail-label"}>Name</label>
+                                        <p className={"detail-text"}>{this.state.form_value.First_name} {this.state.form_value.Last_name}</p>
+                                    </div>
+                                    <div className={"detail-container"}>
+                                        <label htmlFor="address" className={"detail-label"}>Address</label>
+                                        <p className={"detail-text"}>{this.state.form_value.address} {this.state.form_value.address_2}</p>
+                                    </div>
+                                    <div className={"detail-container"}>
+                                        <label htmlFor="zipcode" className={"detail-label"}>Pin Code</label>
+                                        <p className={"detail-text"}>{this.state.form_value.pincode}</p>
+                                    </div>
+                                    <div className={"detail-container"}>
+                                        <label htmlFor="city" className={"detail-label"}>City</label>
+                                        <p className={"detail-text"}>{this.state.form_value.city}</p>
+                                    </div>
+                                    <div className={"detail-container"}>
+                                        <label htmlFor="state" className={"detail-label"}>State</label>
+                                        <p className={"detail-text"}>{this.state.form_value.State}</p>
+                                    </div>
+                                    <div className={"detail-container"}>
+                                        <label htmlFor="state" className={"detail-label"}>Country</label>
+                                        <p className={"detail-text"}>{this.state.form_value.country}</p>
+                                    </div>
+
+                                    {/*<div className={"detail-container"}>*/}
+                                    {/*    <label htmlFor="state" className={"detail-label"}>Default Billing Addess</label>*/}
+                                    {/*    <p className={"detail-text"}>{this.state.result.default === true ? "Yes":"NO"}</p>*/}
+                                    {/*</div>*/}
+                                    <div className={"button-container"}>
+                                        <button className={"edit-button"} onClick={this.handleClose} >Edit</button>
+                                        <button className={"confirm-button"} onClick={this.handleAgree}>Confirm</button>
+                                    </div>
+                                </div>
+                            </div>
+                         
                         </DialogContent>
-                        <DialogActions>
-                            <Button onClick={this.handleClose}>Disagree</Button>
-                            <Button onClick={this.handleAgree} autoFocus>
-                                Agree
-                            </Button>
-                        </DialogActions>
+                        {/*<DialogActions>*/}
+                        {/*    <Button onClick={this.handleClose}>Disagree</Button>*/}
+                        {/*    <Button onClick={this.handleAgree} autoFocus>*/}
+                        {/*        Agree*/}
+                        {/*    </Button>*/}
+                        {/*</DialogActions>*/}
                     </Dialog>
                     }
 
 
                     <div className="container">
                         <h1>{this.props.Title}</h1>
-                        {/*Shipping*/}
+
                         <p>Please enter your shipping details.</p>
-                        <hr/>
+                        <hr className="hr1"/>
                         <div className="form">
 
                             <div className="fields fields--2">
@@ -392,6 +435,7 @@ export default class Address_Create extends React.Component
                                     <input className="field__input" type="text" id="firstname"
                                            value={this.state.form_value.First_name}
                                            pattern="[a-zA-Z]*"
+                                           style={{border:"none"}}
                                            onChange={ev=>{this.setState(
                                                (state, props)=>(
                                                    {
@@ -412,6 +456,7 @@ export default class Address_Create extends React.Component
                                     <input className="field__input" type="text" id="lastname"
                                            // value={this.state.form_value.Last_name}
                                            value={`${this.state.form_value.Last_name}`}
+                                           style={{border:"none"}}
                                            required
                                            onChange={ev=>{this.setState(
                                                (state, props)=>(
@@ -433,7 +478,7 @@ export default class Address_Create extends React.Component
                             <label className="field">
                                 <span className="field__label" htmlFor="address">Phonenumber</span>
                                 <input className="field__input phonenumber" type="text" id="address"
-
+                                       style={{border:"none"}}
                                        value={this.state.form_value.phone_number}
                                        pattern="[789][0-9]{9}"
                                        onChange={ev=>{this.setState(
@@ -459,7 +504,7 @@ export default class Address_Create extends React.Component
                                 <span className="field__label" htmlFor="address">Address</span>
                                 <input className="field__input" type="text" id="address"
                                        value={this.state.form_value.address}
-
+                                       style={{border:"none"}}
                                        onChange={ev=>{this.setState(
                                            (state, props)=>(
                                                {
@@ -479,7 +524,7 @@ export default class Address_Create extends React.Component
                                 <span className="field__label" htmlFor="landmark">Land mark</span>
                                 <input className="field__input" type="text" id="landmark"
                                        value={this.state.form_value.address_2}
-
+                                       style={{border:"none"}}
                                        required
                                        onChange={ev=>{this.setState(
                                            (state, props)=>(
@@ -501,7 +546,7 @@ export default class Address_Create extends React.Component
                                     <input className="field__input" type="text"
                                            value={this.state.form_value.pincode}
                                            pattern="[0-9]{6}"
-
+                                           style={{border:"none"}}
                                            required
                                            onChange={ev=>{this.setState(
                                                (state, props)=>(
@@ -522,7 +567,7 @@ export default class Address_Create extends React.Component
                                     <span className="field__label" htmlFor="city">City</span>
                                     <input className="field__input" type="text" id="city"
                                            value={this.state.form_value.city}
-
+                                           style={{border:"none"}}
                                            required
                                            onChange={ev=>{this.setState(
                                                (state, props)=>(

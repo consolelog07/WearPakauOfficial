@@ -5,6 +5,7 @@ import QRCodeStyling from "qr-code-styling";
 export default function  QRCustom(props)
 {
     // console.log(props.qroptions)
+    var classna="canvas"
     // console.log(props.width,props.height,props.qroptions)
     if(props.width !== undefined)
     {
@@ -13,6 +14,10 @@ export default function  QRCustom(props)
     if(props.height !== undefined)
     {
         props.qroptions.height=props.height
+    }
+    if(props.csn !== undefined)
+    {
+       classna=props.csn
     }
     // // console.log(props.Oup_url !== undefined , props.qroptions.data !== props.Oup_url )
     if(props.Oup_url !== undefined && props.qroptions.data !== props.Oup_url )
@@ -40,6 +45,6 @@ export default function  QRCustom(props)
 
 
     return<>
-        <div className="canvas"  ref={ref} style={{width: "fit-content",height: "fit-content",border:""}} ></div>
+        <div className={classna}  ref={ref} style={{width: "fit-content",height: "fit-content",border:""}} ></div>
     </>
 }

@@ -21,17 +21,12 @@ export default function  Modalqr(props) {
     // console.log(props.qroptions)
     //setStateQr
     return <>
-
-        <div className={pdm.modalcontainer} style={{display:"block"}}>
+        <div className={"nimish"} style={{width:"100vw",height:"400vh",display:"block"}}></div>
+        <div className={pdm.modalcontainer} style={{display:"block",zIndex:500}}>
             <div className={pdm.closemodal} onClick={props.setmodalFalse}>
                 <img src={closeicon} alt=""/>
             </div>
             <h2 className={pdm.customqrhead}>Customise Your QR Below</h2>
-
-            <div className={pdm.qrboxcontainer}>
-                <QRCustom qroptions={props.qroptions} />
-                {/*<div className="canvas" style={{width: 300,height:300}} ></div>*/}
-            </div>
             <div className={pdm.collapsiblecontainer}>
                 <details open>
                     <summary>Dots Option</summary>
@@ -62,29 +57,40 @@ export default function  Modalqr(props) {
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
                         </svg>
-                    </div>
-                    <div className={pdm.selectstyle}>
-                        <label className="select" htmlFor="slct" >
 
-                            <input node="dotsOptions.color" id="color1" type="color"   />
-                            {/*<svg>*/}
-                            {/*    <use xlinkHref="#select-arrow-down"></use>*/}
-                            {/*</svg>*/}
-                            <button onClick={
-                                ev=>{
-                                    props.setStateQr({options:{...props.qroptions,dotsOptions: {...props.qroptions.dotsOptions,color:document.querySelector("#color1").value}}})
-                                    // console.log(ev.target.value)
-                                }
-                            } >Change Color</button>
-                        </label>
+                        <p className="colorlabel">Select color</p>
+                        <input node="dotsOptions.color" id="color1"
+                               onFocus={ev=>{}}
+                        //        onChange={ev=>{
+                        //     console.log(ev.target.value,"hhhhhhhhhhhh")
+                        // }}
+                               onBlur={ev=>{
 
-                        {/*// <!-- SVG Sprites-->*/}
-                        <svg className={pdm.sprites}>
-                            <symbol id="select-arrow-down" viewBox="0 0 10 6">
-                                <polyline points="1 1 5 5 9 1"></polyline>
-                            </symbol>
-                        </svg>
+                                   props.setStateQr({options:{...props.qroptions,dotsOptions: {...props.qroptions.dotsOptions,color:ev.target.value}}})
+                                   // console.log(ev.target.value)
+                               }}
+                               type="color"   />
+
+
                     </div>
+                    {/*<div className={pdm.selectstyle}>*/}
+                    {/*    <label className="select" htmlFor="slct" >*/}
+
+                    {/*        <input node="dotsOptions.color" id="color1" type="color"   />*/}
+                    {/*        <button onClick={*/}
+                    {/*            ev=>{*/}
+                    {/*                props.setStateQr({options:{...props.qroptions,dotsOptions: {...props.qroptions.dotsOptions,color:document.querySelector("#color1").value}}})*/}
+                                    {/*// console.log(ev.target.value)*/}
+                    {/*            }*/}
+                    {/*        } >Change Color</button>*/}
+                    {/*    </label>*/}
+
+                    {/*    <svg className={pdm.sprites}>*/}
+                    {/*        <symbol id="select-arrow-down" viewBox="0 0 10 6">*/}
+                    {/*            <polyline points="1 1 5 5 9 1"></polyline>*/}
+                    {/*        </symbol>*/}
+                    {/*    </svg>*/}
+                    {/*</div>*/}
                 </details>
                 <details>
                     <summary>Corner Square Option</summary>
@@ -116,29 +122,38 @@ export default function  Modalqr(props) {
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
                         </svg>
-                    </div>
-                    <div className={pdm.selectstyle}>
-                        <label className={pdm.select} htmlFor="slct" >
+                        <p className="colorlabel">Select color</p>
+                        <input node="dotsOptions.color" id="color1"
+                               onFocus={ev=>{}}
+                            //        onChange={ev=>{
+                            //     console.log(ev.target.value,"hhhhhhhhhhhh")
+                            // }}
+                               onBlur={ev=>{
 
-                            <input node="dotsOptions.color" id="color2" type="color"   />
-                            {/*<svg>*/}
-                            {/*    <use xlinkHref="#select-arrow-down"></use>*/}
-                            {/*</svg>*/}
-                            <button onClick={
-                                ev=>{
-                                    props.setStateQr({options:{...props.qroptions,cornersSquareOptions: {...props.qroptions.cornersSquareOptions,color:document.querySelector("#color2").value}}})
-                                    // console.log(ev.target.value)
-                                }
-                            } >Change Color</button>
-                        </label>
+                                   props.setStateQr({options:{...props.qroptions,cornersSquareOptions: {...props.qroptions.cornersSquareOptions,color:ev.target.value}}})
+                                   // console.log(ev.target.value)
+                               }}
+                               type="color"   />
 
-                        {/*// <!-- SVG Sprites-->*/}
-                        <svg className={pdm.sprites}>
-                            <symbol id="select-arrow-down" viewBox="0 0 10 6">
-                                <polyline points="1 1 5 5 9 1"></polyline>
-                            </symbol>
-                        </svg>
                     </div>
+                    {/*<div className={pdm.selectstyle}>*/}
+                    {/*    <label className={pdm.select} htmlFor="slct" >*/}
+
+                    {/*        <input node="dotsOptions.color" id="color2" type="color"   />*/}
+                    {/*        <button onClick={*/}
+                    {/*            ev=>{*/}
+                    {/*                props.setStateQr({options:{...props.qroptions,cornersSquareOptions: {...props.qroptions.cornersSquareOptions,color:document.querySelector("#color2").value}}})*/}
+                    {/*                // console.log(ev.target.value)*/}
+                    {/*            }*/}
+                    {/*        } >Change Color</button>*/}
+                    {/*    </label>*/}
+
+                    {/*    <svg className={pdm.sprites}>*/}
+                    {/*        <symbol id="select-arrow-down" viewBox="0 0 10 6">*/}
+                    {/*            <polyline points="1 1 5 5 9 1"></polyline>*/}
+                    {/*        </symbol>*/}
+                    {/*    </svg>*/}
+                    {/*</div>*/}
                 </details>
                 <details>
                     <summary>Corners Dot Option</summary>
@@ -166,29 +181,38 @@ export default function  Modalqr(props) {
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
                         </svg>
-                    </div>
-                    <div className={pdm.selectstyle}>
-                        <label className={pdm.select} htmlFor="slct" >
+                        <p className="colorlabel">Select color</p>
+                        <input node="dotsOptions.color" id="color1"
+                               onFocus={ev=>{}}
+                            //        onChange={ev=>{
+                            //     console.log(ev.target.value,"hhhhhhhhhhhh")
+                            // }}
+                               onBlur={ev=>{
 
-                            <input node="dotsOptions.color" id="color3" type="color"   />
-                            {/*<svg>*/}
-                            {/*    <use xlinkHref="#select-arrow-down"></use>*/}
-                            {/*</svg>*/}
-                            <button onClick={
-                                ev=>{
-                                        props.setStateQr({options:{...props.qroptions,cornersDotOptions: {...props.qroptions.cornersDotOptions,color:document.querySelector("#color3").value}}})
-                                    // console.log(ev.target.value)
-                                }
-                            } >Change Color</button>
-                        </label>
+                                   props.setStateQr({options:{...props.qroptions,cornersDotOptions: {...props.qroptions.cornersDotOptions,color:ev.target.value}}})
+                                   // console.log(ev.target.value)
+                               }}
+                               type="color"   />
 
-                        {/*// <!-- SVG Sprites-->*/}
-                        <svg className={pdm.sprites}>
-                            <symbol id="select-arrow-down" viewBox="0 0 10 6">
-                                <polyline points="1 1 5 5 9 1"></polyline>
-                            </symbol>
-                        </svg>
                     </div>
+                    {/*<div className={pdm.selectstyle}>*/}
+                    {/*    <label className={pdm.select} htmlFor="slct" >*/}
+
+                    {/*        <input node="dotsOptions.color" id="color3" type="color"   />*/}
+                    {/*        <button onClick={*/}
+                    {/*            ev=>{*/}
+                    {/*                    props.setStateQr({options:{...props.qroptions,cornersDotOptions: {...props.qroptions.cornersDotOptions,color:document.querySelector("#color3").value}}})*/}
+                    {/*                // console.log(ev.target.value)*/}
+                    {/*            }*/}
+                    {/*        } >Change Color</button>*/}
+                    {/*    </label>*/}
+
+                    {/*    <svg className={pdm.sprites}>*/}
+                    {/*        <symbol id="select-arrow-down" viewBox="0 0 10 6">*/}
+                    {/*            <polyline points="1 1 5 5 9 1"></polyline>*/}
+                    {/*        </symbol>*/}
+                    {/*    </svg>*/}
+                    {/*</div>*/}
                 </details>
                 <details>
                     <summary>logo Options</summary>
@@ -222,14 +246,22 @@ export default function  Modalqr(props) {
                                 <polyline points="1 1 5 5 9 1"></polyline>
                             </symbol>
                         </svg>
+                        {/*<p className="colorlabel"> OR Choose image</p>*/}
+                        {/*<input type="file" id="img" name="img" accept="image/*" />*/}
                     </div>
                 </details>
 
+            </div>
+            <div className={pdm.qrboxcontainer}>
+                <p className={pdm.qrtitle}>Your QR</p>
+                <QRCustom qroptions={props.qroptions} />
+                {/*<div className="canvas" style={{width: 300,height:300}} ></div>*/}
             </div>
             <div className={pdm.modalbtncontainer}>
                 {/*// <!-- <button class="cancelcustomisation">Cancel</button> -->*/}
                 <button className={pdm.donecustomisation} onClick={props.setmodalFalse} >Done</button>
             </div>
         </div>
-    </>
+
+        </>
 }

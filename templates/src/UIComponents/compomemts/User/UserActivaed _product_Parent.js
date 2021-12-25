@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Activated_inner from "./Activated_inner";
 import getCookie from "../../../components/getcooke";
+import Noactiveproducts from "../../../images/Noactiveproducts.svg"
 
 
 export default function Activates_parent(props)
@@ -109,33 +110,48 @@ export default function Activates_parent(props)
                 </div>
             </>
         </>:
-            <div className="productlistcontainer">
-                <h2 className="myproducts">Activeee Products</h2>
-                {/*<div className="productlistfilter">*/}
-                {/*    <div className="listfilter">*/}
-                {/*        <span>Sort by price: </span>*/}
-                {/*        <select>*/}
-                {/*            <option value="Low to High">Low to High</option>*/}
-                {/*            <option value="High to Low">High to Low</option>*/}
-                {/*        </select>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
+            <>
+
                 {state.result.length === 0?
-                    <>empty</>:
+                    <div className="productlistcontainer svgcontainer">
+                        <img src={Noactiveproducts} alt="" />
+                    </div>
+                    :
                     <>
+                        <div className="productlistcontainer">
+                            <h2 className="myproducts">Active Products</h2>
+                            {/*<div className="productlistfilter">*/}
+                            {/*    <div className="listfilter">*/}
+                            {/*        <span>Sort by price: </span>*/}
+                            {/*        <select>*/}
+                            {/*            <option value="Low to High">Low to High</option>*/}
+                            {/*            <option value="High to Low">High to Low</option>*/}
+                            {/*        </select>*/}
+                            {/*    </div>*/}
+                            {/*</div>*/}
+                            {state.result.length === 0?
+                                <>empty</>:
+                                <>
 
-                    {state.result.map(ev=>{
-                        // console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
-                       return <Activated_inner data={ev} refresh={refresh} />
+                                    {state.result.map(ev=>{
+                                        // console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+                                        return <Activated_inner data={ev} refresh={refresh} />
 
-                    })}
+                                    })}
+                                </>}
+
+                            {
+                                state.next_possible && <button className="accordion" onClick={increment}>next</button>
+                            }
+
+                        </div>
                     </>}
 
-                {
-                    state.next_possible && <button className="accordion" onClick={increment}>next</button>
-                }
+            </>
 
-            </div>
+
+
+
 
         }
 

@@ -11,11 +11,14 @@ export default function DefaultAddress(props)
         no_result:false,
 
     })
+
+
     if(state.fetch === true && state.attempted === false)
     {
         setState({...state,attempted: true})
 
             getDefault_address()
+
     }
 
     async function getDefault_address()
@@ -50,6 +53,7 @@ export default function DefaultAddress(props)
         }
 
     }
+
 
     return<>
         {

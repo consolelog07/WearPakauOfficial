@@ -21,7 +21,7 @@ export default class Footer extends React.Component
                 <div className="footerlinkscontainer">
                     <div className="footercol1">
                         <h3 className="footercoltitle">CUSTOMER SERVICE</h3>
-                        <ul className="footercollinklist">
+                        <ul className="footercollinklist horizontal ">
                             <li><a href="/ContactUs">Contact Us</a></li>
                             <li><a href="/order/orderList">Track Order</a></li>
                             <li><a href="/order/orderList">Return Order</a></li>
@@ -30,7 +30,7 @@ export default class Footer extends React.Component
                     </div>
                     <div className="footercol2">
                         <h3 className="footercoltitle">COMPANY</h3>
-                        <ul className="footercollinklist">
+                        <ul className="footercollinklist horizontal">
                             <li><a href="/TermsAndConditionAndPrivacyPolicy">Terms & Condition</a></li>
                             <li><a href="/TermsAndConditionAndPrivacyPolicy">Privacy Policy</a></li>
                         </ul>

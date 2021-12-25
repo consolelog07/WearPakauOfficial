@@ -169,7 +169,17 @@ class ProdctDetail extends React.Component
         //     window.location.href="/error/404"
         // }
 
+        if (this.state.modal === false && document.body.style.overflow !=='visible')
+        {
+            document.body.style.overflow='visible'
+        }
+        else
+        {
+            document.body.style.overflow='hidden'
+        }
         return<>
+
+
             {this.state.cartAttempt?
                 <>
                     <div className="loadercontainer" >
@@ -281,9 +291,9 @@ class ProdctDetail extends React.Component
                       }
                   }}>ADD TO CART</button>
         </span>
-                            <span className={pdm.nimishhouse}>
-                                <h2>your QR CODE</h2>
-                            <QRCustom qroptions={this.state.options} />
+                            <span className={pdm.detailqrboxcontainer}>
+                              <p className={pdm.detailqrboxheading}>Your QR</p>
+                               <QRCustom  csn={pdm.detailqrbox}qroptions={this.state.options} />
                             </span>
 
                         </div>

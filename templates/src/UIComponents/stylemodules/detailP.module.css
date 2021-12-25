@@ -8,7 +8,7 @@
     align-items: center;
     -ms-flex-pack: distribute;
     justify-content: space-around;
-    height: 120vh;
+    height: 110vh;
 }
 
 .productdetailcontainer .productcarousel {
@@ -141,6 +141,7 @@
     -ms-flex-pack: justify;
     justify-content: space-between;
     width: 70%;
+    margin-bottom: 30px;
 }
 
 .productdetailcontainer .productinfo .buycart .buy {
@@ -172,34 +173,48 @@
     color: #f0d8f0;
 }
 
-.productdetailcontainer .productinfo .detailqrbox {
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
-    margin-top: 10px;
-    border-radius: 5px;
-}
-.productdetailcontainer .productinfo .nimishhouse{
+.productdetailcontainer .productinfo .detailqrboxcontainer {
+    text-align: center;
+    width: 150px;
+    height: 150px;
     display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.productdetailcontainer .productinfo .detailqrboxcontainer .detailqrboxheading {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: black;
+    font-weight: 400;
+}
+
+.productdetailcontainer .productinfo .detailqrboxcontainer .detailqrbox {
+    width: fit-content;
+    height: fit-content;
     border: 1px solid black;
     border-radius: 5px;
-    margin: 10px 0 0 10px;
-    padding: 10px;
-    /*width: 50%;*/
-    width: fit-content;
+    margin: 5 auto;
 }
-.productdetailcontainer .productinfo .nimishhouse h1{
-    font-family: "Montserrat", sans-serif;
-
-}
-
 
 .modalcontainer {
     display: none;
     position: fixed;
     width: 80%;
     top: 50%;
-    z-index: 999;
     left: 50%;
     background-color: white;
     border: 1px solid black;
@@ -215,7 +230,7 @@
 }
 
 .modalcontainer ::-webkit-scrollbar {
-    width: 5px;
+    width: 7px;
 }
 
 .modalcontainer ::-webkit-scrollbar-track {
@@ -234,6 +249,13 @@
     width: 90%;
     max-width: 600px;
     margin: 15px auto 5px auto;
+    text-align: center;
+}
+
+.modalcontainer .qrboxcontainer .qrtitle {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    margin-bottom: 10px;
 }
 
 .modalcontainer .qrboxcontainer div {
@@ -306,9 +328,9 @@
 }
 
 .modalcontainer .collapsiblecontainer details div {
-    border-left: 2px solid #000;
-    border-right: 2px solid #000;
-    border-bottom: 2px solid #000;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
     padding: 1.5em;
     font-family: "Montserrat", sans-serif;
 }
@@ -330,7 +352,7 @@
 }
 
 .modalcontainer .collapsiblecontainer summary {
-    border: 2px solid #000;
+    border: 1px solid #000;
     padding: 0.75em 1em;
     font-family: "Montserrat", sans-serif;
     cursor: pointer;
@@ -347,7 +369,7 @@
     content: "↓";
     width: 1.75rem;
     height: 1.75rem;
-    background-color: #000;
+    background-color: #a878d8;
     color: #fff;
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
@@ -436,13 +458,13 @@
 
 .modalcontainer .collapsiblecontainer .selectstyle .select select:focus {
     outline: none;
-    border-color: #07f;
+    border-color: #d8a8d8;
     -webkit-box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
     box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
 }
 
 .modalcontainer .collapsiblecontainer .selectstyle .select select:hover + svg {
-    stroke: #07f;
+    stroke: #d8a8d8;
 }
 
 .modalcontainer .collapsiblecontainer .selectstyle .sprites {
@@ -500,7 +522,10 @@
     .productdetailcontainer .productinfo .buycart .addtocart {
         font-size: 16px;
     }
-
+    .modalcontainer{
+        width: 100vw;
+        height: 100vh;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -512,7 +537,7 @@
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
-        height: 160vh;
+        height: 150vh;
     }
     .productdetailcontainer .productcarousel {
         margin-top: 10px;
@@ -559,7 +584,5 @@
     .modalcontainer{
         width: 100vw;
         height: 100vh;
-        overflow: auto;
-
     }
 }

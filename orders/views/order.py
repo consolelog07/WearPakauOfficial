@@ -105,7 +105,7 @@ class Order_Viewset(mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericVie
 
         x.Address =a
         x.save()
-        logger.info(f'Order user {request.user.email} {a.OrderId} Address updated  to {a.id} ;')
+        logger.info(f'Order user {request.user.email} {x.OrderId} Address updated  to {a.id} ;')
 
         # Order.objects.create(user=self.request.user, Address=a,
         #                      cart_order_id=self.request.user.cart.cart_order_id)

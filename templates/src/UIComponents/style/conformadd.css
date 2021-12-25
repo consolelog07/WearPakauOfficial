@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap");
+.external-container {
+    width: 100%;
+    padding: 50px 0;
+}
+
+.external-container .internal-container {
+    border: 1px solid black;
+    width: 500px;
+    padding: 30px 20px;
+    margin: 0 auto;
+}
+
+.external-container .internal-container .address-confirmation-heading {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.external-container .internal-container .detail-container {
+    margin: 7px 0;
+}
+
+.external-container .internal-container .detail-container .detail-label {
+    font-size: 10px;
+    opacity: 0.8;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+.external-container .internal-container .detail-container .detail-text {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+}
+
+.external-container .internal-container .button-container {
+    margin-top: 20px;
+}
+
+.external-container .internal-container .button-container .edit-button, .external-container .internal-container .button-container .confirm-button {
+    background-color: #a878d8;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    border: none;
+    padding: 7px 10px;
+    font-size: 12px;
+}
+
+.external-container .internal-container .button-container .confirm-button {
+    float: right;
+}
+
+@media only screen and (max-width: 480px) {
+    .external-container {
+        padding: 30px 0;
+    }
+    .external-container .internal-container {
+        width: 90%;
+    }
+    .external-container .internal-container .button-container .edit-button, .external-container .internal-container .button-container .confirm-button {
+        padding: 10px 12px;
+    }
+}
+/*# sourceMappingURL=addressconfirmation.css.map */
