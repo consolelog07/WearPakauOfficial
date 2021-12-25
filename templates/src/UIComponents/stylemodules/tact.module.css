@@ -1,0 +1,257 @@
+.contactcontainer {
+    width: 100%;
+    padding: 20px 300px;
+}
+
+.contactcontainer .contactheading {
+    font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    position: relative;
+    margin: 30px 0 0px 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.contactcontainer .contactheading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 20%;
+    height: 3px;
+    background: #a878d8;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.contactcontainer .innercontainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.contactcontainer .innercontainer .formcontainer {
+    padding: 50px;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer {
+    margin: 20px 0;
+    -webkit-box-shadow: 1px 1px 5px #d8a8d8;
+    box-shadow: 1px 1px 5px #d8a8d8;
+    position: relative;
+    width: 300px;
+    border-radius: 5px;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer input {
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+    padding: 10px 10px;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer input::-webkit-input-placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer input:-ms-input-placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer input::-ms-input-placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer input::placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer textarea {
+    resize: none;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: "Montserrat", sans-serif;
+    padding: 10px 10px;
+    background: transparent;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer textarea::-webkit-input-placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer textarea:-ms-input-placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer textarea::-ms-input-placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.contactcontainer .innercontainer .formcontainer form .inputcontainer textarea::placeholder {
+    color: black;
+    opacity: 0.7;
+}
+
+.contactcontainer .innercontainer .formcontainer form button {
+    width: 100%;
+    padding: 7px 0;
+    background: #a878d8;
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #a878d8;
+    cursor: pointer;
+}
+
+.contactcontainer .innercontainer .formcontainer form button:hover {
+    background: white;
+    color: #a878d8;
+    -webkit-box-shadow: 1px 1px 5px #d8a8d8;
+    box-shadow: 1px 1px 5px #d8a8d8;
+    border: 1px solid white;
+}
+
+.contactcontainer .innercontainer .detailcontainer {
+    border: 1px solid #a878d8;
+    padding: 20px 50px;
+    border-radius: 5px;
+    margin-top: 60px;
+}
+
+.contactcontainer .innercontainer .detailcontainer .contactinfo {
+    list-style-type: none;
+}
+
+.contactcontainer .innercontainer .detailcontainer .contactinfo li {
+    margin-top: 20px;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    opacity: 0.7;
+    font-size: 18px;
+}
+
+.contactcontainer .innercontainer .detailcontainer .contactinfo li span {
+    margin-right: 15px;
+}
+
+.contactcontainer .innercontainer .detailcontainer .contactinfo li span img {
+    width: 25px;
+}
+
+.contactcontainer .innercontainer .detailcontainer .sociallink {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    list-style-type: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.contactcontainer .innercontainer .detailcontainer .sociallink li {
+    border: 1px solid #d8a8d8;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.contactcontainer .innercontainer .detailcontainer .sociallink li:hover {
+    background: #d8a8d8;
+}
+
+.contactcontainer .innercontainer .detailcontainer .sociallink li img {
+    height: 25px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+    .contactcontainer .contactheading {
+        font-size: 22px;
+    }
+    .contactcontainer .innercontainer .detailcontainer {
+        padding: 10px 10px;
+        min-width: 200px;
+    }
+    .contactcontainer .innercontainer .detailcontainer .contactinfo li {
+        font-size: 16px;
+    }
+    .contactcontainer .innercontainer .detailcontainer .contactinfo li span {
+        margin-right: 10px;
+    }
+    .contactcontainer .innercontainer .detailcontainer .contactinfo li span img {
+        width: 20px;
+    }
+    .contactcontainer .innercontainer .detailcontainer .sociallink {
+        margin-top: 20px;
+    }
+    .contactcontainer .innercontainer .detailcontainer .sociallink li {
+        height: 40px;
+        width: 40px;
+    }
+    .contactcontainer .innercontainer .detailcontainer .sociallink li img {
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .contactcontainer {
+        padding: 20px;
+    }
+    .contactcontainer .contactheading {
+        margin-top: 5px;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    .contactcontainer .innercontainer {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+    .contactcontainer .innercontainer .formcontainer {
+        width: 100%;
+        padding: 20px;
+    }
+    .contactcontainer .innercontainer .formcontainer form .inputcontainer {
+        width: 100%;
+    }
+    .contactcontainer .innercontainer .detailcontainer {
+        border: none;
+        width: 80%;
+        margin-top: 20px;
+    }
+    .contactcontainer .innercontainer .detailcontainer .sociallink {
+        width: 70%;
+    }
+}
+/*# sourceMappingURL=contactus.css.map */

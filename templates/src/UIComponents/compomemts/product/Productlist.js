@@ -157,7 +157,7 @@ export default function Productlist(props)
                 {result.map(ev=> {
                         // console.log(ev)
                     return<>
-                    <div className={mlist.listcontainer}>
+                    <div className={mlist.listcontainer} id={ev.id} onClick={ev2=>{window.location.href=`/product/${ev.id}/`}}>
                             <div className={mlist.innercontainer}>
                                 <div className={mlist.imgcontainer}>
                                     <img src={ev.default.image} alt=""/>

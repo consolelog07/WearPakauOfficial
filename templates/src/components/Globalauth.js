@@ -19,6 +19,9 @@ import OupuDir from "../UIComponents/compomemts/oupu/oupu_dir";
 import Order_dir from "../UIComponents/compomemts/order/Order_dir";
 import Landing from "../UIComponents/compomemts/Landing";
 import OrderAdmin_dir from "../UIComponents/compomemts/admin/Admin_dir";
+import TACpp from "../UIComponents/compomemts/TearmsandConditionAndPrivacypolicy";
+import Settings from "../UIComponents/compomemts/BasicPage/Settings";
+import ContactUs from "../UIComponents/compomemts/BasicPage/ContactUs";
 
 function manageErrors(response) {
     if (response.statusText === "500") {
@@ -963,6 +966,28 @@ export default class Globalauth extends React.Component
                         />
                     </Route>
 
+
+                    <Route path="/ContactUs/">
+
+                        <ContactUs
+                            setState={this.setState}
+                            state={this.state}
+                        />
+                    </Route>
+                    <Route path="/Settings/">
+
+                        <Settings
+                            setState={this.setState}
+                            state={this.state}
+                        />
+                    </Route>
+                    <Route path="/TermsAndConditionAndPrivacyPolicy/">
+
+                        <TACpp
+                            setState={this.setState}
+                            state={this.state}
+                        />
+                    </Route>
 
                     <Route path="/cart/">
 

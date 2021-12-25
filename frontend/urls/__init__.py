@@ -1,4 +1,4 @@
-
+from django.contrib.auth.decorators import login_required
 from django.urls import path,include
 from .auth import urlpatterns as authurlpatterns
 from .errors import urlpatterns as errorurlpattern
@@ -16,7 +16,7 @@ urlpatterns = [
     path('ContactUs',BaseReactfile.as_view(),name="ContactUs"),
     path('AboutUs',BaseReactfile.as_view(),name="AboutUs"),
     path('TermsAndConditionAndPrivacyPolicy',BaseReactfile.as_view(),name="TermsAndConditionAndPrivacyPolicy"),
-    path('Settings',BaseReactfile.as_view(),name="Settings"),
+    path('Settings',login_required(BaseReactfile.as_view()),name="Settings"),
     path('auth/',include(authurlpatterns),name="authurlpatterns"),
     path('product/',include(producturlpattern),name="producturlpattern"),
     path('cart/',include(carturlpattern),name="carturlpattern"),

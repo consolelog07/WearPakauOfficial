@@ -1,0 +1,79 @@
+
+.external-container {
+    width: 100%;
+    padding: 50px 100px;
+}
+
+.external-container .setting-head {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 50px;
+    font-weight: 500;
+}
+
+.external-container .setting-head::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 50%;
+    height: 3px;
+    background: #a878d8;
+}
+
+.external-container .setting-options {
+    margin-left: 50px;
+    list-style-type: none;
+}
+
+.external-container .setting-options .option {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    margin: 15px 0;
+    padding: 30px 30px;
+    background-color: #f6f8f7;
+    border-radius: 5px;
+    border: 2px solid whitesmoke;
+    -webkit-box-shadow: 0px 6px 3px -4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 6px 3px -4px rgba(0, 0, 0, 0.1);
+}
+
+.external-container .setting-options .option a {
+    text-decoration: none;
+    color: #a878d8;
+}
+
+@media only screen and (max-width: 768px) {
+    .external-container {
+        padding: 30px 50px;
+    }
+    .external-container .setting-head {
+        margin-bottom: 30px;
+    }
+    .external-container .setting-options {
+        margin-left: 30px;
+    }
+    .external-container .setting-options .option {
+        padding: 25px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .external-container {
+        padding: 20px 20px;
+    }
+    .external-container .setting-head {
+        margin: 20px 7px;
+    }
+    .external-container .setting-options {
+        margin-left: 10px;
+    }
+    .external-container .setting-options .option {
+        padding: 20px 20px;
+        font-size: 14px;
+    }
+}
+/*# sourceMappingURL=setting.css.map */

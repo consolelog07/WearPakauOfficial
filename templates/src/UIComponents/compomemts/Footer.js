@@ -31,8 +31,8 @@ export default class Footer extends React.Component
                     <div className="footercol2">
                         <h3 className="footercoltitle">COMPANY</h3>
                         <ul className="footercollinklist horizontal">
-                            <li><a href="/TermsAndConditionAndPrivacyPolicy">Terms & Condition</a></li>
-                            <li><a href="/TermsAndConditionAndPrivacyPolicy">Privacy Policy</a></li>
+                            <li><a href="/TermsAndConditionAndPrivacyPolicy#tearms&condition">Terms & Condition</a></li>
+                            <li><a href="/TermsAndConditionAndPrivacyPolicy#privacyPolicy">Privacy Policy</a></li>
                         </ul>
                     </div>
                     <div className="footercol3">

@@ -71,11 +71,11 @@ export default function CartProductCard(props)
 
     return <>
         <div className={mcart.product} style={{height:"fit-content"}}>
-            <div className={mcart.productimgcontainer}>
+            <div className={mcart.productimgcontainer} onClick={ev2=>{window.location.href=`/product/${props.wrapper.Product.id}/`}} >
                 <img src={props.wrapper.Product.default.image} alt=""/>
             </div>
             <div className={mcart.productdetail} style={{height:"fit-content"}}>
-                <h2 className={mcart.productname}>{props.wrapper.Product.name}</h2>
+                <h2 className={mcart.productname} onClick={ev2=>{window.location.href=`/product/${props.wrapper.Product.id}/`}}>{props.wrapper.Product.name}</h2>
                 <p className={mcart.productcategory}>{props.wrapper.Product.category}</p>
 
                 {props.wrapper.Product

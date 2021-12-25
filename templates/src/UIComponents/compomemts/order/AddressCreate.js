@@ -300,7 +300,7 @@ export default class Address_Create extends React.Component
                                 console.log(
                                     setTimeout(ev=>{
                                         window.location.href=this.props.success_nav_to
-                                    },3000))
+                                    },2000))
                             }
                         </> }
 
