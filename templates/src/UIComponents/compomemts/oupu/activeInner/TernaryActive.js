@@ -170,7 +170,11 @@ export default function PrmaryAfter(props)
                                 </>}
 
                                 <div className={mPB.detailqrbox} style={{width:"fit-content",height:"fit-content"}}>
-                                    <QRCustom qroptions={JSON.parse(state.result.QrJson)}  width={150} height={150} Oup_url={state.result.Oup_url_}/>
+                                    <QRCustom qroptions={JSON.parse(state.result.QrJson)}  width={150} height={150}
+                                              Oup_url={`${window.location.protocol}//${window.location.host}/oupu/product/Detail_retrive/?unique_u14=${props.AGstate.unique_u14}`}
+
+                                    />
+                                    {/*{state.result.Oup_url_}*/}
                                 </div>
                                 {props.Gstate.is_coreTeam &&
                                 <button className={mPB.buy}

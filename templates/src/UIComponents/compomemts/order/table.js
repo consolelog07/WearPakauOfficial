@@ -54,7 +54,7 @@ export default function CustomizedTables(props) {
                             <StyledTableCell align="right">{row.Name}</StyledTableCell>
                             <StyledTableCell align="right">{row.Size}</StyledTableCell>
                             <StyledTableCell align="right">
-                                <QRCustom qroptions={JSON.parse(row.qr)}  width={90} height={90} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/${row.Product_ID}`}/>
+                                <QRCustom qroptions={JSON.parse(row.qr)}  width={90} height={90} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/product/Detail_retrive/?unique_u14=${row.Product_ID}`}/>
                             </StyledTableCell>
                             <StyledTableCell align="right">{row.Price}</StyledTableCell>
                         </StyledTableRow>

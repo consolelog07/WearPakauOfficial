@@ -17,11 +17,6 @@ class BaseReactfile(TemplateView):
             context = self.get_context_data(**kwargs)
         print(context,"ddddddd")
 
-        a=BasicDetailCheck(request)
-        if a == False :
-            return self.render_to_response(context)
-        elif a != True:
-            return a
 
         a=PhoneNubercheck(request)
         if a == False :
@@ -34,6 +29,13 @@ class BaseReactfile(TemplateView):
             return self.render_to_response(context)
         elif a != True:
             return a
+
+        a=BasicDetailCheck(request)
+        if a == False :
+            return self.render_to_response(context)
+        elif a != True:
+            return a
+
 
         return self.render_to_response(context)
 

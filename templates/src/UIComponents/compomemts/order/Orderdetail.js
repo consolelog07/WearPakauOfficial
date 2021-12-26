@@ -18,6 +18,7 @@ import * as PropTypes from "prop-types";
 import CustomizedSnackbars from "../alert";
 import CancelorderDialog from "./CancelorderDiaglog";
 import PdfCreate from "./Pdfcreate";
+import OrderxStatusChange from "../admin/detail";
 import OrderAdminStatusChange from "../admin/detail";
 
 class TextFielder extends React.Component {
@@ -273,6 +274,7 @@ export default function OrderDetail(props){
         getAllImages()
     }
     // console.log(state)
+    // console.log(mDetail)
     return<>
         {state.attempted?
         <><>
@@ -383,7 +385,7 @@ export default function OrderDetail(props){
                 {state.result.Order_status === "Shipped" &&  <button className={mDetail.cancel} onClick={modalClose}>Cancel Order</button>
                 }
             </>}
-            <button className={mDetail.cancel} onClick={modalClose2}>Print Reciept</button>
+            <button className={mDetail["print-reciept"]} onClick={modalClose2}>Print Reciept</button>
 
         </span>
                         <div className={mDetail.billingdetailcontainer}>
@@ -433,7 +435,7 @@ export default function OrderDetail(props){
 
                                     {/*{console.log(ev.QrJson,"ddddddddddddddd")}*/}
                                     <div className={mDetail.qrbox} style={{ width:" fit-content",height: "fit-content"}}>
-                                        <QRCustom qroptions={JSON.parse(ev.QrJson)}  width={90} height={90} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/${ev.unique_u14}`}/>
+                                        <QRCustom qroptions={JSON.parse(ev.QrJson)}  width={100} height={100} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/product/Detail_retrive/?unique_u14=${ev.unique_u14}`}/>
                                     </div>
                                 </div>
                             </div>

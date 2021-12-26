@@ -43,6 +43,10 @@ class Address_Viewset(viewsets.ModelViewSet):
             if add.count() >= 1:
                 print("kkkkkkkkkkksssssssssssssssssssssssssssssssssssssssssssssd")
                 return serializer.save(user=user,default=False)
+            else:
+                self.request.user.First_name= serializer.validated_data["First_name"]
+                self.request.user.Last_name = serializer.validated_data["Last_name"]
+                self.request.user.save()
         except Address.DoesNotExist:
             pass
 

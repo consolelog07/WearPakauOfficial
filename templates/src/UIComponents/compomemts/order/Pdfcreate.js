@@ -58,7 +58,7 @@ export default class PdfCreate extends React.Component
                 <DialogActions>
                     <ReactToPrint
                         trigger={() => {
-                            return <a href="#">Print this out!</a>;
+                            return <a href="#">Print</a>;
                         }}
                         content={() => this.componentRef}
                         documentTitle={`OrderReciept WearPakau orderid:${state.result.OrderId}`}
