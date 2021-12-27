@@ -230,7 +230,7 @@ class ProdctDetail extends React.Component
 
                             </div>
 
-                            <ul className="extrainfo">
+                            <ul className="extrainfo" >
                                 {
                                     this.state.result.productDescription.split(";").map(ev=>{
                                         if (ev !== "")

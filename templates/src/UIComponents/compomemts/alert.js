@@ -20,7 +20,7 @@ export default function CustomizedSnackbars(props) {
 
     return (
         <>
-            <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+            <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}  key={"bottom" + "center"}>
                 <Alert variant="filled" onClose={handleClose}  sx={{ width: '100%' }} severity={props.severity}>
                     {`${props.message}`}
                 </Alert>

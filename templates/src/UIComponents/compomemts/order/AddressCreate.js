@@ -337,15 +337,15 @@ export default class Address_Create extends React.Component
                     {this.state.modalopen &&
                     <Dialog
                         open={this.state.modalopen}
-                        fullScreen
+                      
                         onClose={this.handleClose}
                         // style={{width:"40vw"}}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                     >
-                        <DialogTitle id="alert-dialog-title">
+                        {/* <DialogTitle id="alert-dialog-title">
                             {this.props.Title}
-                        </DialogTitle>
+                        </DialogTitle> */}
                         <DialogContent>
                             {/*<TableContainer component={Paper}>*/}
                             {/*    <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">*/}
@@ -422,10 +422,10 @@ export default class Address_Create extends React.Component
                     }
 
 
-                    <div className="container">
-                        <h1>{this.props.Title}</h1>
+                    <div className="Shippingcontainer">
+                        <h1 className="shipping-h1">{this.props.Title}</h1>
 
-                        <p>Please enter your shipping details.</p>
+                        <p className="shipping-p">Please enter your shipping details.</p>
                         <hr className="hr1"/>
                         <div className="form">
 

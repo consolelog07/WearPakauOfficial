@@ -95,7 +95,7 @@ export default function Createuser(props)
                         {(error === true && props.Gstate.phonenumber_error)&& <span className="formwarning">User with same phonenumber exist</span>}
                         <span className="privacynotice"><p>By continuing, you agree to Wear Pakau's <a href="">Terms and Condition </a>and<a
                             href=""> Privacy Policy.</a></p></span>
-                       <span className="alreadyhaveacc"><p>Already have an account? <a href="/auth/login/">Sign in</a></p></span>
+                       <span className="alreadyhaveacc"><p>Already have an account? <a href="/auth/login/">Log in</a></p></span>
                     </form>
                 </div>
             </>}

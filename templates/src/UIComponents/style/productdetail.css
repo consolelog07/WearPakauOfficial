@@ -28,17 +28,28 @@
     padding-top: 7%;
 }
 
-.productdetailcontainer .productinfo h1 {
+.productdetailcontainer .productinfo >h1 {
     font-family: "Montserrat", sans-serif;
     font-size: 40px;
-    line-height: 1.5;
+    margin: 0 !important;
+    font-weight: 500;
 }
 
-.productdetailcontainer .productinfo p {
+.productdetailcontainer .productinfo > p {
     font-family: "Montserrat", sans-serif;
     color: #a878d8;
     font-weight: 200;
+    line-height: 0 !important;
+    margin: 0 !important;
 }
+
+.productdetailcontainer .productinfo .extrainfo {
+    margin-top: 10px;
+
+}
+/* .productdetailcontainer .productinfo .extrainfo > li{
+    font-family: ;
+} */
 
 .productdetailcontainer .productinfo .sizes {
     margin: 40px 0 20px 0;

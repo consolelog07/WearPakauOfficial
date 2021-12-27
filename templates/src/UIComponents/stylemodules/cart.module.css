@@ -51,6 +51,7 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    padding-bottom: 20px;
 }
 
 .cartpagecontainer .productcontainer .product .productimgcontainer {
@@ -88,17 +89,21 @@
 .cartpagecontainer .productcontainer .product .productdetail .productname {
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
+    margin: 0  !important;
 }
 
 .cartpagecontainer .productcontainer .product .productdetail .productcategory {
     font-family: "Montserrat", sans-serif;
     font-size: 12px;
     color: #d8a8d8;
+    margin: 0 !important;
 }
 
 .cartpagecontainer .productcontainer .product .productdetail .price {
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
+    color: black ;
+    margin: 5px 0 0;
 }
 
 .cartpagecontainer .productcontainer .product .productdetail .quantityremovebox {
@@ -186,7 +191,7 @@
     border: 0.5px solid rgba(0, 0, 0, 0.185);
     display: block;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .cartpagecontainer .ordercontainer .couponcontainer .accordion {
@@ -222,8 +227,9 @@
     outline: none;
     padding: 5px 5px;
     border-radius: 5px;
-    width: 70%;
+    width: 65%;
     font-weight: 400;
+    margin-right: 10px;
 }
 
 .cartpagecontainer .ordercontainer .couponcontainer .panel .applycoupon {

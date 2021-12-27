@@ -359,9 +359,9 @@ export default class SetorderAddress extends React.Component{
                                 aria-labelledby="alert-dialog-title"
                                 aria-describedby="alert-dialog-description"
                             >
-                                <DialogTitle id="alert-dialog-title">
+                                {/* <DialogTitle id="alert-dialog-title">
                                     Place Order With this address
-                                </DialogTitle>
+                                </DialogTitle> */}
                                 <DialogContent>
 
 
@@ -425,8 +425,9 @@ export default class SetorderAddress extends React.Component{
 
                     }
 
-                    <div className="container" >
-                        <h1>Shipping Address</h1>
+                    <div className="Shippingcontainer"  >
+                        <h1 className="shipping-h1">Shipping Address</h1>
+                        <hr class="hr1"></hr>
                         <div className="form">
                             <div className="fields fields--2">
                                 <label className="field">
@@ -485,8 +486,8 @@ export default class SetorderAddress extends React.Component{
 
                     </div>
 
-
-                <Address_Create Gstate={this.props.Gstate} SGstate={this.props.SGstate} Title={"Place Order With this address?"} default={false}
+<div className="container2">
+                <Address_Create Gstate={this.props.Gstate} SGstate={this.props.SGstate} Title={"Want to use another address?"} default={false}
                                 success_nav_to="/order/"
                                 order_created={this.state.order_created}
                                 CreateOrder={this.CreateOrder}
@@ -494,6 +495,7 @@ export default class SetorderAddress extends React.Component{
                                 redirect={false}
 
                 />
+                </div>
 
 
                         {/*<Card sx={{ maxWidth: 345 }} className={"container"} style={{heigh:"38vh",padding:"15px",minHeight:"500px"}}>*/}
