@@ -4,6 +4,7 @@ import CustomizedSnackbars from "../alert";
 import getCookie from "../../../components/getcooke";
 import QRCustom from "../../QRCustom";
 import Change from "./change";
+import mpc from "../../stylemodules/userdetail.module.css";
 
 export default function Activated_inner (props)
 {

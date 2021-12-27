@@ -1,0 +1,465 @@
+.userprofilecontainer {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 50px 100px;
+}
+
+.userprofilecontainer .userprofilehead {
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 50px;
+    font-weight: 500;
+}
+
+.userprofilecontainer .userprofilehead::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    width: 50%;
+    height: 3px;
+    background: #a878d8;
+}
+
+.userprofilecontainer .namecontainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 700px;
+    margin-left: 50px;
+}
+
+.userprofilecontainer .namecontainer .firstnamecontainer label,
+.userprofilecontainer .namecontainer .lastnamecontainer label {
+    font-family: "Montserrat", sans-serif;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.userprofilecontainer .namecontainer .firstnamecontainer .detailinput,
+.userprofilecontainer .namecontainer .lastnamecontainer .detailinput {
+    display: block;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 10px;
+    font-family: "Montserrat", sans-serif;
+    border: 1px solid #d3c9d36b;
+    line-height: 30px;
+    padding: 4px 12px 3px;
+    width: 300px;
+    background-color: #d3c9d338;
+}
+
+.userprofilecontainer .emailcontainer,
+.userprofilecontainer .phonecontainer {
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.userprofilecontainer .emailcontainer label,
+.userprofilecontainer .phonecontainer label {
+    font-family: "Montserrat", sans-serif;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.userprofilecontainer .emailcontainer .detailinput,
+.userprofilecontainer .phonecontainer .detailinput {
+    display: block;
+    border-radius: 5px;
+    outline: none;
+    margin-top: 10px;
+    font-family: "Montserrat", sans-serif;
+    line-height: 30px;
+    padding: 4px 12px 3px;
+    width: 300px;
+    border: 1px solid #d3c9d36b;
+    background-color: #d3c9d338;
+}
+
+.userprofilecontainer .activateproduct {
+    color: white;
+    background: #a878d8;
+    margin: 20px 0 20px 50px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    padding: 15px 20px;
+    outline: none;
+    border: 1px solid #a878d8;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.userprofilecontainer .productlistcontainer {
+    border: 3px solid #6d6969;
+    margin: 10px 0 20px 50px;
+    border-radius: 10px;
+    width: 80%;
+    overflow: auto;
+}
+
+.userprofilecontainer .productlistcontainer .myproducts {
+    font-family: "Montserrat", sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    margin-left: 50px;
+    margin: 20px 0 20px 50px;
+}
+
+.userprofilecontainer .productlistcontainer .productlistfilter {
+    width: 100%;
+    padding: 10px;
+    overflow: auto;
+}
+
+.userprofilecontainer .productlistcontainer .productlistfilter .listfilter {
+    float: right;
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+}
+
+.userprofilecontainer .productlistcontainer .productlistfilter .listfilter span {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+}
+
+.userprofilecontainer .productlistcontainer .productlistfilter .listfilter select {
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.userprofilecontainer .productlistcontainer .productlistfilter .listfilter select option {
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer {
+    height: 350px;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 10px 10px 10px 50px;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .imgcontainer {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 30%;
+    height: 95%;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .imgcontainer img {
+    height: 130%;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer {
+    width: 100%;
+    padding-left: 20px;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .productname {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    color: black;
+    text-decoration: none;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .productcategory {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #d8a8d8;
+    margin-top: 10px;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .productcategory span {
+    color: black;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .currenturl {
+    color: #d8a8d8;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 7px;
+    display: block;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .currenturl a {
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    color: black;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer {
+    border: 1px solid rgba(0, 0, 0, 0.185);
+    display: block;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 40%;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer .accordion {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    padding: 4px 0;
+    text-align: center;
+    width: 100%;
+    outline: none;
+    font-size: 13px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+    border: none;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer .panel {
+    padding: 5px 5px;
+    display: none;
+    font-size: 13px;
+    background-color: white;
+    overflow: hidden;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 5px;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer .panel .coupon {
+    border: 1px solid #a878d8;
+    font-size: 13px;
+    font-family: "Montserrat", sans-serif;
+    outline: none;
+    padding: 5px 5px;
+    border-radius: 5px;
+    width: 70%;
+    font-weight: 400;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer .panel .applycoupon {
+    margin-top: 10px;
+    padding: 6px 10px;
+    width: 28%;
+    cursor: pointer;
+    color: white;
+    font-size: 13px;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 5px;
+    background: #a878d8;
+    outline: none;
+    border: none;
+}
+
+.userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .qrbox {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 15px;
+    float: right;
+}
+
+.userprofilecontainer .productlistcontainer .showallproducts {
+    color: #a878d8;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    display: block;
+    float: right;
+    margin: 20px 10px;
+}
+
+.userprofilecontainer .svgcontainer {
+    text-align: center;
+    padding: 40px;
+}
+
+.userprofilecontainer .svgcontainer img {
+    width: 200px;
+    -webkit-filter: drop-shadow(5px 7px 2px rgba(0, 0, 0, 0.253));
+    filter: drop-shadow(5px 7px 2px rgba(0, 0, 0, 0.253));
+}
+
+@media only screen and (max-width: 768px) {
+    .userprofilecontainer {
+        padding: 30px;
+    }
+    .userprofilecontainer .userprofilehead {
+        margin-bottom: 30px;
+    }
+    .userprofilecontainer .namecontainer {
+        width: 550px;
+        margin-left: 30px;
+    }
+    .userprofilecontainer .namecontainer .firstnamecontainer .detailinput,
+    .userprofilecontainer .namecontainer .lastnamecontainer .detailinput {
+        width: 250px;
+    }
+    .userprofilecontainer .emailcontainer,
+    .userprofilecontainer .phonecontainer {
+        margin-left: 30px;
+    }
+    .userprofilecontainer .productlistcontainer {
+        margin-left: 0;
+        width: 100%;
+        border: 1px solid #6d6969;
+    }
+    .userprofilecontainer .productlistcontainer .myproducts {
+        font-size: 24px;
+        margin-left: 30px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer {
+        height: 300px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .imgcontainer img {
+        height: 90%;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer {
+        padding-left: 30px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer {
+        width: 50%;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer .accordion {
+        padding: 3px 0;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer .panel .coupon {
+        width: 60%;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer .panel .applycoupon {
+        float: right;
+        width: 36%;
+        padding: 6px;
+        margin-top: 0;
+    }
+    .userprofilecontainer .svgcontainer img {
+        width: 170px;
+    }
+    .userprofilecontainer .activateproduct {
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .userprofilecontainer {
+        padding: 20px 10px;
+    }
+    .userprofilecontainer .userprofilehead {
+        margin: 20px 7px;
+    }
+    .userprofilecontainer .namecontainer {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: start;
+        margin-left: 20px;
+        width: 90%;
+    }
+    .userprofilecontainer .namecontainer .firstnamecontainer,
+    .userprofilecontainer .namecontainer .lastnamecontainer {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .userprofilecontainer .namecontainer .firstnamecontainer .detailinput,
+    .userprofilecontainer .namecontainer .lastnamecontainer .detailinput {
+        width: 100%;
+    }
+    .userprofilecontainer .emailcontainer,
+    .userprofilecontainer .phonecontainer {
+        margin-left: 20px;
+        margin-top: 20px;
+        width: 90%;
+    }
+    .userprofilecontainer .emailcontainer .detailinput,
+    .userprofilecontainer .phonecontainer .detailinput {
+        width: 100%;
+    }
+    .userprofilecontainer .productlistcontainer {
+        margin-left: 0;
+    }
+    .userprofilecontainer .productlistcontainer .myproducts {
+        margin: 10px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer {
+        height: 220px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer {
+        padding: 10px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .imgcontainer {
+        width: 50%;
+        height: 70%;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .imgcontainer img {
+        height: 120%;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer {
+        padding-left: 5px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .productname {
+        font-size: 16px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .productcategory {
+        font-size: 13px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .pricing .price {
+        font-size: 18px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .pricing .og-price {
+        font-weight: 300;
+        font-size: 12px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .pricing .discount {
+        font-weight: 300;
+        font-size: 12px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .extrainfo li {
+        font-size: 12px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer {
+        width: 90%;
+        margin-top: 10px;
+        padding: 4px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer .accordion {
+        font-weight: 500;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer .panel .applycoupon,
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .couponcontainer .panel .coupon {
+        font-size: 8px;
+    }
+    .userprofilecontainer .productlistcontainer .listcontainer .innercontainer .detailcontainer .qrbox {
+        display: none;
+    }
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import "../../style/profile.css"
+import mpc from "../../stylemodules/userdetail.module.css";
 import Activates_parent from "./UserActivaed _product_Parent";
 import SetorderAddress from "../order/setorderaddress";
 export default  class Profile extends React.Component
@@ -12,6 +13,7 @@ export default  class Profile extends React.Component
 //
 
     render() {
+        console.log(mpc)
         return<>
             <div className="userprofilecontainer">
                 <h1 className="userprofilehead">My Profile</h1>
