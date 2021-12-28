@@ -25,17 +25,30 @@
     display: block;
     padding-top: 7%;
 }
-
-.productdetailcontainer .productinfo h1 {
+.productdetailcontainer .productinfo >h1 {
     font-family: "Montserrat", sans-serif;
     font-size: 40px;
-    line-height: 1.5;
+    margin: 0 !important;
+    font-weight: 500;
+    color: black;
 }
 
-.productdetailcontainer .productinfo p {
+.productdetailcontainer .productinfo > p {
     font-family: "Montserrat", sans-serif;
     color: #a878d8;
     font-weight: 200;
+    line-height: 0 !important;
+    margin: 5px 0 !important;
+}
+
+.productdetailcontainer .productinfo .extrainfo {
+    margin-top: 20px;
+
+}
+.productdetailcontainer .productinfo .extrainfo > li{
+    font-family: "Montserrat", sans-serif;
+    opacity: 0.8;
+
 }
 
 .productdetailcontainer .productinfo .sizes {
@@ -430,7 +443,7 @@
 
 .modalcontainer .collapsiblecontainer .selectstyle .select select {
     -webkit-appearance: none;
-    padding: 7px 40px 7px 12px;
+    /* padding: 7px 40px 7px 12px; */
     width: 100%;
     border: 1px solid #e8eaed;
     border-radius: 5px;
@@ -446,6 +459,10 @@
 
 .modalcontainer .collapsiblecontainer .selectstyle .select select:required:invalid {
     color: #5a667f;
+}
+
+#color1{
+    margin-top: 10px;
 }
 
 .modalcontainer .collapsiblecontainer .selectstyle .select select option {

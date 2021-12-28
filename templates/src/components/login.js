@@ -3,6 +3,7 @@ import forms from "./styles/forms.css"
 // import loader from "./styles/loader.css"
 import nexttransport from "./nexttransport";
 import {Snackbar} from "@material-ui/core";
+import CustomizedSnackbars from "../UIComponents/compomemts/alert.js"
 
 export default function LoginView(props)
 {
@@ -26,14 +27,12 @@ export default function LoginView(props)
         {/*    <input name="password" type="text"  value={props.Gstate.password} onChange={(ev)=>{props.SGstate({password:ev.target.value})}} />*/}
         {/*    <button onClick={ev=>{props.login()}}> login </button>*/}
         {/*</form>*/}
-        <Snackbar
-            anchorOrigin={{  vertical:"top", horizontal:"center" }}
-            open={created}
-            // onClose={handleClose}
-            message="looged in"
-            key={"top" + "center"}
-            style={{backgroundColor:"#a878d8"}}
-        />
+        
+        {created  &&
+                <>
+                    <CustomizedSnackbars message="looged in succesfully"  severity="success" />
+                </>
+                }
 
         {created  && nexttransport("/auth/")}
 

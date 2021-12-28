@@ -80,8 +80,8 @@ export default class EmailVerifysend extends React.Component
                     <div className="formcontainer">
                         <h2 className="formheading">Verify your email address</h2>
 
-                        {this.inner === true && <h2 className="formheading" style={{fontSize:14}}>Verification mail is sent on :{this.props.Gstate.email}</h2>}
-                        {this.inner === false && this.state.a === true && <h2 className="formheading" style={{fontSize:14}}>Verification mail is sent on :{this.props.Gstate.email}</h2>}
+                        {this.inner === true && <h2 className="formheading" style={{fontSize:14,fontWeight:400}}>Verification mail is sent to {this.props.Gstate.email}</h2>}
+                        {this.inner === false && this.state.a === true && <h2 className="formheading" style={{fontSize:14,fontWeight:400}}>Verification mail is sent to {this.props.Gstate.email}</h2>}
                         {this.state.err === true && this.state.up === false &&  <span className="formwarning" style={{color:"red"}}>error with email address : {this.props.Gstate.email}</span> }
 
                         {

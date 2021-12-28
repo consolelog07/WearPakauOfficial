@@ -424,9 +424,9 @@ export default class SetorderAddress extends React.Component{
                         </>
 
                     }
-                    <div className="container2_nimish">
-                        <div className="container" >
-                        <h1 className="shipping-h1" style={{"font-size": "30px"}}>Shipping Address</h1>
+
+                    <div className="container" >
+                        <h1>Shipping Address</h1>
                         <div className="form">
                             <div className="fields fields--2">
                                 <label className="field">
@@ -484,18 +484,16 @@ export default class SetorderAddress extends React.Component{
                             Continue with Billing address</button>
 
                     </div>
-                    </div>
 
-                <div className="container2">
-                    <Address_Create Gstate={this.props.Gstate} SGstate={this.props.SGstate} Title={"Want to use another address?"} default={false}
-                                    success_nav_to="/order/"
-                                    order_created={this.state.order_created}
-                                    CreateOrder={this.CreateOrder}
-                                    UpdateAddress={this.UpdateAddress}
-                                    redirect={false}
 
-                    />
-                </div>
+                <Address_Create Gstate={this.props.Gstate} SGstate={this.props.SGstate} Title={"Place Order With this address?"} default={false}
+                                success_nav_to="/order/"
+                                order_created={this.state.order_created}
+                                CreateOrder={this.CreateOrder}
+                                UpdateAddress={this.UpdateAddress}
+                                redirect={false}
+
+                />
 
 
                         {/*<Card sx={{ maxWidth: 345 }} className={"container"} style={{heigh:"38vh",padding:"15px",minHeight:"500px"}}>*/}

@@ -423,9 +423,9 @@ export default class Address_Create extends React.Component
 
 
                     <div className="container">
-                        <h1 className="shipping-h1">{this.props.Title}</h1>
+                        <h1>{this.props.Title}</h1>
 
-                        <p className="shipping-p" >Please enter your shipping details.</p>
+                        <p>Please enter your shipping details.</p>
                         <hr className="hr1"/>
                         <div className="form">
 

@@ -80,7 +80,7 @@ export default function  SMSverifyconform(props)
                                         required
                                     />
                                 </div>
-
+                                
 
                                 <input type="submit" className="submitbutton" value="Submit"/>
                                 {error &&  <span className="formwarning">{error_msg}</span>}
