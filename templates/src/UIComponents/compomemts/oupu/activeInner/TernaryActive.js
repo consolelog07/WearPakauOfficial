@@ -150,7 +150,7 @@ export default function PrmaryAfter(props)
                                 <img src={state.result.Product.default.image} alt=""/>
                             </div>
                             <div className={mPB.productinfo}>
-                                <h1 onClick={ev=>{
+                                <h1 className={mPB.productH1} onClick={ev=>{
                                     window.location.href=`/product/${state.result.Product.id}`
                                 }}>{state.result.Product.name}</h1>
                                 <p className={mPB.productid}>Product ID: <span>{state.result.unique_u14}</span></p>
@@ -177,7 +177,7 @@ export default function PrmaryAfter(props)
                                     {/*{state.result.Oup_url_}*/}
                                 </div>
                                 {props.Gstate.is_coreTeam &&
-                                <button className={mPB.buy}
+                                <button className={mPB.Nimish}
                                         onClick={ev=>{
                                             // console.log("ddddddddddddddddd")
                                             let b=JSON.parse(state.result.QrJson)

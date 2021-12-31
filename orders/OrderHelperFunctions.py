@@ -137,12 +137,14 @@ def place_order(request,co):
 
 
 def trial(co,host):
-    conn = http.client.HTTPSConnection('95ed400cb41cd224d40df407c6d7adae.m.pipedream.net')
-    conn.request("POST", "/", '{'
-                              '"OrderId":  "New Order Created  OrderId = '+str(co.OrderId)+'",'
-                              '"ip_address": "92.188.61.181",'
-                              '"email": "user@example.com",'
-                              '"user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_4) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30",'
-                              '"url": "'+"{}{}".format(host,reverse("OrderAdminDetail",kwargs={'year': co.id}))+'"}'
-                     , {'Content-Type': 'application/json'})
-
+    try:
+        conn = http.client.HTTPSConnection('95ed400cb41cd224d40df407c6d7adae.m.pipedream.net')
+        conn.request("POST", "/", '{'
+                                  '"OrderId":  "New Order Created  OrderId = '+str(co.OrderId)+'",'
+                                  '"ip_address": "92.188.61.181",'
+                                  '"email": "user@example.com",'
+                                  '"user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_4) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30",'
+                                  '"url": "'+"{}{}".format(host,reverse("OrderAdminDetail",kwargs={'year': co.id}))+'"}'
+                         , {'Content-Type': 'application/json'})
+    except Exception as e:
+        logger.info(f'pipdream failed')

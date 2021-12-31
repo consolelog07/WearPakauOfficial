@@ -77,6 +77,15 @@
     justify-content: space-between;
     width: 70%;
 }
+.productH1{
+    margin: 0 0 0px;
+    font-weight: 400;
+    font-size: 32px;
+    color: black;
+}
+.productinfo > p{
+    line-height: 1;
+}
 
 .productdetailcontainer .productinfo .qunatitycustombox .quantityselector {
     cursor: pointer;
@@ -473,6 +482,17 @@
     .productdetailcontainer .productinfo .buycart .addtocart {
         font-size: 16px;
     }
+}
+.Nimish{
+    font-size: 20px;
+    border: 2px solid #a878d8;
+    cursor: pointer;
+    background-color: transparent;
+    color: #9060a8;
+    padding: 7px 20px;
+    border-radius: 5px;
+    outline: none;
+    margin-top:10px;
 }
 
 @media only screen and (max-width: 480px) {

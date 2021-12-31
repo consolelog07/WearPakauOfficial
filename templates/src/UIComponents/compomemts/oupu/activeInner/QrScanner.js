@@ -110,6 +110,7 @@ export default class QrScanner_component extends React.Component
         return (
             <>
                 <div className={mc.container}>
+                    <h3 className={mc.Customh3}>Scan Wear Pakau Qr </h3>
                     <div className={mc.camcontainer}>
                         <video ref={this.video} ></video>
                         <div className={mc.controls}>
@@ -121,11 +122,11 @@ export default class QrScanner_component extends React.Component
                             }
 
                         </div>
-                        <p className={mc.lookup}>google.com</p>
                     </div>
                 </div>
-                <h1>no wpqr detected</h1>
-
+                <div className={mc.ValidParent}>
+                <h4 className={mc.Valid}>No valid qr detected</h4>
+                </div>
             </>
         );
     }

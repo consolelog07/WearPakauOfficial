@@ -5,6 +5,7 @@ import QRCodeStyling from "qr-code-styling";
 import QRCustom from "../../QRCustom";
 import meta from  "../../../images/Meta.jpg"
 import pdm from "../../stylemodules/detailP.module.css"
+import imagessss from "./imagessss";
 
 export default function  Modalqr(props) {
 
@@ -232,9 +233,10 @@ export default function  Modalqr(props) {
                                     Select logo
                                 </option>
                                 <option value="alert">None</option>
-                                <option value={meta}>Meta</option>
-                                {/*<option value="square">Dot</option>*/}
-                                {/*<option value="extra-rounded">Extra rounded</option>*/}
+                                <option value={imagessss.meta}>Meta</option>
+                                <option value={imagessss.Apple}>Meta</option>
+                                {/*<option value="data:image/jpg;base64,">Meta</option>*/}
+
                             </select>
                             <svg>
                                 <use xlinkHref="#select-arrow-down"></use>

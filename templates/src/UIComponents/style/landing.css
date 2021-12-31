@@ -1,0 +1,204 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap");
+.landing-container {
+    width: 100%;
+}
+
+.landing-container .landing-carousel-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
+    justify-content: space-evenly;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.landing-container .landing-carousel-container .landing-carousel-card {
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.landing-container .landing-carousel-container .landing-carousel-card .landing-carousel-card-link {
+    display: block;
+}
+
+.landing-container .landing-carousel-container .landing-carousel-card .landing-carousel-card-link .landing-carousel-card-link-img {
+    width: 100%;
+}
+
+.landing-container .landing-category-container {
+    width: 100%;
+    padding: 10px 50px;
+}
+
+.landing-container .landing-category-container .landing-category-ul {
+    list-style-type: none;
+    overflow-x: scroll;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.landing-container .landing-category-container .landing-category-ul::-webkit-scrollbar {
+    width: 3px;
+}
+
+.landing-container .landing-category-container .landing-category-ul .landing-category-ul-li {
+    margin: 0px 20px;
+}
+
+.landing-container .landing-category-container .landing-category-ul .landing-category-ul-li .landing-category-ul-li-a {
+    text-decoration: none;
+}
+
+.landing-container .landing-category-container .landing-category-ul .landing-category-ul-li .landing-category-ul-li-a .landing-category-ul-li-a-card {
+    overflow: hidden;
+    width: 170px;
+    height: 220px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.landing-container .landing-category-container .landing-category-ul .landing-category-ul-li .landing-category-ul-li-a .landing-category-ul-li-a-card .landing-category-ul-li-a-card-img-container {
+    border-radius: 5px;
+    width: 170px;
+    height: 200px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.landing-container .landing-category-container .landing-category-ul .landing-category-ul-li .landing-category-ul-li-a .landing-category-ul-li-a-card .landing-category-ul-li-a-card-img-container img {
+    width: 100%;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+}
+
+.landing-container .landing-category-container .landing-category-ul .landing-category-ul-li .landing-category-ul-li-a .landing-category-ul-li-a-card .landing-category-ul-li-a-card-img-container img:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    -webkit-filter: brightness(105%);
+    filter: brightness(105%);
+}
+
+.landing-container .landing-category-container .landing-category-ul .landing-category-ul-li .landing-category-ul-li-a .landing-category-ul-li-a-card .landing-category-ul-li-a-card-text {
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: black;
+}
+
+.landing-container .landing-creative-container {
+    width: 100%;
+    padding: 10px;
+}
+
+.landing-container .landing-creative-container .landing-creative-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.landing-container .landing-creative-container .landing-creative-box a {
+    height: 100%;
+}
+
+.landing-container .landing-creative-container .landing-creative-box .creative {
+    width: 100%;
+}
+
+.landing-container .landing-creative-container .landing-creative-box .creative:hover {
+    -webkit-filter: opacity(0.9);
+    filter: opacity(0.9);
+}
+
+@media only screen and (max-width: 768px) {
+    .landing-container .landing-carousel-container {
+        margin: 15px 0;
+    }
+    .landing-container .landing-carousel-container .landing-carousel-card {
+        width: 45vw;
+        height: 350px;
+    }
+    .landing-container .landing-category-container {
+        padding: 5px 20px;
+    }
+    .landing-container .landing-category-container .landing-category-ul .landing-category-ul-li {
+        margin: 0 10px;
+    }
+    .landing-container .landing-category-container .landing-category-ul .landing-category-ul-li .landing-category-ul-li-a .landing-category-ul-li-a-card {
+        width: 150px;
+        height: 170px;
+    }
+    .landing-container .landing-category-container .landing-category-ul .landing-category-ul-li .landing-category-ul-li-a .landing-category-ul-li-a-card .landing-category-ul-li-a-card-img-container {
+        width: 150px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .landing-container .landing-carousel-container {
+        margin: 10px 0;
+    }
+    .landing-container .landing-carousel-container .landing-carousel-card {
+        height: 350px;
+        width: 90vw;
+    }
+    .landing-container .landing-category-container .landing-category-ul .landing-category-ul-li {
+        margin: 0 5px;
+    }
+    .landing-container .landing-category-container .landing-category-ul .landing-category-ul-li .landing-category-ul-li-a .landing-category-ul-li-a-card {
+        width: 100px;
+        height: 120px;
+    }
+    .landing-container .landing-category-container .landing-category-ul .landing-category-ul-li .landing-category-ul-li-a .landing-category-ul-li-a-card .landing-category-ul-li-a-card-img-container {
+        width: 100px;
+        height: 100px;
+    }
+}
+.splide__slide
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*# sourceMappingURL=landing.css.map */

@@ -77,6 +77,7 @@ export default function Authurl(props)
                 Gstate={props.state}
                 SGstate={props.setState}
                 SMSverifyconfirm={props.SMSverifyconfirm}
+                SMSverifysend={props.SMSverifysend}
             />
         </Route>
 

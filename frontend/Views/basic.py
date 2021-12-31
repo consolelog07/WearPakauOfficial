@@ -84,8 +84,11 @@ def PhoneNubercheck(request):
     if request.user.is_authenticated:
         if request.user.phone_number_verify == False:
             print("false.ddddddxxx",request.path,request.path == reverse("SMSverifysent") or request.path== reverse("SMSverifyconform"))
-            if request.path == reverse("SMSverifysent") or request.path== reverse("SMSverifyconform"):
+            if request.path == reverse("SMSverifysent"):
+            
                 return False
             else:
+                if request.path== reverse("SMSverifyconform") and request.user.phone_number != None:
+                    return False
                 return HttpResponseRedirect(reverse("SMSverifysent"))
     return True

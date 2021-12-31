@@ -1,8 +1,9 @@
 /*@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap");*/
 .container {
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     display: -webkit-box;
+    flex-flow: column;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: center;
@@ -17,6 +18,22 @@
     margin: auto;
     text-align: center;
     position: relative;
+}
+.Customh3{
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+}
+.Valid{
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #f45951;
+
+}
+.ValidParent{
+    text-align: center;
 }
 
 .container .camcontainer video {
@@ -84,7 +101,7 @@
 
 @media only screen and (max-width: 480px) {
     .container {
-        height: 80vh;
+        height: 70vh;
     }
     .container .camcontainer video {
         width: 95%;
