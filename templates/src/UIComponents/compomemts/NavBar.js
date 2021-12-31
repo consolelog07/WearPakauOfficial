@@ -29,7 +29,8 @@ export default  class NavBar extends React.Component
 
         this.listofpages=[
             "/auth/",
-            "/auth/emailverifysent/"
+            "/auth/emailverifysent/",
+            "/oupu/product/activate/"
         ]
         this.burger_function=this.burger_function.bind(this)
     }

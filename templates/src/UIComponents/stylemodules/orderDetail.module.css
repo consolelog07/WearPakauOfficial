@@ -1,4 +1,3 @@
-/*@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap");*/
 .orderdetailcontainer {
     width: 90%;
     padding: 100px 50px 100px 100px;
@@ -113,17 +112,26 @@
     color: #a878d8;
 }
 
-.orderdetailcontainer .orderdetail span .cancel {
+.orderdetailcontainer .orderdetail span .cancel, .orderdetailcontainer .orderdetail span .print-reciept {
     padding: 8px 15px;
     cursor: pointer;
     border-radius: 5px;
-    background-color: #f45951;
     border: none;
     outline: none;
     margin: 10px;
-    color: #f6f5f4;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
+}
+
+.orderdetailcontainer .orderdetail span .cancel {
+    background-color: #f45951;
+    color: #f6f5f4;
+}
+
+.orderdetailcontainer .orderdetail span .print-reciept {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
 }
 
 .orderdetailcontainer .orderdetail .billingdetailcontainer {
@@ -149,17 +157,6 @@
     font-weight: 500;
 }
 
-.orderdetailcontainer .orderdetail span .cancel, .orderdetailcontainer .orderdetail span .print-reciept {
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    margin: 10px;
-    font-family: "Montserrat", sans-serif;
-    font-size: 16px;
-}
-
 .orderdetailcontainer .orderdetail .billingdetailcontainer ul li span {
     float: right;
 }
@@ -177,12 +174,8 @@
     border-radius: 5px;
 }
 
-.orderdetailcontainer .orderdetail span .print-reciept {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-}
 .orderdetailcontainer .productcontainer .product {
+    padding: 10px 0;
     width: 100%;
     height: 250px;
     display: -webkit-box;
@@ -232,6 +225,7 @@
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
     font-weight: 400;
+    text-decoration: none;
 }
 
 .orderdetailcontainer .productcontainer .product .productdetail .productname span {
@@ -350,10 +344,6 @@
         font-size: 12px;
         padding: 5px 12px;
     }
-    .orderdetailcontainer .orderdetail span .cancel {
-        font-size: 12px;
-        padding: 5px 12px;
-    }
     .orderdetailcontainer .orderdetail .billingdetailcontainer {
         padding: 7px;
     }
@@ -401,7 +391,7 @@
 
 @media only screen and (max-width: 480px) {
     .orderdetailcontainer {
-        padding: 20px 0px 20px 10px;
+        padding: 20px 0px 20px 30px;
     }
     .orderdetailcontainer .orderdetailhead {
         font-size: 20px;
@@ -436,7 +426,7 @@
     .orderdetailcontainer .orderdetail span .paymenttype span {
         display: inline-block;
     }
-    .orderdetailcontainer .orderdetail span .cancel {
+    .orderdetailcontainer .orderdetail span .cancel, .orderdetailcontainer .orderdetail span .print-reciept {
         margin: 7px;
     }
     .orderdetailcontainer .orderdetail .billingdetailcontainer {
@@ -460,9 +450,6 @@
         height: -moz-fit-content;
         height: fit-content;
         padding: 10px;
-    }
-    .orderdetailcontainer .orderdetail span .cancel, .orderdetailcontainer .orderdetail span .print-reciept {
-        margin: 7px;
     }
     .orderdetailcontainer .productcontainer .product .productimgcontainer {
         height: 150px;

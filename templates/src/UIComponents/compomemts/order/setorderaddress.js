@@ -100,7 +100,7 @@ export default class SetorderAddress extends React.Component{
         }
         // console.log(this.props.Gstate.login)
 
-            let req = new Request(`/Api/orders/Orders/get_current_order/`, {
+        let req = new Request(`/Api/orders/Orders/get_current_order/`, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
             credentials: 'include', //when will the cookies and authorization header be sent
 
@@ -174,7 +174,7 @@ export default class SetorderAddress extends React.Component{
         if (Reflect.has(response,"error"))
         {
             this.setState({address_fetch:false,address_attempt:false})
-        //    no address set yet
+            //    no address set yet
         }
 
         if(response.results.length === 1)
@@ -200,7 +200,7 @@ export default class SetorderAddress extends React.Component{
 
     async UpdateAddress(id)
     {
-            console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
+        console.log("jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj")
         let req = new Request(`/Api/orders/Orders/UpdateAddress/`, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
             credentials: 'include', //when will the cookies and authorization header be sent
@@ -359,9 +359,9 @@ export default class SetorderAddress extends React.Component{
                                 aria-labelledby="alert-dialog-title"
                                 aria-describedby="alert-dialog-description"
                             >
-                                <DialogTitle id="alert-dialog-title">
+                                {/* <DialogTitle id="alert-dialog-title">
                                     Place Order With this address
-                                </DialogTitle>
+                                </DialogTitle> */}
                                 <DialogContent>
 
 
@@ -425,8 +425,9 @@ export default class SetorderAddress extends React.Component{
 
                     }
 
-                    <div className="container" >
-                        <h1>Shipping Address</h1>
+                    <div className="Shippingcontainer"  >
+                        <h1 className="shipping-h1">Shipping Address</h1>
+                        <hr class="hr1"></hr>
                         <div className="form">
                             <div className="fields fields--2">
                                 <label className="field">
@@ -471,77 +472,78 @@ export default class SetorderAddress extends React.Component{
                             </div>
                         </div>
                         <hr />
-                            <button className="button"
-                                    onClick={ev=>{
-                                        if(this.state.ask_user_if_address_continue){
-                                            this.UpdateAddress(this.state.result.id)
-                                        }
-                                        else{
-                                            this.CreateOrder(this.state.result.id)
-                                        }
+                        <button className="button"
+                                onClick={ev=>{
+                                    if(this.state.ask_user_if_address_continue){
+                                        this.UpdateAddress(this.state.result.id)
                                     }
-                                    }>
+                                    else{
+                                        this.CreateOrder(this.state.result.id)
+                                    }
+                                }
+                                }>
                             Continue with Billing address</button>
 
                     </div>
 
+                    <div className="container2">
+                        <Address_Create Gstate={this.props.Gstate} SGstate={this.props.SGstate} Title={"Want to use another address?"} default={false}
+                                        success_nav_to="/order/"
+                                        order_created={this.state.order_created}
+                                        CreateOrder={this.CreateOrder}
+                                        UpdateAddress={this.UpdateAddress}
+                                        redirect={false}
 
-                <Address_Create Gstate={this.props.Gstate} SGstate={this.props.SGstate} Title={"Place Order With this address?"} default={false}
-                                success_nav_to="/order/"
-                                order_created={this.state.order_created}
-                                CreateOrder={this.CreateOrder}
-                                UpdateAddress={this.UpdateAddress}
-                                redirect={false}
-
-                />
+                        />
+                    </div>
 
 
-                        {/*<Card sx={{ maxWidth: 345 }} className={"container"} style={{heigh:"38vh",padding:"15px",minHeight:"500px"}}>*/}
-                        {/*        <Typography gutterBottom variant="h5" component="div">*/}
-                        {/*                 Default Billing Address                            </Typography>*/}
+                    {/*<Card sx={{ maxWidth: 345 }} className={"container"} style={{heigh:"38vh",padding:"15px",minHeight:"500px"}}>*/}
+                    {/*        <Typography gutterBottom variant="h5" component="div">*/}
+                    {/*                 Default Billing Address                            </Typography>*/}
 
-                        {/*        <CardContent>*/}
-                        {/*            <TableContainer component={Paper}>*/}
-                        {/*                <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">*/}
-                        {/*                    <TableHead>*/}
-                        {/*                        <TableRow>*/}
-                        {/*                            <TableCell>fields</TableCell>*/}
-                        {/*                            <TableCell> value</TableCell>*/}
-                        {/*                        </TableRow>*/}
-                        {/*                    </TableHead>*/}
-                        {/*                    <TableBody>*/}
-                        {/*                        {this.rows.map((row) => (*/}
-                        {/*                            <TableRow*/}
-                        {/*                                key={row.fields}*/}
-                        {/*                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}*/}
-                        {/*                            >*/}
-                        {/*                                <TableCell component="th" scope="row">*/}
-                        {/*                                    {row.fields}*/}
-                        {/*                                </TableCell>*/}
-                        {/*                                <TableCell align="right">{row.value}</TableCell>*/}
-                        {/*                            </TableRow>*/}
-                        {/*                        ))}*/}
-                        {/*                    </TableBody>*/}
-                        {/*                </Table>*/}
-                        {/*            </TableContainer>*/}
-                        {/*        </CardContent>*/}
+                    {/*        <CardContent>*/}
+                    {/*            <TableContainer component={Paper}>*/}
+                    {/*                <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">*/}
+                    {/*                    <TableHead>*/}
+                    {/*                        <TableRow>*/}
+                    {/*                            <TableCell>fields</TableCell>*/}
+                    {/*                            <TableCell> value</TableCell>*/}
+                    {/*                        </TableRow>*/}
+                    {/*                    </TableHead>*/}
+                    {/*                    <TableBody>*/}
+                    {/*                        {this.rows.map((row) => (*/}
+                    {/*                            <TableRow*/}
+                    {/*                                key={row.fields}*/}
+                    {/*                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}*/}
+                    {/*                            >*/}
+                    {/*                                <TableCell component="th" scope="row">*/}
+                    {/*                                    {row.fields}*/}
+                    {/*                                </TableCell>*/}
+                    {/*                                <TableCell align="right">{row.value}</TableCell>*/}
+                    {/*                            </TableRow>*/}
+                    {/*                        ))}*/}
+                    {/*                    </TableBody>*/}
+                    {/*                </Table>*/}
+                    {/*            </TableContainer>*/}
+                    {/*        </CardContent>*/}
 
-                        {/*    <CardActions>*/}
-                        {/*        <Button size="small" style={{backgroundColor: "#a878d8"} }variant="contained" className={"button"}*/}
+                    {/*    <CardActions>*/}
+                    {/*        <Button size="small" style={{backgroundColor: "#a878d8"} }variant="contained" className={"button"}*/}
 
-                                {/*onClick={ev=>{*/}
-                                {/*    if(this.state.ask_user_if_address_continue){*/}
-                                {/*        this.UpdateAddress(this.state.result.id)*/}
-                                {/*    }*/}
-                                {/*    else{*/}
-                                {/*        this.CreateOrder(this.state.result.id)*/}
-                                {/*    }*/}
-                                {/*}*/}
-                                {/*}>*/}
-                        {/*            Set Default Billing Address for Order SHiping Address*/}
-                        {/*        </Button>*/}
-                        {/*    </CardActions>*/}
-                        {/*</Card>*/}
+                    {/*onClick={ev=>{*/}
+                    {/*    if(this.state.ask_user_if_address_continue){*/}
+                    {/*        this.UpdateAddress(this.state.result.id)*/}
+                    {/*    }*/}
+                    {/*    else{*/}
+                    {/*        this.CreateOrder(this.state.result.id)*/}
+                    {/*    }*/}
+                    {/*}*/}
+                    {/*}>*/}
+                    {/*            Set Default Billing Address for Order SHiping Address*/}
+                    {/*        </Button>*/}
+                    {/*    </CardActions>*/}
+                    {/*</Card>*/}
                 </>
             }
         </>

@@ -30,16 +30,10 @@
               left: 0;
               top: 0;
               display: none;
-              /* transform: translateX(-100%); */
               transition: width 2s, height 115s ease-in;
-              /* overflow: hidden; */
+
           }
-
       </style>
-      {#     #}
-
-      <link rel="stylesheet" type="text/css" href= "{% static "admin/css/base.css" %}">
-
   </head>
   <script>
       window.WP_navto="{{message}}"
@@ -48,20 +42,8 @@
       console.log(key)
       window.error="{{ error }}"
       window.addressSet="{{addressSet}}"
-
   </script>
   <body id="app">
-
-
-{#    <div id="app"></div>#}
-{#    for vs code  #}
-{#    <script src="http://127.0.0.1:5500/static/frontend/main.js"></script>#}
-{#     #}
-
-    {#    for django  #}
     <script src="{% static "frontend/main.js" %}"></script>
-    {#     #}
-
-
   </body>
 </html>

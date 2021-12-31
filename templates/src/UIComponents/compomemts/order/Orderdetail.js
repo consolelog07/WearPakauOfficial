@@ -46,7 +46,7 @@ export default function OrderDetail(props){
     const [modal2,setModal2]=useState(false)
     const [modal3,setModal3]=useState(false)
 
-        const [state,setState]=useState({
+    const [state,setState]=useState({
         attempted:false,
         fetch:true,
         err:false,
@@ -66,7 +66,7 @@ export default function OrderDetail(props){
     })
     const [products,setProducts]=useState([])
 
-        // ,state.result,state.address_result
+    // ,state.result,state.address_result
 
 
     async function getOrder()
@@ -195,12 +195,12 @@ export default function OrderDetail(props){
             // console.log(error)
         }
 
-            setState({...state,
-                images_list:e,
-                err:err,
-                name_list:f,
-                cat_list: j,
-                fetch: false,attempted: false,images_fetch:false})
+        setState({...state,
+            images_list:e,
+            err:err,
+            name_list:f,
+            cat_list: j,
+            fetch: false,attempted: false,images_fetch:false})
 
 
     }
@@ -277,19 +277,19 @@ export default function OrderDetail(props){
     // console.log(mDetail)
     return<>
         {state.attempted?
-        <><>
-            <div className="loadercontainer" >
-                <div className="lds-ripple">
-                    <div></div>
-                    <div></div>
+            <><>
+                <div className="loadercontainer" >
+                    <div className="lds-ripple">
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
-            </div>
-        </></>:<>
+            </></>:<>
                 {state.err  &&
                 <>
                     {<>
                         {console.log(setTimeout(ev=>{
-                 setState({...state,err:false,err_msg:""})
+                            setState({...state,err:false,err_msg:""})
                         },3000))}
                     </> }
                     <CustomizedSnackbars message={state.err_msg}   severity="error" />
@@ -312,15 +312,15 @@ export default function OrderDetail(props){
                         <ul className={mDetail.progressbar}>
                             {/*<li className={mDetail.active}>Placed</li>*/}
                             <li className={
-                               ( state.result.Order_status === "placed" || state.result.Order_status === "Processing" || state.result.Order_status === "Shipped" || state.result.Order_status === "Out For Delivery" || state.result.Order_status === "Delivered" )&&
+                                ( state.result.Order_status === "placed" || state.result.Order_status === "Processing" || state.result.Order_status === "Shipped" || state.result.Order_status === "Out For Delivery" || state.result.Order_status === "Delivered" )&&
                                 mDetail.active}>Placed</li>
                             <li className={
-                       (state.result.Order_status === "Processing" || state.result.Order_status === "Shipped" || state.result.Order_status === "Out For Delivery" || state.result.Order_status === "Delivered" )&&
+                                (state.result.Order_status === "Processing" || state.result.Order_status === "Shipped" || state.result.Order_status === "Out For Delivery" || state.result.Order_status === "Delivered" )&&
                                 mDetail.active}
                             >Preparing</li>
                             <li
                                 className={
-                                  (  state.result.Order_status === "Shipped" || state.result.Order_status === "Out For Delivery" || state.result.Order_status === "Delivered") &&
+                                    (  state.result.Order_status === "Shipped" || state.result.Order_status === "Out For Delivery" || state.result.Order_status === "Delivered") &&
                                     mDetail.active}
                             >Shipped</li>
                             <li
@@ -357,18 +357,18 @@ export default function OrderDetail(props){
             <p className={mDetail.orderid}>Reason for Cancelation: <span>{state.result.reason}</span></p>
             }
 
-          <p className={mDetail.paymenttype}>Payment: <span> {
-              (ev=>{
-          if(state.result.payment_method === "cod")
-              return "Cash on delivery"
-          if(state.result.payment_method === "razorpay")
-              return "Online Payment"
+            <p className={mDetail.paymenttype}>Payment: <span> {
+                (ev=>{
+                    if(state.result.payment_method === "cod")
+                        return "Cash on delivery"
+                    if(state.result.payment_method === "razorpay")
+                        return "Online Payment"
 
-          return "None"
-          })()
-          }</span></p>
+                    return "None"
+                })()
+            }</span></p>
             {props.admin === true && state.result.payment_method === "razorpay" && <><p className={mDetail.status}>Razorpay OrderID: <span> {state.result.RazorpayOrderId_}</span></p></>}
-          <p className={mDetail.paymenttype}>Coupon Applied: <span> {state.result.coupons === null?"None":state.result.coupon_name}</span></p>
+            <p className={mDetail.paymenttype}>Coupon Applied: <span> {state.result.coupons === null?"None":state.result.coupon_name}</span></p>
             {state.result.Order_status === "placed"  &&
             <button className={mDetail.cancel} onClick={modalClose}>Cancel Order</button>
             }
@@ -429,14 +429,14 @@ export default function OrderDetail(props){
                                 </div>
                                 <div className={mDetail.productdetail}>
                                     <a className={mDetail.productname} href={`/product/${ev.Product}`}><span>{state.name_list[ev.Product]}</span></a>
-                                    <h2 className={mDetail.productname}>Product ID: <span><a href={`/oupu/product/Detail_retrive/?unique_u14=${ev.unique_u14}`}> {ev.unique_u14}</a> </span></h2>
+                                    <h2 className={mDetail.productname}>Product ID: <span><a style={{textDecoration:"none"}} href={`/oupu/product/Detail_retrive/?unique_u14=${ev.unique_u14}`}> {ev.unique_u14}</a> </span></h2>
                                     <p className={mDetail.productcategory}>Product Category: <span>{state.cat_list[ev.Product]}</span></p>
                                     {ev.size !== "" &&        <p className={mDetail.productcategory}>Size: <span>{ev.size}</span></p>}
 
                                     {/*{console.log(ev.QrJson,"ddddddddddddddd")}*/}
-                                    <div className={mDetail.qrbox} style={{ width:" fit-content",height: "fit-content"}}>
-                                        <QRCustom qroptions={JSON.parse(ev.QrJson)}  width={100} height={100} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/product/Detail_retrive/?unique_u14=${ev.unique_u14}`}/>
-                                    </div>
+                                    {/*<div className={mDetail.qrbox} style={{ width:" fit-content",height: "fit-content"}}>*/}
+                                    {/*    <QRCustom qroptions={JSON.parse(ev.QrJson)}  width={100} height={100} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/product/Detail_retrive/?unique_u14=${ev.unique_u14}`}/>*/}
+                                    {/*</div>*/}
                                 </div>
                             </div>
                         })}

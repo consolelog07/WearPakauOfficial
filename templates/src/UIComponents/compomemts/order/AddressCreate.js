@@ -23,19 +23,19 @@ export default class Address_Create extends React.Component
         super(props);
 
         var form_value=
-        {
-            user: this.props.Gstate.id,
-            First_name: "",
-            Last_name: "",
-            address: "",
-            address_2: "",
-            city: "",
-            State: "",
-            pincode: null,
-            country: "India",
-            phone_number: null,
-            "default": this.props.default
-        }
+            {
+                user: this.props.Gstate.id,
+                First_name: "",
+                Last_name: "",
+                address: "",
+                address_2: "",
+                city: "",
+                State: "",
+                pincode: null,
+                country: "India",
+                phone_number: null,
+                "default": this.props.default
+            }
 
 
         if(props.default === true )
@@ -72,10 +72,10 @@ export default class Address_Create extends React.Component
 
         }
 
-    this.onClickCreate=this.onClickCreate.bind(this)
-    this.Post_address=this.Post_address.bind(this)
-    this.handleClose=this.handleClose.bind(this)
-    this.handleAgree=this.handleAgree.bind(this)
+        this.onClickCreate=this.onClickCreate.bind(this)
+        this.Post_address=this.Post_address.bind(this)
+        this.handleClose=this.handleClose.bind(this)
+        this.handleAgree=this.handleAgree.bind(this)
 
     }
 
@@ -138,7 +138,7 @@ export default class Address_Create extends React.Component
         }
 
 
-         // showmodal
+        // showmodal
         this.setState({modalopen:true,empty:false,err_msg:""})
     }
 
@@ -283,16 +283,16 @@ export default class Address_Create extends React.Component
 
 
             {this.state.attempted?
-            <>
                 <>
-                    <div className="loadercontainer" >
-                        <div className="lds-ripple">
-                            <div></div>
-                            <div></div>
+                    <>
+                        <div className="loadercontainer" >
+                            <div className="lds-ripple">
+                                <div></div>
+                                <div></div>
+                            </div>
                         </div>
-                    </div>
-                </>
-            </>:<>
+                    </>
+                </>:<>
                     {this.state.success  &&
                     <>
                         { this.props.redirect &&<>
@@ -316,7 +316,7 @@ export default class Address_Create extends React.Component
                                     err:false
                                 })
                             },3000))}
-                            </> }
+                        </> }
                         <CustomizedSnackbars message={this.state.err_msg}   severity="error" />
                     </>
                     }
@@ -337,15 +337,15 @@ export default class Address_Create extends React.Component
                     {this.state.modalopen &&
                     <Dialog
                         open={this.state.modalopen}
-                        fullScreen
+
                         onClose={this.handleClose}
                         // style={{width:"40vw"}}
                         aria-labelledby="alert-dialog-title"
                         aria-describedby="alert-dialog-description"
                     >
-                        <DialogTitle id="alert-dialog-title">
+                        {/* <DialogTitle id="alert-dialog-title">
                             {this.props.Title}
-                        </DialogTitle>
+                        </DialogTitle> */}
                         <DialogContent>
                             {/*<TableContainer component={Paper}>*/}
                             {/*    <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">*/}
@@ -410,7 +410,7 @@ export default class Address_Create extends React.Component
                                     </div>
                                 </div>
                             </div>
-                         
+
                         </DialogContent>
                         {/*<DialogActions>*/}
                         {/*    <Button onClick={this.handleClose}>Disagree</Button>*/}
@@ -422,10 +422,10 @@ export default class Address_Create extends React.Component
                     }
 
 
-                    <div className="container">
-                        <h1>{this.props.Title}</h1>
+                    <div className="Shippingcontainer">
+                        <h1 className="shipping-h1">{this.props.Title}</h1>
 
-                        <p>Please enter your shipping details.</p>
+                        <p className="shipping-p">Please enter your shipping details.</p>
                         <hr className="hr1"/>
                         <div className="form">
 
@@ -446,7 +446,7 @@ export default class Address_Create extends React.Component
                                                    }
                                                )
                                            )
-                                            }
+                                           }
                                            }
                                            required
                                     />
@@ -454,7 +454,7 @@ export default class Address_Create extends React.Component
                                 <label className="field">
                                     <span className="field__label" htmlFor="lastname">Last name</span>
                                     <input className="field__input" type="text" id="lastname"
-                                           // value={this.state.form_value.Last_name}
+                                        // value={this.state.form_value.Last_name}
                                            value={`${this.state.form_value.Last_name}`}
                                            style={{border:"none"}}
                                            required
@@ -587,7 +587,7 @@ export default class Address_Create extends React.Component
                                     <span className="field__label" htmlFor="state">State / UT</span>
                                     <select className="field__input" id="state"
                                             required
-                                    value={this.state.form_value.State}
+                                            value={this.state.form_value.State}
                                             onChange={ev=>{this.setState(
                                                 (state, props)=>(
                                                     {
@@ -644,7 +644,7 @@ export default class Address_Create extends React.Component
                             </div>
                         </div>
                         <hr/>
-                            <button className="button" onClick={this.onClickCreate}>Continue</button>
+                        <button className="button" onClick={this.onClickCreate}>Continue</button>
                     </div>
                 </>}
 

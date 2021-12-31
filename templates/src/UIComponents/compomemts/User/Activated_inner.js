@@ -122,15 +122,15 @@ return<>
                             >
                         </h2>
                         <p className="productcategory">Product id : <span>
-                        <a href={`/oupu/product/Detail_retrive/?unique_u14=${props.data.unique_u14}`}>{props.data.unique_u14}</a>
+                        <a style={{textDecoration:"none"}} href={`/oupu/product/Detail_retrive/?unique_u14=${props.data.unique_u14}`}>{props.data.unique_u14}</a>
                             {/*{props.data.unique_u14}*/}
 
                         </span></p>
                         <Typography variant="p" component="p" noWrap  className={"activenimishcoustom"}>
-                            Product URL : <a href={props.data.Oup_url_} target="_blank">{props.data.Oup_url_}</a>
+                            Product URL : <a style={{textDecoration:"none"}} href={props.data.Oup_url_} target="_blank">{props.data.Oup_url_}</a>
                         </Typography>
                         <Typography variant="p" component="p" noWrap  className={"activenimishcoustom"}>
-                            Current URL : <a href={props.data.navigate_to} target="_blank">{props.data.navigate_to}</a>
+                            Current URL : <a style={{textDecoration:"none"}} href={props.data.navigate_to} target="_blank">{props.data.navigate_to}</a>
                         </Typography>
                         {/*<p className="currenturl">Current URL : <a href={props.data.navigate_to}>{props.data.navigate_to}</a></p>*/}
                         <span className="couponcontainer">
