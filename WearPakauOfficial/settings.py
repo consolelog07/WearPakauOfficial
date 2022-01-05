@@ -178,15 +178,24 @@ razorpay_key_secret=os.getenv("razorpay_key_secret")
 
 DJANGO_REST_PASSWORDRESET_TOKEN_CONFIG = {
     "CLASS": "django_rest_passwordreset.tokens.RandomStringTokenGenerator",
+    "DEFAULT_AUTHENTICATION_CLASSES":[
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication'
+    ],
     "OPTIONS": {
         "min_length": 20,
         "max_length": 30
     },
 }
 
+STATIC_ROOT = BASE_DIR / "static"
+
+
 STATICFILES_DIRS = [
     BASE_DIR / 'templates/static',
     ]
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
