@@ -10,6 +10,7 @@ import meta from  "../../../images/Meta.jpg"
 import {add_to_cart} from '../cart/cartfunctions'
 import {Snackbar} from "@material-ui/core";
 import CustomizedSnackbars from "../alert";
+import { RWebShare } from "react-web-share";
 
 
 
@@ -129,25 +130,7 @@ class ProdctDetail extends React.Component
     {
         this.setState({modal:false})
     }
-    share(ev)
-    {
-        console.log(ev,"hhhhhhhhhhhhhhhhhhh")
-        if (navigator.share) {
-            console.log("Congrats! Your browser supports Web Share API");
-            navigator
-                .share({
-                    url: `https://share.toogoodtogo.com/store/1006/milestones/meals-saved/`
-                })
-                .then(() => {
-                    console.log("Sharing successfull");
-                })
-                .catch(() => {
-                    console.log("Sharing failed");
-                });
-        } else {
-            console.log("Sorry! Your browser does not support Web Share API");
-        }
-    }
+
 
     render() {
 
@@ -275,7 +258,17 @@ class ProdctDetail extends React.Component
 
                             <span className={pdm.buycart}>
 
-          <button className={pdm.buy} disabled={true} onClick={this.share}>Share</button>
+                                <RWebShare
+                                    data={{
+                                        text: `WearPakau Product: ${this.state.result.name}(${this.state.result.category})`,
+                                        url: window.location.href,
+                                        title: "Share on ...",
+                                    }}
+                                    onClick={() => console.log("shared successfully!")}
+                                >
+                                      <button className={pdm.buy} >Share 🔗</button>
+                                </RWebShare>
+
 
             <button className={pdm.addtocart}
                     onClick={ev=>{
