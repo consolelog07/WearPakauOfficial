@@ -19,7 +19,7 @@ export default function PrmaryAfter(props)
     })
     async function GetData()
     {
-        console.log("ssssssssssssssssssssssssssssssssssssssss")
+        // console.log("ssssssssssssssssssssssssssssssssssssssss")
         let req = new Request(`/Api/Ordered_User_products/Ordered_User_products/GetDetailsOfProject/`, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
             credentials: 'include', //when will the cookies and authorization header be sent
@@ -40,7 +40,7 @@ export default function PrmaryAfter(props)
         })
 
 
-        console.log(response)
+        // console.log(response)
 
         if (Reflect.has(response,"error") )
         {
@@ -61,7 +61,7 @@ export default function PrmaryAfter(props)
     async function Activate_product()
     {
         setState({...state,activeattempt:false})
-        console.log("ssssssssssssssssssssssssssssssssssssssss")
+        // console.log("ssssssssssssssssssssssssssssssssssssssss")
         let req = new Request(`/Api/Ordered_User_products/Ordered_User_products/activate_product/`, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
             credentials: 'include', //when will the cookies and authorization header be sent
@@ -102,24 +102,24 @@ export default function PrmaryAfter(props)
 
     if(state.fetch === true && state.attempted === false)
     {
-     console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
+     // console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
         setState({...state,fetch:false,activeattempt:false,attempted: true,err:false,err_msg:""})
         GetData()
     }
     else
     {
-        console.log("false")
+        // console.log("false")
     }
 
     if(state.activeattempt === true && state.attempted === false)
     {
-        console.log("iiiiiiiiiiiiiiiiiiiiiiiiiikkkkkiiiiiiiiiiiiiiiiiiiiii",state.activeattempt, state.attempted)
+        // console.log("iiiiiiiiiiiiiiiiiiiiiiiiiikkkkkiiiiiiiiiiiiiiiiiiiiii",state.activeattempt, state.attempted)
         setState({...state,activeattempt:false,attempted: true,err:false,err_msg:""})
         Activate_product()
     }
     else
     {
-        console.log("falsess")
+        // console.log("falsess")
     }
 
 

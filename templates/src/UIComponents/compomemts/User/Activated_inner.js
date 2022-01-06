@@ -22,7 +22,7 @@ export default function Activated_inner (props)
     })
 
     // console.log(props)
-    console.log(state.urlVal,"value")
+    // console.log(state.urlVal,"value")
    async function Change_url()
     {
         console.log(state.urlVal,"ddddddddddwq")
@@ -122,15 +122,15 @@ return<>
                             >
                         </h2>
                         <p className="productcategory">Product id : <span>
-                        <a style={{textDecoration:"none"}} href={`/oupu/product/Detail_retrive/?unique_u14=${props.data.unique_u14}`}>{props.data.unique_u14}</a>
+                        <a style={{textDecoration:"none",color: "black"}} href={`/oupu/product/Detail_retrive/?unique_u14=${props.data.unique_u14}`}>{props.data.unique_u14}</a>
                             {/*{props.data.unique_u14}*/}
 
                         </span></p>
                         <Typography variant="p" component="p" noWrap  className={"activenimishcoustom"}>
-                            Product URL : <a style={{textDecoration:"none"}} href={props.data.Oup_url_} target="_blank">{props.data.Oup_url_}</a>
+                            Product URL : <a style={{textDecoration:"none",color: "black"}} href={props.data.Oup_url_} target="_blank">{props.data.Oup_url_}</a>
                         </Typography>
                         <Typography variant="p" component="p" noWrap  className={"activenimishcoustom"}>
-                            Current URL : <a style={{textDecoration:"none"}} href={props.data.navigate_to} target="_blank">{props.data.navigate_to}</a>
+                            Current URL : <a style={{textDecoration:"none",color: "black"}} href={props.data.navigate_to} target="_blank">{props.data.navigate_to}</a>
                         </Typography>
                         {/*<p className="currenturl">Current URL : <a href={props.data.navigate_to}>{props.data.navigate_to}</a></p>*/}
                         <span className="couponcontainer">
@@ -153,9 +153,9 @@ return<>
 
 
               </span>
-                        {/*<div className="qrbox" style={{ width:" fit-content",height: "fit-content"}}>*/}
-                        {/*    <QRCustom qroptions={JSON.parse(props.data.QrJson)}  width={150} height={150} Oup_url={props.data.Oup_url_}/>*/}
-                        {/*</div>*/}
+                        <div className="qrbox" style={{ width:" fit-content",height: "fit-content"}}>
+                            <QRCustom qroptions={JSON.parse(props.data.QrJson)}  width={150} height={150} Oup_url={props.data.Oup_url_}/>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ export default  class Profile extends React.Component
 //
 
     render() {
-        console.log(mpc)
+        // console.log(mpc)
         return<>
             <div className="userprofilecontainer">
                 <h1 className="userprofilehead">My Profile</h1>

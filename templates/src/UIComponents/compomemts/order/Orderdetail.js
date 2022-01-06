@@ -119,7 +119,7 @@ export default function OrderDetail(props){
 
         if(response.results.length === 1)
         {
-            console.log(response.results[0])
+            // console.log(response.results[0])
             var a=[]
             a.push(...response.results[0].Ordered_products)
             setProducts(a)
@@ -434,9 +434,9 @@ export default function OrderDetail(props){
                                     {ev.size !== "" &&        <p className={mDetail.productcategory}>Size: <span>{ev.size}</span></p>}
 
                                     {/*{console.log(ev.QrJson,"ddddddddddddddd")}*/}
-                                    {/*<div className={mDetail.qrbox} style={{ width:" fit-content",height: "fit-content"}}>*/}
-                                    {/*    <QRCustom qroptions={JSON.parse(ev.QrJson)}  width={100} height={100} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/product/Detail_retrive/?unique_u14=${ev.unique_u14}`}/>*/}
-                                    {/*</div>*/}
+                                    <div className={mDetail.qrbox} style={{ width:" fit-content",height: "fit-content"}}>
+                                        <QRCustom qroptions={JSON.parse(ev.QrJson)}  width={100} height={100} Oup_url={`${window.location.protocol}//${window.location.host}/oupu/product/Detail_retrive/?unique_u14=${ev.unique_u14}`}/>
+                                    </div>
                                 </div>
                             </div>
                         })}

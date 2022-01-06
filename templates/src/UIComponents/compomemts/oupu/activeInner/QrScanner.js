@@ -77,7 +77,7 @@ export default class QrScanner_component extends React.Component
 
         if(this.state.hasCam && this.state.objcreated === false)
         {
-            console.log("hassssssssssssssssss")
+            // console.log("hassssssssssssssssss")
             this.qrScanner = new QrScanner(this.video.current, result => {
 
                 if(this.pattern.test(result))
@@ -103,7 +103,7 @@ export default class QrScanner_component extends React.Component
         //     this.setState({reqcheckflash:false})
         // }
 
-        console.log("hello")
+        // console.log("hello")
 
 
 

@@ -36,7 +36,7 @@ class Ordered_User_products(models.Model):
 
     activationCode = models.CharField(max_length=15,blank=True,null=True)
 
-    navigate_to = models.URLField(default="https://www.djangoproject.com/",blank=True,null=True,validators=[validator_hostname])
+    navigate_to = models.URLField(default="https://www.wearpakau.in/oupu/product/Default_nav/",blank=True,null=True,validators=[validator_hostname])
     Suspended = models.BooleanField(default=False)
 
     delete_order=models.BooleanField(default=False,help_text="true if product is deleted or user has cancaled order")

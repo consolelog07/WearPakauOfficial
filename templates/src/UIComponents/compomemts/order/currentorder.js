@@ -311,38 +311,19 @@ export default class CurrentOrder extends  React.Component{
 
                             </ul>
                             <div className="paymentoption">
-                                {/*<p className="paymentoptionhead">Payment Method</p>*/}
-                                {/*<input type="button" className="codbtn" value="Cash on delivery" disabled={!this.state.codAvailabe} />*/}
-                                {/*<Razorpay_react details={{*/}
-                                {/*    amount:5000,*/}
-                                {/*    key:"",*/}
-                                {/*}}/>*/}
 
-                                {/*/!*<input type="button" className="onlinebtn" value="Online Payment" />*!/*/}
-                                {/*{this.state.codAvailabe === false*/}
-                                {/*&&*/}
-                                {/*<span className="orderwarning">COD not availbale. <a href=""> Learn more.</a></span>*/}
-
-                                {/*}*/}
 
                                 <PaymentSeter  payment_method={this.state.order_result.payment_method}
                                                order_id={this.state.order_result.id}
                                                Payment={this.state.order_result.Payment}
                                                Gstate={this.props.Gstate}
                                                codAvailabe={this.state.codAvailabe}
-
-
                                 />
                              </div>
                         </div>
                     </div>
 
-                    {/*<div className="productcontainer">*/}
-                    {/*    <Recepttable  products={this.state.cart_result.products} />*/}
-                    {/*    /!*<div className="product">*!/*/}
-                    {/*    /!*    *!/*/}
-                    {/*    /!*</div>*!/*/}
-                    {/*</div>*/}
+
                 </div>
 
 

@@ -46,7 +46,7 @@ export default function Orderlist(props)
 
     async function getOrder()
     {
-        console.log(props.Gstate.login,"vv")
+        // console.log(props.Gstate.login,"vv")
 
         // if (props.Gstate.login === false)
         // {
@@ -54,7 +54,7 @@ export default function Orderlist(props)
         //         getOrder()
         //     },1000)
         // }
-        console.log(props.Gstate.login)
+        // console.log(props.Gstate.login)
 
         let req = new Request(`/Api/orders/Orders/?page=${state.current_page}`, {
             mode: 'cors', //just a safe-guard indicating our intentions of what to allow
@@ -76,7 +76,7 @@ export default function Orderlist(props)
         })
 
 
-        console.log(response)
+        // console.log(response)
 
         if (Reflect.has(response,"detail"))
         {

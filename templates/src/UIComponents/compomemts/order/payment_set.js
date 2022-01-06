@@ -326,7 +326,9 @@ export default  class PaymentSeter extends React.Component
 
 
                 <p className="paymentoptionhead">Payment Method</p>
-                <input type="button" className="codbtn" value="Cash on delivery" onClick={this.switch_mode} disabled={!this.props.codAvailabe} />
+
+                {this.props.codAvailabe ?<input type="button" className="codbtn" value="Cash on delivery"  onClick={this.switch_mode} disabled={!this.props.codAvailabe} />:
+                <input type="button" className="codbtn" value="Cash on delivery" style={{opacity:0.4}}  onClick={this.switch_mode} disabled={!this.props.codAvailabe} />}
                 <input type="button" className="onlinebtn" onClick={this.switch_mode} value="Online Payment" />
                 {this.props.codAvailabe === false
                 &&
