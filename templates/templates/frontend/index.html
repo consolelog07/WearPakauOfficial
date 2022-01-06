@@ -37,11 +37,12 @@
   </head>
   <script>
       window.WP_navto="{{message}}"
-      console.log(WP_navto);
+      {#console.log(WP_navto);#}
       window.key="{{key}}"
-      console.log(key)
+      {#console.log(key)#}
       window.error="{{ error }}"
       window.addressSet="{{addressSet}}"
+      window.Referer=window.location.origin
   </script>
   <body id="app">
     <script src="{% static "frontend/main.js" %}"></script>
