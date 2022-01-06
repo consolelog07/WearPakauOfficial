@@ -31,7 +31,7 @@ export async function  add_to_cart (setState,id,QrJson,Quantity,size="",typef=fa
             'Content-Type': 'application/json',
             'X-CSRFToken': getCookie('csrftoken')
         },
-        referrerPolicy: 'no-referrer',
+
         body: JSON.stringify({id:id,QrJson:QrJson,Quantity:Quantity,size:size,
             image:proxy.image,
             dotsOptions_color:proxy.dotsOptions.color,

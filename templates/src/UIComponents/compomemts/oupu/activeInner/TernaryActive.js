@@ -30,7 +30,7 @@ export default function PrmaryAfter(props)
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({uuid:props.AGstate.unique_u14})
         });
 
@@ -72,7 +72,7 @@ export default function PrmaryAfter(props)
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({uuid:props.AGstate.unique_u14})
         });
 

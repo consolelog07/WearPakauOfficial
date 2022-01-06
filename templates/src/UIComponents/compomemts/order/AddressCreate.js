@@ -155,7 +155,7 @@ export default class Address_Create extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({...this.state.form_value})
         });
 
@@ -204,7 +204,7 @@ export default class Address_Create extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({...this.state.form_value})
         });
 

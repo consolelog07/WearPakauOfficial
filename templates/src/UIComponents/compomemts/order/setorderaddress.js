@@ -67,7 +67,7 @@ export default class SetorderAddress extends React.Component{
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
 
@@ -110,7 +110,7 @@ export default class SetorderAddress extends React.Component{
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
 
@@ -159,7 +159,7 @@ export default class SetorderAddress extends React.Component{
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
 
@@ -211,7 +211,7 @@ export default class SetorderAddress extends React.Component{
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({address_id:id})
         });
 
@@ -248,7 +248,7 @@ export default class SetorderAddress extends React.Component{
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({address_id:id})
         });
 

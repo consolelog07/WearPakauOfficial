@@ -125,7 +125,7 @@ export default class Globalauth extends React.Component
             headers: {
                 'Content-Type': 'application/json'
             },
-            referrerPolicy: 'no-referrer',
+
         });
 
         const response = await fetch(req)
@@ -158,7 +158,7 @@ export default class Globalauth extends React.Component
             headers: {
                 'Content-Type': 'application/json'
             },
-            referrerPolicy: 'no-referrer',
+
         });
         const response = await fetch(req)
         .then(manageErrors)
@@ -235,10 +235,10 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({email:this.state.email,password:this.state.password})
         });
-        const response = await fetch(req).then(ev=>ev.json())
+        const response = await fetch(req,).then(ev=>ev.json())
 
 
         // console.log(response)
@@ -285,7 +285,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({email:this.state.email})
         });
 
@@ -323,7 +323,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({email:this.state.email,
                 password:this.state.password,
                 re_password:this.state.re_password})
@@ -400,7 +400,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({old_password:this.state.old_password,new_password:this.state.new_password})
         });
         const response = await fetch(req).then(ev=>ev.json())
@@ -460,7 +460,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({email:this.state.email})
         });
 
@@ -508,7 +508,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({token:token})
         });
 
@@ -558,7 +558,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({phone_number:phone_number})
         });
 
@@ -629,7 +629,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({token:token})
         });
 
@@ -666,7 +666,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({email:email})
         });
 
@@ -716,7 +716,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({password:password,token:token})
         });
 
@@ -760,7 +760,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({token:token})
         });
 
@@ -811,7 +811,7 @@ export default class Globalauth extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': this.getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({First_name:first_name,Last_name:last_name})
         });
 

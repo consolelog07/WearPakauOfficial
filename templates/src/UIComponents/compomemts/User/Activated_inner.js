@@ -36,7 +36,7 @@ export default function Activated_inner (props)
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({uuid:props.data.unique_u14,url:state.urlVal})
         });
 

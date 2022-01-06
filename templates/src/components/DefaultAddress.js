@@ -33,7 +33,7 @@ export default function DefaultAddress(props)
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
         });
 
 

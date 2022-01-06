@@ -58,7 +58,7 @@ export default  class PaymentSeter extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({
                 razorpay_payment_id:this.state.payment_details.razorpay_payment_id,
                 razorpay_order_id:this.state.payment_details.razorpay_order_id,
@@ -153,7 +153,7 @@ export default  class PaymentSeter extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({mode:mode})
         });
 
@@ -206,7 +206,7 @@ export default  class PaymentSeter extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({mo)
         });
 

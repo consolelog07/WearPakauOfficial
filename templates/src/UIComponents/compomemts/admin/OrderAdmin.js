@@ -106,7 +106,7 @@ export default function OrderAdminlowercontainer(props)
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
 

@@ -24,7 +24,7 @@ export default function OrderAdminStatusChange (props)
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({reason:reason})
         });
 

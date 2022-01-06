@@ -54,7 +54,7 @@ export default class Cart extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
         let ok=false
@@ -97,7 +97,7 @@ export default class Cart extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
 
@@ -135,7 +135,7 @@ export default class Cart extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
 
@@ -178,7 +178,7 @@ export default class Cart extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({Code:Code})
         });
 
@@ -211,7 +211,7 @@ export default class Cart extends React.Component
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({Code:Code})
         });
 

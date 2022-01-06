@@ -59,7 +59,7 @@ export default function Activates_parent(props)
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
 

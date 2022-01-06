@@ -49,7 +49,7 @@ export default class ErrorWithOrders extends  React.Component{
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
 
@@ -99,7 +99,7 @@ export default class ErrorWithOrders extends  React.Component{
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
         let ok=false
@@ -140,7 +140,7 @@ export default class ErrorWithOrders extends  React.Component{
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({token:token})
         });
 
@@ -177,7 +177,7 @@ export default class ErrorWithOrders extends  React.Component{
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({id:id,QrJson:QrJson,size:size})
         });
 

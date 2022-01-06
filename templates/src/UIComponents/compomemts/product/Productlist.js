@@ -66,7 +66,7 @@ export default function Productlist(props)
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             // body: JSON.stringify({phone_number:phone_number})
         });
 

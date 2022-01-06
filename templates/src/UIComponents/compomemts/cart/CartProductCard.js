@@ -43,7 +43,7 @@ export default function CartProductCard(props)
                 'Content-Type': 'application/json',
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            referrerPolicy: 'no-referrer',
+
             body: JSON.stringify({id:id,QrJson:QrJson,size:size})
         });
 
