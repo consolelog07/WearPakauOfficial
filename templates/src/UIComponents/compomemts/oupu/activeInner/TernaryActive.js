@@ -4,6 +4,8 @@ import getCookie from "../../../../components/getcooke";
 import QRCustom from "../../../QRCustom";
 import CustomizedSnackbars from "../../alert";
 import QRCodeStyling from "qr-code-styling";
+import mmsr from "../../../stylemodules/emptycart.module.css";
+import emptysearch from "../../../../images/emptysearch.svg";
 
 export default function PrmaryAfter(props)
 {
@@ -122,6 +124,7 @@ export default function PrmaryAfter(props)
         // console.log("falsess")
     }
 
+    console.log(state.result.activated , props.AGstate.show_active_button)
 
     return<>
         {state.attempted?<>
@@ -210,6 +213,14 @@ export default function PrmaryAfter(props)
                         </div>
                     </>
                     }
+                    {state.success === false &&<>
+                        <div className={mmsr.container}>
+                            <div className={mmsr.imgcontainer}>
+                                <img src={emptysearch} alt="" />
+                            </div>e
+                            <h2 className="cartheading">Nothing's here {props.AGstate.unique_u14}</h2>
+                        </div>
+                    </>}
 
                 </>}
             </>}

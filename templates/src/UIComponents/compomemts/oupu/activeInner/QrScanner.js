@@ -69,7 +69,7 @@ export default class QrScanner_component extends React.Component
 
     }
 
-    pattern = new RegExp('^https?:\/\/(www\.)?[a-zA-Z\.\\0-9\:]+/oupu/');
+        pattern = new RegExp('^https?:\/\/(www\.)?[a-zA-Z\.\\0-9\:]+/oupu/');
     pattern2 = new RegExp('^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$');
 
 
@@ -77,12 +77,18 @@ export default class QrScanner_component extends React.Component
 
         if(this.state.hasCam && this.state.objcreated === false)
         {
-            // console.log("hassssssssssssssssss")
+            console.log("hassssssssssssssssss")
             this.qrScanner = new QrScanner(this.video.current, result => {
-
+                console.log(result,"dddddddddddddddddddddd")
                 if(this.pattern.test(result))
                 {
+                    console.log("test trye")
                     var b=result.substr(result.lastIndexOf("/")+1,result.length)
+                    if(b.search("unique_u14") != -1)
+                    {
+                        b=b.split("=")[1]
+                    }
+                    console.log("test trye",b)
                     if(this.pattern2.test(b))
                     {
                         console.log("taaaaerrrr",b)

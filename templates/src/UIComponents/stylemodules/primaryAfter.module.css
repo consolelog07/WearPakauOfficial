@@ -149,6 +149,7 @@
     outline: none;
     border: none;
     cursor: pointer;
+    display:block;
 }
 
 .productdetailcontainer .productinfo .buycart .addtocart {

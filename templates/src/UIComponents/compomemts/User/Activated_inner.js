@@ -76,6 +76,7 @@ export default function Activated_inner (props)
            setState({...state,err:true,err_msg:"invalid url"})
        }
     }
+    console.log(props.data.Oup_url_)
 
 return<>
     {state.attempted?<>
@@ -153,9 +154,9 @@ return<>
 
 
               </span>
-                        <div className="qrbox" style={{ width:" fit-content",height: "fit-content"}}>
-                            <QRCustom qroptions={JSON.parse(props.data.QrJson)}  width={150} height={150} Oup_url={props.data.Oup_url_}/>
-                        </div>
+                        {/*<div className="qrbox" style={{ width:" fit-content",height: "fit-content"}}>*/}
+                        {/*    <QRCustom qroptions={JSON.parse(props.data.QrJson)}  width={150} height={150} Oup_url={props.data.Oup_url_}/>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>

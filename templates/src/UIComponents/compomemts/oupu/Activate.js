@@ -27,6 +27,11 @@ export default function Activate (props)
         //     ,Active_secondary:false})
 
         var b=result.substr(result.lastIndexOf("/")+1,result.length)
+            if(b.search("unique_u14") != -1)
+            {
+                b=b.split("=")[1]
+            }
+
         if(pattern2.test(b))
         {
             console.log("terrrrrqqqqqqqqqqqqqqqqqqqqqqqqqq",b)
